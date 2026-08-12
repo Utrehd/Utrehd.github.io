@@ -14,9 +14,19 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 The restrained scale reduces line wrapping, improves card fit, and preserves a clear H1 → H2 → H3/H4 reading hierarchy.
 
+## Header Portrait
+
+- Use `assets/samuel-marti-header.webp` in the shared 42px brand mark on every page.
+- The image uses a tight face-and-upper-shoulders crop so Samuel remains recognizable at header-icon size.
+- The simplified charcoal-to-deep-navy studio background removes visual noise; a restrained amber rim light connects the portrait to the PULSE orange accent.
+- Keep the orange border and dark fallback surface around the image.
+- Treat the portrait as decorative because the adjacent name and the parent link's accessible label already identify Samuel.
+- Preserve `assets/samuel-marti.png` as the original full portrait; the header asset is a separate optimized WebP.
+
 ## Change Log
 
 ### 2026-08-12
 
+- Replaced the `SM` header monogram with a header-specific portrait on the homepage and case-study page.
 - Reduced every semantic heading level across the homepage and case-study page for more balanced wrapping and fit.
 - Established the shared H1 size and tracking rule across the homepage and project pages.

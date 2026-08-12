@@ -23,10 +23,20 @@ The restrained scale reduces line wrapping, improves card fit, and preserves a c
 - Treat the portrait as decorative because the adjacent name and the parent link's accessible label already identify Samuel.
 - Preserve `assets/samuel-marti.png` as the original full portrait; the header asset is a separate optimized WebP.
 
+## Editorial Voice
+
+- Use SAM writing style: direct, structured, evidence-led, and explicit about cause and effect.
+- The homepage uses professional mode: state the contribution, show owned work, and connect implementation to operational value.
+- Project pages use technical mode: problem, requirements, decision, implementation, validation, limitation, and result.
+- Put evidence before self-description. Prefer shipped scope, measured outcomes, and owned responsibility over promotional adjectives.
+- Preserve uncertainty and evidence boundaries. Do not invent savings, measurements, citations, or experience.
+- End each major narrative with the operational implication or next action.
+
 ## Change Log
 
 ### 2026-08-12
 
+- Rewrote the homepage and case-study copy in SAM writing style while preserving factual claims and evidence boundaries.
 - Replaced the `SM` header monogram with a header-specific portrait on the homepage and case-study page.
 - Reduced every semantic heading level across the homepage and case-study page for more balanced wrapping and fit.
 - Established the shared H1 size and tracking rule across the homepage and project pages.

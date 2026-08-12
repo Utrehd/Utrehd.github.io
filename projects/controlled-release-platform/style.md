@@ -15,6 +15,12 @@ This file is the visual source of truth for the Automation Release Control case 
 - Use orange to expose hierarchy and primary action, not as decoration or body-copy color.
 - Preserve legibility for long reading sessions at desktop and 350px mobile widths.
 
+## Editorial Voice
+
+- Follow SAM technical writing style: define the problem early, expose the reasoning chain, and connect implementation decisions to operational consequences.
+- Use first person for decisions and owned work; use the system as the subject when describing behavior or evidence.
+- State the financial evidence boundary explicitly. Operational impact is supported; audited monetary savings are not available and must not be invented.
+
 ## PULSE Reference Pattern
 
 The section-label pattern is based on the PULSE lineup selector contract:
@@ -99,6 +105,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Rewrote the case narrative to lead with ownership and evidence, make cause and effect explicit, and retain the financial limitation.
 - Corrected the project period to `2024` and increased title-metadata size, contrast, and spacing for readability.
 - Reduced H1, H2, H3, and footer-heading sizes to improve line fit across desktop and mobile.
 - Reduced the case-study H1 scale and opened its tracking to `0.01em`, following the site-wide H1 rule in [`../../style.md`](../../style.md).

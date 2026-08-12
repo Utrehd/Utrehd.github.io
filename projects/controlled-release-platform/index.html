@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A technical case study by Samuel Aaron Marti: a controlled software release and installed-state platform for a 150+ PLC fleet.">
+    <meta name="description" content="How Samuel Aaron Marti built a controlled release system that connected approved software, GMP evidence, deployment, and installed-state feedback across 150+ PLC targets.">
     <meta name="theme-color" content="#0d1218">
     <meta property="og:title" content="Automation Release Control — Samuel Aaron Marti">
-    <meta property="og:description" content="How Git-controlled releases, GMP evidence, SSH deployment, and live device-state feedback became one operational system.">
+    <meta property="og:description" content="A technical case study in connecting Git-controlled releases, GMP evidence, SSH deployment, and device-reported state.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://utrehd.github.io/projects/controlled-release-platform/">
     <meta property="og:image" content="https://utrehd.github.io/assets/samuel-marti.png">
@@ -66,7 +66,7 @@
                     <span class="paper-active-label">Industrial full stack · Controlled operations</span>
                 </div>
                 <h1>Automation Release Control</h1>
-                <p class="paper-thesis">Turning versioned automation software, GMP evidence, fleet deployment, and installed-state feedback into one controlled operational system.</p>
+                <p class="paper-thesis">A 2024 system that connected approved automation software, GMP evidence, deployment, and device-reported state across 150+ PLC targets.</p>
 
                 <dl class="paper-meta">
                     <div>
@@ -121,9 +121,9 @@
                             <div class="paper-active-head">
                                 <span class="paper-active-label">Executive Summary</span>
                             </div>
-                            <h2 id="summary-title">A closed-loop release system for industrial automation.</h2>
-                            <p class="summary-lede">I designed, built, validated, and owned a platform that connected approved source code to deployment targets and returned verified installed state to the same operational record.</p>
-                            <p>Before the platform, version visibility was inconsistent and rollout was tedious and expert-dependent. The solution joined an Angular operations interface, C#/ASP.NET services, Git-versioned software, GMP qualification evidence, controlled SSH distribution, and OPC UA/MQTT state feedback. It supported more than 150 physical and virtual PLC targets, alongside target computers and multiple automation artefact types.</p>
+                            <h2 id="summary-title">I built one release record from approved source to verified installed state.</h2>
+                            <p class="summary-lede">I designed, built, validated, and owned the system. It connected approved source code to deployment targets and returned device-reported installed state to the same operational record.</p>
+                            <p>The previous process provided inconsistent version visibility and required repetitive, expert-led rollout steps. I combined an Angular operations interface, C#/ASP.NET services, Git-versioned software, GMP qualification evidence, controlled SSH distribution, and OPC UA/MQTT feedback. The resulting workflow supported more than 150 physical and virtual PLC targets, target computers, and several automation artefact types.</p>
 
                             <div class="summary-proof" aria-label="Executive proof points">
                                 <div><strong>150+</strong><span>PLC targets</span></div>
@@ -139,13 +139,13 @@
                             <div class="paper-active-head">
                                 <span class="paper-active-label">Context</span>
                             </div>
-                            <h2 id="context-title">Software releases were production changes, not simple file transfers.</h2>
-                            <p>The platform operated in a regulated manufacturing environment where an automation change had to connect a specific approved version with its intended targets, qualification evidence, release approval, deployment method, recovery path, and installed result.</p>
-                            <p>The managed scope included PLC applications, reusable libraries, firmware and runtime versions, recipes, and supporting software packages across physical PLCs, virtual PLCs, and computers. Any useful solution therefore had to serve engineering, operations, release governance, and validation at the same time.</p>
+                            <h2 id="context-title">A release changed production equipment and required evidence, recovery, and verification.</h2>
+                            <p>In a regulated manufacturing environment, each automation release had to connect one approved version to its targets, qualification evidence, approval, deployment method, recovery path, and actual installed result. The release was complete only when those links remained traceable.</p>
+                            <p>The scope included PLC applications, reusable libraries, firmware and runtime versions, recipes, and supporting software packages across physical PLCs, virtual PLCs, and computers. Because these artefacts affected production equipment, the workflow had to serve engineering, operations, release governance, and validation without separating evidence from execution.</p>
 
                             <aside class="paper-callout">
                                 <span>Design constraint</span>
-                                <p>Make controlled release work easier without separating operational speed from GMP evidence and recovery readiness.</p>
+                                <p>Reduce release effort without weakening GMP evidence, approval control, or recovery readiness.</p>
                             </aside>
                         </div>
                     </section>
@@ -156,8 +156,8 @@
                             <div class="paper-active-head">
                                 <span class="paper-active-label">Problem</span>
                             </div>
-                            <h2 id="problem-title">The release chain was fragmented and depended on expert memory.</h2>
-                            <p>Teams could not reliably answer a basic operational question from one place: <em>Which approved software version is installed on this device right now?</em></p>
+                            <h2 id="problem-title">Release data was split across tools, and execution depended on expert memory.</h2>
+                            <p>As a result, teams could not answer one operational question from a single record: <em>Which approved software version is installed on this device right now?</em></p>
 
                             <div class="problem-grid">
                                 <article>
@@ -168,17 +168,17 @@
                                 <article>
                                     <span>02</span>
                                     <h3>Manual rollout</h3>
-                                    <p>Deployment required repetitive operational steps and specialist knowledge for each change.</p>
+                                    <p>Each change repeated operational steps and relied on specialist knowledge to reach the correct targets.</p>
                                 </article>
                                 <article>
                                     <span>03</span>
                                     <h3>Scattered evidence</h3>
-                                    <p>Qualification evidence, approvals, release notes, and rollback instructions were not one navigable release record.</p>
+                                    <p>Qualification evidence, approvals, release notes, and rollback instructions lived in separate places.</p>
                                 </article>
                                 <article>
                                     <span>04</span>
                                     <h3>Open-loop delivery</h3>
-                                    <p>Sending software was not enough; the system needed device-reported version and runtime confirmation.</p>
+                                    <p>Delivery did not prove success. The process required device-reported version and runtime confirmation.</p>
                                 </article>
                             </div>
                         </div>
@@ -190,8 +190,8 @@
                             <div class="paper-active-head">
                                 <span class="paper-active-label">Solution</span>
                             </div>
-                            <h2 id="solution-title">One system connected governance, delivery, and state feedback.</h2>
-                            <p>I modelled releases as operational records rather than loose files. Each record connected versioned software, target systems, validation evidence, approval state, deployment status, recovery information, and reported installed state.</p>
+                            <h2 id="solution-title">I modelled each release as one operational record and closed the loop with device feedback.</h2>
+                            <p>Each record connected versioned software, target systems, validation evidence, approval state, deployment status, recovery information, and reported installed state. This changed the release from a collection of files and handoffs into one traceable workflow.</p>
 
                             <figure class="architecture-figure" id="architecture">
                                 <figcaption>
@@ -237,7 +237,7 @@
                                     </div>
                                 </div>
 
-                                <p class="architecture-note">The first two lanes move left to right, from definition and approval to deployment. The feedback lane returns right to left, closing the loop with device-reported state.</p>
+                                <p class="architecture-note">The first two lanes move from definition and approval to deployment. The third lane returns device-reported version and runtime state, which closes the release loop.</p>
                             </figure>
 
                             <div class="solution-components">
@@ -266,33 +266,33 @@
                             <div class="paper-active-head">
                                 <span class="paper-active-label">My Involvement</span>
                             </div>
-                            <h2 id="involvement-title">I owned the system from pitch and domain model through validation and operation.</h2>
-                            <p>This was not a handoff or a one-off deployment script. I was the 0-to-1 builder and system owner, responsible for shaping the workflow, implementing the platform, producing qualification evidence, and making it operable in the manufacturing environment.</p>
+                            <h2 id="involvement-title">I owned the product from initial pitch through validated operation.</h2>
+                            <p>This was not a handoff or a one-off deployment script. As the 0-to-1 builder and system owner, I defined the workflow, implemented the platform, produced qualification evidence, and supported its use in the manufacturing environment.</p>
 
                             <div class="involvement-list">
                                 <article>
                                     <span>Discover + define</span>
-                                    <p>Created the low-fidelity concept and pitch, captured user requirements, and connected the design to risk assessment and regulated release needs.</p>
+                                    <p>I created the initial concept and pitch, captured user requirements, and tied the design to risk assessment and regulated release needs.</p>
                                 </article>
                                 <article>
                                     <span>Architect + model</span>
-                                    <p>Defined versions, target systems, release records, supporting evidence, deployment state, installed state, and recovery information as one domain.</p>
+                                    <p>I defined versions, targets, evidence, deployment state, installed state, and recovery information as one release domain.</p>
                                 </article>
                                 <article>
                                     <span>Build full stack</span>
-                                    <p>Implemented the Angular operations interface and C#/ASP.NET services, plus the release and evidence workflows around them.</p>
+                                    <p>I implemented the Angular operations interface, C#/ASP.NET services, and the release and evidence workflows around them.</p>
                                 </article>
                                 <article>
                                     <span>Automate deployment</span>
-                                    <p>Built the path that delivered approved software to PLC and computer targets over SSH, covering multiple release artefact types.</p>
+                                    <p>I built the SSH delivery path for approved software across PLC and computer targets and multiple release artefact types.</p>
                                 </article>
                                 <article>
                                     <span>Close the loop</span>
-                                    <p>Integrated OPC UA/MQTT version and runtime feedback so installed device state returned to the dashboard.</p>
+                                    <p>I integrated OPC UA/MQTT version and runtime feedback so installed device state returned to the dashboard.</p>
                                 </article>
                                 <article>
                                     <span>Validate + own</span>
-                                    <p>Prepared IQ/OQ evidence, release records, and rollback-ready documentation, then owned the workflow as an operational system.</p>
+                                    <p>I prepared IQ/OQ evidence, release records, and rollback-ready documentation, then owned the operating workflow.</p>
                                 </article>
                             </div>
 
@@ -318,8 +318,8 @@
                             <div class="paper-active-head">
                                 <span class="paper-active-label">Outcome + Bottom-Line Impact</span>
                             </div>
-                            <h2 id="outcome-title">A repeatable release operation replaced fragmented manual coordination.</h2>
-                            <p class="summary-lede">The business result was operational leverage: the same controlled workflow could prepare, approve, distribute, verify, and recover automation releases across a large heterogeneous fleet.</p>
+                            <h2 id="outcome-title">The platform turned release work into a repeatable, fleet-scale operation.</h2>
+                            <p class="summary-lede">One controlled workflow could prepare, approve, distribute, verify, and recover automation releases across a heterogeneous fleet of more than 150 targets.</p>
 
                             <div class="outcome-grid">
                                 <article>
@@ -330,7 +330,7 @@
                                 <article>
                                     <strong>Less manual handling</strong>
                                     <span>Engineering capacity</span>
-                                    <p>Automated repetitive delivery steps so specialists could focus on release decisions and exceptions.</p>
+                                    <p>Repetitive delivery steps were automated, leaving specialists to handle release decisions and exceptions.</p>
                                 </article>
                                 <article>
                                     <strong>Traceable</strong>
@@ -340,7 +340,7 @@
                                 <article>
                                     <strong>Closed loop</strong>
                                     <span>Operational confidence</span>
-                                    <p>Device-reported state made rollout results visible instead of assuming delivery meant success.</p>
+                                    <p>Device-reported state exposed the rollout result instead of treating delivery as proof of success.</p>
                                 </article>
                             </div>
 
@@ -348,13 +348,13 @@
                                 <div class="paper-active-head">
                                     <span class="paper-active-label">What changed for the bottom line</span>
                                 </div>
-                                <p>The platform lowered the labor and coordination cost of each controlled release, reduced dependency on individual expert memory, reduced the operational risk of version mismatch, and made the release process reusable across the fleet. No audited financial amount was available in the source material, so the impact is stated in operational terms rather than as an invented savings figure.</p>
+                                <p>The source material does not provide audited financial savings, so I do not claim a monetary result. The supported operational impact is clear: the platform automated repetitive delivery steps, reduced coordination and dependence on expert memory, exposed version mismatches, and made the release workflow reusable across 150+ targets.</p>
                             </aside>
 
                             <div class="evidence-note">
                                 <div>
                                     <span>Evidence boundary</span>
-                                    <p>The architecture and interface are public-safe reconstructions of the system. Equipment names, release records, site data, and employer-specific identifiers are excluded or generalized.</p>
+                                    <p>The architecture and interface are public-safe reconstructions. Equipment names, release records, site data, and employer-specific identifiers remain excluded or generalized.</p>
                                 </div>
                                 <div>
                                     <span>Selected artefacts</span>
@@ -371,7 +371,7 @@
                     <div class="paper-active-head">
                         <span class="paper-active-label">Next step</span>
                     </div>
-                    <h2>Want to discuss the architecture or operating model?</h2>
+                    <h2>Discuss the architecture, evidence model, or release workflow.</h2>
                 </div>
                 <div class="paper-footer-actions">
                     <a class="button button-primary" href="mailto:samuel.a@marti.to">Email Samuel <span aria-hidden="true">→</span></a>

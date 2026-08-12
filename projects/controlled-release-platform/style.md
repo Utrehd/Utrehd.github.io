@@ -88,7 +88,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 ## Layout and Accessibility
 
 - Long-form body measure stays constrained within the paper grid.
-- Title metadata labels use `0.72rem` high-contrast text; metadata values use `0.95rem` primary text with `1.45` line height.
+- Title metadata labels use `0.74rem` at weight 700; metadata values use `1.02rem` at weight 500 with `1.5` line height.
 - Section numbering provides a non-color navigation cue.
 - Focus outlines use orange soft with a visible offset.
 - Mobile targets remain at least 44px where interactive.
@@ -106,6 +106,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Increased metadata text size, reduced its weight, and added vertical spacing to improve scanning without changing the four-field structure.
 - Replaced the executive-summary opening with a plain-language explanation of how software moved from approval to a verified version on each device.
 - Rewrote the case narrative to lead with ownership and evidence, make cause and effect explicit, and retain the financial limitation.
 - Corrected the project period to `2024` and increased title-metadata size, contrast, and spacing for readability.

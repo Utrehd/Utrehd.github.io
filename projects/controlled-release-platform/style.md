@@ -81,6 +81,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 ## Layout and Accessibility
 
 - Long-form body measure stays constrained within the paper grid.
+- Title metadata labels use `0.72rem` high-contrast text; metadata values use `0.95rem` primary text with `1.45` line height.
 - Section numbering provides a non-color navigation cue.
 - Focus outlines use orange soft with a visible offset.
 - Mobile targets remain at least 44px where interactive.
@@ -98,6 +99,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Corrected the project period to `2024` and increased title-metadata size, contrast, and spacing for readability.
 - Reduced H1, H2, H3, and footer-heading sizes to improve line fit across desktop and mobile.
 - Reduced the case-study H1 scale and opened its tracking to `0.01em`, following the site-wide H1 rule in [`../../style.md`](../../style.md).
 - Renamed the public case study from "Controlled Release Platform" to "Automation Release Control."

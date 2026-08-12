@@ -77,7 +77,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 - The case study remains dark from browser canvas through the paper shell and footer.
 - Depth comes from surface contrast, fine borders, and restrained shadows.
 - No white cards or light content panels are used in the web view.
-- The architecture drawing uses a dark grid with colored lane borders; color is paired with text labels and lane numbers.
+- The component diagram uses a dark grid with colored paths; color is paired with text labels and numbered components.
 
 ## Orange Usage
 
@@ -110,6 +110,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 - Reworked the architecture graphic into a deliberately composed 2400 × 1575 WebP. The editable `.puml` remains the logical source of truth, while a companion SVG controls the exact web arrangement, typography, paths, and premium dark styling. This avoids the tall or ultra-wide layouts produced automatically once the machine-feedback loop is included.
 
+- Renamed the visual from software architecture to component diagram. Reduced arrowheads and line weight, shortened flow labels, contained the GAMP 5 badge, reduced the client-computer title, moved the deployment label into the inter-card gap, and gave the return path more space inside the system boundary.
+
 - Corrected the system boundary throughout the case study. Automation Release Control itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. Validation and approval of the PLC applications and libraries happened in an external quality process before a Git version became releasable; the platform did not manage that validation.
 
 - Removed the Evidence Boundary and Selected Artefacts note block and deleted the unused `.evidence-note` styles. The Outcome section now ends with its four impact cards.
@@ -122,7 +124,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 - Increased the shared dark-theme body color from `#b6c0cb` to `#c7d0d9`. This raises normal-text contrast on the `#101820` paper from 9.71:1 to 11.46:1 while preserving `#f4f4f4` for headings and `#7f8b98` for deliberately secondary captions.
 
-- Added the dashboard evidence image at the start of the Solution section, before the architecture drawing. The image uses the original 1774×887 PDF asset, a restrained dark-frame treatment, an orange evidence label, a full-resolution link, and a clear disclosure that the interface is a recreation with fictionalized operational data.
+- Added the dashboard evidence image at the start of the Solution section, before the component diagram. The image uses the original 1774×887 PDF asset, a restrained dark-frame treatment, an orange evidence label, a full-resolution link, and a clear disclosure that the interface is a recreation with fictionalized operational data.
 
 - Removed sentence-style subtitles from the five remaining paper sections and promoted each orange section label to the accessible H2, matching the Executive Summary hierarchy.
 

@@ -44,7 +44,7 @@
 
             <nav class="primary-nav" id="primary-navigation" aria-label="Case study navigation" data-navigation>
                 <a href="#summary">Summary</a>
-                <a href="#architecture">Architecture</a>
+                <a href="#architecture">Components</a>
                 <a href="#involvement">Involvement</a>
                 <a href="#outcome">Outcome</a>
                 <a class="nav-contact" href="../../#work">All work</a>
@@ -203,12 +203,12 @@
 
                             <figure class="architecture-figure architecture-image-figure" id="architecture" aria-labelledby="architecture-caption">
                                 <figcaption id="architecture-caption">
-                                    <span>Software architecture</span>
-                                    <strong>Physical components and system boundary</strong>
+                                    <span>Component diagram</span>
+                                    <strong>Release-control components and system boundary</strong>
                                 </figcaption>
 
-                                <a class="architecture-image-link" href="assets/automation-release-control-architecture.webp" target="_blank" rel="noopener" aria-label="Open the Automation Release Control software architecture at full resolution">
-                                    <img src="assets/automation-release-control-architecture.webp" alt="Stylized block diagram based on the PlantUML logical source, showing an external PLC software validation process, the GAMP 5 Automation Release Control boundary, an Angular MVVM operator workstation, a C# ASP.NET application server, a Git host, a client computer with Git deployment, a PLC and machine, and an OPC UA or MQTT feedback path." width="2400" height="1575" loading="lazy" decoding="async">
+                                <a class="architecture-image-link" href="assets/automation-release-control-architecture.webp" target="_blank" rel="noopener" aria-label="Open the Automation Release Control component diagram at full resolution">
+                                    <img src="assets/automation-release-control-architecture.webp" alt="Stylized component diagram based on the PlantUML logical source, showing an external PLC software validation process, the GAMP 5 Automation Release Control boundary, an Angular MVVM operator workstation, a C# ASP.NET application server, a Git host, a client computer with Git deployment, a PLC and machine, and an OPC UA or MQTT feedback path." width="2400" height="1575" loading="lazy" decoding="async">
                                 </a>
 
                                 <p class="architecture-note">Automation Release Control itself followed a GAMP 5 lifecycle and had its own qualification evidence. Validation of the PLC software remained external. The system selected a releasable Git commit, checked it out on the client computer, deployed it to the PLC, and returned machine state through OPC UA or MQTT.</p>

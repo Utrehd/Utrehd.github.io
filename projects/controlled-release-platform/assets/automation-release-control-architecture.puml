@@ -32,7 +32,7 @@ skinparam LegendBackgroundColor #111A23
 skinparam LegendBorderColor #35424F
 skinparam LegendFontColor #C7D0D9
 
-title <color:#FFA500><size:24><b>AUTOMATION RELEASE CONTROL</b></size></color>\n<color:#F4F4F4><size:16>From releasable Git commit to verified machine state</size></color>
+title <color:#FFA500><size:24><b>AUTOMATION RELEASE CONTROL</b></size></color>\n<color:#F4F4F4><size:16>Component diagram: releasable Git commit to verified machine state</size></color>
 
 rectangle "<color:#AAB6C2><size:11><b>EXTERNAL QUALITY PROCESS</b></size></color>\n\n<size:15><b>PLC software validation</b></size>\n<size:12>Validates and approves applications + libraries</size>\n<size:12>before a Git version becomes releasable</size>\n\n<color:#7F8B98><size:11>Outside Automation Release Control</size></color>" as QUALITY #202933
 

@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Removed the separate "What changed for the bottom line" callout and its unused CSS; the Outcome section now moves directly from the four impact cards to the evidence notes.
+
 - Made the engineering-capacity outcome concrete by adding the approximate one-hour baseline, the few-click workflow, and device feedback as the basis for release confidence.
 
 - Shortened the dashboard caption while retaining ownership, interface scope, fictionalized-data disclosure, and the full-resolution action.

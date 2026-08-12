@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Replaced the generic three-lane system drawing with a software architecture diagram. It now shows the Angular MVVM layers, C#/ASP.NET application host, approved Git commit on the host, checked-out Git repository on the client, deployed PLC application and libraries, and the OPC UA/MQTT state path back to the frontend.
+
 - Removed the Evidence Boundary and Selected Artefacts note block and deleted the unused `.evidence-note` styles. The Outcome section now ends with its four impact cards.
 
 - Removed the separate "What changed for the bottom line" callout and its unused CSS; the Outcome section now moves directly from the four impact cards to the evidence notes.

@@ -202,49 +202,115 @@
 
                             <figure class="architecture-figure" id="architecture">
                                 <figcaption>
-                                    <span>System drawing</span>
-                                    <strong>Controlled release architecture</strong>
+                                    <span>Software architecture</span>
+                                    <strong>Git-controlled deployment with machine-state feedback</strong>
                                 </figcaption>
 
                                 <div class="architecture-legend" aria-label="Architecture legend">
-                                    <span><i class="legend-control"></i> Control and governance</span>
-                                    <span><i class="legend-delivery"></i> Controlled delivery</span>
-                                    <span><i class="legend-feedback"></i> State feedback</span>
+                                    <span><i class="legend-control"></i> Application control</span>
+                                    <span><i class="legend-delivery"></i> Git version deployment</span>
+                                    <span><i class="legend-feedback"></i> Live state feedback</span>
                                 </div>
 
-                                <div class="architecture-lanes" aria-label="Three-lane controlled release architecture">
-                                    <div class="architecture-lane lane-control">
-                                        <div class="lane-label"><span>01</span><strong>Control + governance</strong></div>
-                                        <ol>
-                                            <li>Angular<br>Operations UI</li>
-                                            <li>C# / ASP.NET<br>Services</li>
-                                            <li>Release, target +<br>IQ/OQ records</li>
-                                            <li>GMP approval<br>workflow</li>
-                                        </ol>
+                                <div class="software-architecture" aria-label="Software architecture from Angular MVVM frontend through host and client Git repositories to machine-state feedback">
+                                    <section class="architecture-tier architecture-tier-frontend">
+                                        <header class="architecture-tier-header">
+                                            <span>01 · Frontend</span>
+                                            <strong>Angular interface · MVVM</strong>
+                                        </header>
+                                        <div class="architecture-components architecture-flow architecture-flow-bidirectional">
+                                            <div class="architecture-component">
+                                                <small>View</small>
+                                                <strong>Dashboard + release actions</strong>
+                                            </div>
+                                            <div class="architecture-component">
+                                                <small>ViewModel</small>
+                                                <strong>UI state + commands</strong>
+                                            </div>
+                                            <div class="architecture-component">
+                                                <small>Model</small>
+                                                <strong>Release data + API client</strong>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <div class="architecture-connector architecture-connector-control">
+                                        <span>Release command + target selection</span>
                                     </div>
 
-                                    <div class="architecture-lane lane-delivery">
-                                        <div class="lane-label"><span>02</span><strong>Controlled delivery</strong></div>
-                                        <ol>
-                                            <li>Git-versioned<br>software</li>
-                                            <li>Approved package<br>+ rollback</li>
-                                            <li>SSH deployment<br>service</li>
-                                            <li>Physical PLCs,<br>vPLCs + PCs</li>
-                                        </ol>
+                                    <section class="architecture-tier architecture-tier-host">
+                                        <header class="architecture-tier-header">
+                                            <span>02 · Application host</span>
+                                            <strong>C# / ASP.NET release control</strong>
+                                        </header>
+                                        <div class="architecture-components architecture-flow">
+                                            <div class="architecture-component">
+                                                <small>Service</small>
+                                                <strong>C# / ASP.NET release API</strong>
+                                            </div>
+                                            <div class="architecture-component">
+                                                <small>Control record</small>
+                                                <strong>Targets, approvals + IQ/OQ evidence</strong>
+                                            </div>
+                                            <div class="architecture-component architecture-component-git">
+                                                <small>Git · host</small>
+                                                <strong>Approved commit + rollback point</strong>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <div class="architecture-connector architecture-connector-deployment">
+                                        <span>Git over SSH · fetch + check out approved commit</span>
                                     </div>
 
-                                    <div class="architecture-lane lane-feedback">
-                                        <div class="lane-label"><span>03</span><strong>State feedback</strong></div>
-                                        <ol>
-                                            <li>Installed-state<br>dashboard</li>
-                                            <li>State<br>ingestion</li>
-                                            <li>OPC UA /<br>MQTT</li>
-                                            <li>Device version +<br>runtime state</li>
-                                        </ol>
-                                    </div>
+                                    <section class="architecture-tier architecture-tier-target">
+                                        <header class="architecture-tier-header">
+                                            <span>03 · Client machine / PLC target</span>
+                                            <strong>Checked-out Git commit defines the deployed version</strong>
+                                        </header>
+                                        <div class="architecture-components architecture-flow">
+                                            <div class="architecture-component architecture-component-git">
+                                                <small>Git · client</small>
+                                                <strong>Local repository + working copy</strong>
+                                            </div>
+                                            <div class="architecture-component">
+                                                <small>Deployed software</small>
+                                                <strong>PLC application + libraries</strong>
+                                            </div>
+                                            <div class="architecture-component">
+                                                <small>Target</small>
+                                                <strong>Machine + PLC runtime</strong>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="architecture-feedback">
+                                        <header class="architecture-tier-header">
+                                            <span>04 · Feedback path</span>
+                                            <strong>Machine state returns to the frontend</strong>
+                                        </header>
+                                        <div class="architecture-components architecture-feedback-flow">
+                                            <div class="architecture-component">
+                                                <small>Source</small>
+                                                <strong>Machine + runtime state</strong>
+                                            </div>
+                                            <div class="architecture-component architecture-component-protocol">
+                                                <small>Protocol</small>
+                                                <strong>OPC UA or MQTT</strong>
+                                            </div>
+                                            <div class="architecture-component">
+                                                <small>Host</small>
+                                                <strong>State ingestion + API</strong>
+                                            </div>
+                                            <div class="architecture-component">
+                                                <small>Frontend</small>
+                                                <strong>Angular ViewModel</strong>
+                                            </div>
+                                        </div>
+                                    </section>
                                 </div>
 
-                                <p class="architecture-note">The first two lanes move from definition and approval to deployment. The third lane returns device-reported version and runtime state, which closes the release loop.</p>
+                                <p class="architecture-note">The host selects an approved Git commit, and the client checks out that commit as the deployed version. OPC UA or MQTT then returns machine and runtime state through the host API to the Angular ViewModel, closing the release loop.</p>
                             </figure>
 
                             <div class="solution-components">
@@ -256,12 +322,12 @@
                                 <article>
                                     <p>Built</p>
                                     <h3>Operational workflow</h3>
-                                    <p>Angular user journeys, C#/ASP.NET services, records, evidence links, and automated delivery.</p>
+                                    <p>Angular MVVM frontend, C#/ASP.NET services, records, evidence links, and automated delivery.</p>
                                 </article>
                                 <article>
                                     <p>Operationalized</p>
                                     <h3>Fleet-scale release</h3>
-                                    <p>Controlled SSH distribution with OPC UA/MQTT feedback across 150+ targets.</p>
+                                    <p>Host-to-client Git deployment over SSH with OPC UA/MQTT feedback across 150+ targets.</p>
                                 </article>
                             </div>
                         </div>

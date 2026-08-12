@@ -112,6 +112,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 - Renamed the visual from software architecture to component diagram. Reduced arrowheads and line weight, shortened flow labels, contained the GAMP 5 badge, reduced the client-computer title, moved the deployment label into the inter-card gap, and gave the return path more space inside the system boundary.
 
+- Wrapped the client-computer checkout description onto two lines and lowered the deployment connector. This keeps the text inside the card and gives the deploy label a clear, dedicated gap.
+
 - Corrected the system boundary throughout the case study. Automation Release Control itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. Validation and approval of the PLC applications and libraries happened in an external quality process before a Git version became releasable; the platform did not manage that validation.
 
 - Removed the Evidence Boundary and Selected Artefacts note block and deleted the unused `.evidence-note` styles. The Outcome section now ends with its four impact cards.

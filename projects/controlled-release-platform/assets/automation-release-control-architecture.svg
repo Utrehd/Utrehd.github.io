@@ -125,9 +125,10 @@
         <rect x="814" y="680" width="268" height="5" rx="2.5" fill="#63dc78"/>
         <text x="836" y="716" fill="#83e694" class="card-kicker">04  CLIENT COMPUTER</text>
         <text x="836" y="758" class="card-title-small">Git client + deployment</text>
-        <text x="836" y="787" class="card-copy">Fetch + checkout selected commit</text>
-        <line x1="836" y1="810" x2="1060" y2="810" stroke="#ffffff" stroke-opacity="0.08"/>
-        <text x="836" y="838" class="card-detail">Working copy = deployed version</text>
+        <text x="836" y="786" class="card-copy">Fetch + checkout</text>
+        <text x="836" y="809" class="card-copy">selected Git commit</text>
+        <line x1="836" y1="825" x2="1060" y2="825" stroke="#ffffff" stroke-opacity="0.08"/>
+        <text x="836" y="850" class="card-detail">Working copy = deployed version</text>
     </g>
 
     <g aria-label="PLC and machine" filter="url(#shadow)">
@@ -165,9 +166,9 @@
         <text x="1022" y="622" text-anchor="middle" class="path-label" fill="#93eba2">Git over SSH</text>
         <text x="1022" y="639" text-anchor="middle" class="path-note">fetch + checkout</text>
 
-        <path d="M1082 794H1186" stroke="#63dc78" stroke-width="3" marker-end="url(#arrow-green)"/>
-        <rect x="1100" y="752" width="68" height="27" rx="13.5" fill="#10251b" stroke="#63dc78" stroke-opacity="0.45"/>
-        <text x="1134" y="771" text-anchor="middle" class="path-label" fill="#93eba2">deploy</text>
+        <path d="M1082 816H1186" stroke="#63dc78" stroke-width="3" marker-end="url(#arrow-green)"/>
+        <rect x="1100" y="776" width="68" height="27" rx="13.5" fill="#10251b" stroke="#63dc78" stroke-opacity="0.45"/>
+        <text x="1134" y="795" text-anchor="middle" class="path-label" fill="#93eba2">deploy</text>
     </g>
 
     <g aria-label="External validation boundary" fill="none" stroke-linecap="round" stroke-linejoin="round">

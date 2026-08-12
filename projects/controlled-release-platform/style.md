@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Added `GAMP 5` as a separate skill label beside `GMP / CSV` so the framework is explicit and easy to scan.
+
 - Rewrote the title thesis around the user workflow—approve, deploy, and confirm—instead of listing technical concepts.
 - Replaced the title-block Reach field with `Where: Lonza Visp, CH`; the 150+ target scope remains in the case-study evidence.
 - Removed the redundant Executive Summary display title and promoted the existing section label to the accessible H2.

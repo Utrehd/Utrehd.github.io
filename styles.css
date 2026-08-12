@@ -428,6 +428,84 @@ svg {
     font-weight: 700;
 }
 
+.hero-visual {
+    min-width: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.profile-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 11px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background:
+        linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012)),
+        linear-gradient(145deg, #1b2530, #121923);
+    box-shadow: 0 16px 38px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.055);
+}
+
+.profile-card::after {
+    content: "";
+    position: absolute;
+    right: -42px;
+    bottom: -58px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,165,0,0.16), transparent 70%);
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+.profile-card img {
+    position: relative;
+    z-index: 1;
+    width: 92px;
+    height: 92px;
+    flex: 0 0 92px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.34);
+}
+
+.profile-card figcaption {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-label {
+    color: var(--orange-soft);
+    font-family: "Outfit", sans-serif;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.profile-card strong {
+    margin-top: 3px;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.12rem;
+    line-height: 1.18;
+}
+
+.profile-card small {
+    margin-top: 3px;
+    color: var(--subtle);
+    font-size: 0.66rem;
+    font-weight: 700;
+}
+
 .system-card,
 .featured-case,
 .compact-project,
@@ -1309,27 +1387,22 @@ svg {
     filter: blur(30px);
 }
 
-.about-mark {
+.about-portrait {
     width: 116px;
     height: 116px;
-    display: grid;
-    place-items: center;
+    overflow: hidden;
     border: 1px solid rgba(255,165,0,0.22);
     border-radius: 28px;
-    background:
-        linear-gradient(145deg, rgba(255,165,0,0.12), rgba(23,102,139,0.09)),
-        rgba(255,255,255,0.025);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 18px 38px rgba(0,0,0,0.2);
     transform: rotate(-3deg);
 }
 
-.about-mark span {
-    color: #fed18e;
-    font-family: "Outfit", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: 0.07em;
-    transform: rotate(3deg);
+.about-portrait img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: rotate(3deg) scale(1.08);
 }
 
 .about-copy {
@@ -1553,7 +1626,7 @@ svg {
         grid-template-columns: 1fr;
     }
 
-    .about-mark {
+    .about-portrait {
         width: 96px;
         height: 96px;
     }
@@ -1597,6 +1670,12 @@ svg {
     .system-card {
         padding: 18px;
         border-radius: 22px;
+    }
+
+    .profile-card img {
+        width: 82px;
+        height: 82px;
+        flex-basis: 82px;
     }
 
     .system-map {

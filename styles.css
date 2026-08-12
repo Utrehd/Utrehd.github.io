@@ -889,6 +889,115 @@ main {
     transform: translate(3px, -3px);
 }
 
+/* Compact project index: the detailed narrative belongs on the case-study page. */
+
+.compact-project-section {
+    grid-template-columns: 30px 150px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+    height: 140px;
+    min-height: 0;
+    padding: 20px 42px;
+    overflow: hidden;
+}
+
+.compact-project-section .section-number {
+    margin: 0;
+}
+
+.project-section-label {
+    min-width: 0;
+}
+
+.project-section-label .paper-active-head {
+    width: 100%;
+    padding-right: 8px;
+}
+
+.project-section-label > span {
+    display: block;
+    margin: 8px 0 0 12px;
+    color: var(--quiet);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.compact-project-card {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: center;
+    height: 98px;
+    min-width: 0;
+    padding: 13px 16px 13px 13px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: var(--paper-soft);
+}
+
+.compact-project-card .project-preview {
+    width: 140px;
+    height: 70px;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+}
+
+.compact-project-card .project-preview::after {
+    display: none;
+}
+
+.compact-project-card .project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.compact-project-copy {
+    min-width: 0;
+}
+
+.compact-project-copy > span {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--orange-soft);
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.compact-project-copy h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+.compact-project-copy p {
+    margin: 4px 0 0;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 0.74rem;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.compact-project-card .case-link {
+    min-height: 42px;
+    padding: 0 4px 0 12px;
+    border-left: 1px solid var(--line-soft);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
 /* About */
 
 .about-section {
@@ -1069,6 +1178,36 @@ main {
         height: auto;
         aspect-ratio: 2 / 1;
         object-fit: cover;
+    }
+
+    .compact-project-section {
+        grid-template-columns: 28px 126px minmax(0, 1fr);
+        gap: 13px;
+        height: 140px;
+        padding: 20px 28px;
+    }
+
+    .compact-project-card {
+        grid-template-columns: 108px minmax(0, 1fr) auto;
+        gap: 14px;
+    }
+
+    .compact-project-card .project-preview {
+        display: flex;
+        width: 108px;
+        height: 54px;
+        margin: 0;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+    }
+
+    .compact-project-card .project-preview img {
+        height: 100%;
+        aspect-ratio: auto;
+    }
+
+    .compact-project-copy p {
+        display: none;
     }
 }
 
@@ -1292,6 +1431,70 @@ main {
 
     .footer-inner small {
         padding-top: 4px;
+    }
+
+    .compact-project-section {
+        display: grid;
+        grid-template-columns: 22px minmax(0, 1fr);
+        grid-template-rows: 25px 80px;
+        gap: 6px 10px;
+        height: 140px;
+        padding: 14px 18px;
+    }
+
+    .compact-project-section .section-number {
+        grid-row: 1 / span 2;
+        align-self: start;
+        margin-top: 5px;
+    }
+
+    .project-section-label {
+        grid-column: 2;
+    }
+
+    .project-section-label .paper-active-head {
+        width: auto;
+        min-height: 25px;
+        padding-block: 4px;
+    }
+
+    .project-section-label > span,
+    .compact-project-card .project-preview,
+    .compact-project-copy p {
+        display: none;
+    }
+
+    .compact-project-card {
+        grid-column: 2;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        height: 80px;
+        padding: 11px 12px;
+    }
+
+    .compact-project-copy > span {
+        font-size: 0.52rem;
+    }
+
+    .compact-project-copy h3 {
+        overflow: hidden;
+        font-size: 0.95rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .compact-project-card .case-link {
+        padding-left: 9px;
+        font-size: 0;
+    }
+
+    .compact-project-card .case-link::before {
+        content: "Case study";
+        font-size: 0.68rem;
+    }
+
+    .compact-project-card .case-link span {
+        font-size: 0.68rem;
     }
 }
 

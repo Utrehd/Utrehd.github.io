@@ -170,48 +170,30 @@
                 </div>
             </section>
 
-            <section class="home-section" id="work" aria-labelledby="projects-title">
+            <section class="home-section compact-project-section" id="work" aria-labelledby="projects-title">
                 <p class="section-number" aria-hidden="true">02</p>
-                <div class="section-content">
-                    <div class="section-heading reveal">
-                        <div class="paper-active-head">
-                            <h2 class="paper-active-label" id="projects-title">Projects</h2>
-                        </div>
-                        <p>One complete project is public today. Each project receives its own page so the context, system design, contribution, and operational result can be examined properly.</p>
+                <div class="project-section-label reveal">
+                    <div class="paper-active-head">
+                        <h2 class="paper-active-label" id="projects-title">Projects</h2>
+                    </div>
+                    <span>1 public case study</span>
+                </div>
+
+                <article class="compact-project-card reveal" id="featured-work" data-project>
+                    <a class="project-preview" href="projects/controlled-release-platform/" aria-label="Open the Automation Release Control case study">
+                        <img src="projects/controlled-release-platform/assets/automation-release-control-dashboard.png" width="1774" height="887" alt="Automation Release Control dashboard showing PLC software versions and release targets">
+                    </a>
+
+                    <div class="compact-project-copy">
+                        <span>2024 · Lonza Visp, CH</span>
+                        <h3>Automation Release Control</h3>
+                        <p>Git-controlled PLC deployment with installed-state feedback across 150+ targets.</p>
                     </div>
 
-                    <article class="project-index-card reveal" id="featured-work" data-project>
-                        <a class="project-preview" href="projects/controlled-release-platform/" aria-label="Read the Automation Release Control case study">
-                            <img src="projects/controlled-release-platform/assets/automation-release-control-dashboard.png" width="1774" height="887" alt="Automation Release Control dashboard showing PLC software versions and release targets">
-                            <span class="preview-label">Interface reconstruction</span>
-                        </a>
-
-                        <div class="project-index-body">
-                            <div class="project-card-topline">
-                                <span>Project 01</span>
-                                <span>2024 · Lonza Visp, CH</span>
-                            </div>
-                            <p class="project-kicker">Industrial full stack · Release operations</p>
-                            <h3><a href="projects/controlled-release-platform/">Automation Release Control</a></h3>
-                            <p>The platform let users select, deploy, update, or roll back PLC applications and libraries across the factory without repeating each step by hand. Git controlled the selected version on the host and client; OPC UA or MQTT returned the installed machine state to the frontend.</p>
-                            <p class="project-boundary">The release-control system followed a GAMP 5 lifecycle. Validation of the PLC software being deployed remained a separate process.</p>
-
-                            <dl class="project-facts">
-                                <div><dt>Reach</dt><dd>150+ PLC targets</dd></div>
-                                <div><dt>Role</dt><dd>0→1 builder · System owner</dd></div>
-                                <div><dt>Result</dt><dd>Hour-long work reduced to a few controlled clicks</dd></div>
-                            </dl>
-
-                            <ul class="project-tech" aria-label="Technologies used">
-                                <li>Angular</li><li>MVVM</li><li>C# / ASP.NET</li><li>Git</li><li>SSH</li><li>OPC UA</li><li>MQTT</li><li>GAMP 5</li>
-                            </ul>
-
-                            <a class="case-link" href="projects/controlled-release-platform/">
-                                Read the technical case study <span aria-hidden="true">↗</span>
-                            </a>
-                        </div>
-                    </article>
-                </div>
+                    <a class="case-link" href="projects/controlled-release-platform/">
+                        Read the technical case study <span aria-hidden="true">↗</span>
+                    </a>
+                </article>
             </section>
 
             <section class="home-section about-section" id="about" aria-labelledby="about-title">

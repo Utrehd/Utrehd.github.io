@@ -18,6 +18,7 @@ This file is the visual source of truth for the Automation Release Control case 
 ## Editorial Voice
 
 - Follow SAM technical writing style: define the problem early, expose the reasoning chain, and connect implementation decisions to operational consequences.
+- Lead with plain language that a non-specialist can understand; introduce terms such as release records, installed state, and deployment targets only after explaining the practical workflow.
 - Use first person for decisions and owned work; use the system as the subject when describing behavior or evidence.
 - State the financial evidence boundary explicitly. Operational impact is supported; audited monetary savings are not available and must not be invented.
 
@@ -105,6 +106,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Replaced the executive-summary opening with a plain-language explanation of how software moved from approval to a verified version on each device.
 - Rewrote the case narrative to lead with ownership and evidence, make cause and effect explicit, and retain the financial limitation.
 - Corrected the project period to `2024` and increased title-metadata size, contrast, and spacing for readability.
 - Reduced H1, H2, H3, and footer-heading sizes to improve line fit across desktop and mobile.

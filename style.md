@@ -25,6 +25,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Group the complete working skill inventory into six readable areas instead of one undifferentiated tag wall.
 - Show only projects with a public case-study page. Do not use placeholder cards or inactive filters.
 - Give each project one large editorial card with a real artefact, concrete scope, role, result, technology labels, and a direct case-study link.
+- Keep the artefact subordinate to the project narrative. On wide screens, use it as a compact side preview instead of a full-width banner; stack it above the text only on narrower screens.
 - State evidence boundaries beside the relevant claim. For Automation Release Control, distinguish the GAMP 5 lifecycle of the release system from the separate validation of deployed PLC software.
 - Preserve `#featured-work` on the first project card so project-page back links remain valid.
 

@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Rewrote the Executive Summary opening as a plain-language sequence: define the system, explain the remote release workflow, and close with installed-version verification.
+
 - Added `GAMP 5` as a separate skill label beside `GMP / CSV` so the framework is explicit and easy to scan.
 
 - Rewrote the title thesis around the user workflow—approve, deploy, and confirm—instead of listing technical concepts.

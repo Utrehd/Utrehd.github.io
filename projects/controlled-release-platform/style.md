@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Added the dashboard evidence image at the start of the Solution section, before the architecture drawing. The image uses the original 1774×887 PDF asset, a restrained dark-frame treatment, an orange evidence label, a full-resolution link, and a clear disclosure that the interface is a recreation with fictionalized operational data.
+
 - Removed sentence-style subtitles from the five remaining paper sections and promoted each orange section label to the accessible H2, matching the Executive Summary hierarchy.
 
 - Rewrote the Executive Summary opening as a plain-language sequence: define the system, explain the remote release workflow, and close with installed-version verification.

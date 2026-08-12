@@ -90,6 +90,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 - Long-form body measure stays constrained within the paper grid.
 - Title metadata labels use `0.74rem` at weight 700; metadata values use `1.02rem` at weight 500 with `1.5` line height.
+- The four title-metadata fields are Role, Context, Period, and Where. Fleet reach belongs in the evidence sections, not the title block.
 - Section numbering provides a non-color navigation cue.
 - Focus outlines use orange soft with a visible offset.
 - Mobile targets remain at least 44px where interactive.
@@ -107,6 +108,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Replaced the title-block Reach field with `Where: Lonza Visp, CH`; the 150+ target scope remains in the case-study evidence.
 - Removed the redundant Executive Summary display title and promoted the existing section label to the accessible H2.
 - Increased metadata text size, reduced its weight, and added vertical spacing to improve scanning without changing the four-field structure.
 - Replaced the executive-summary opening with a plain-language explanation of how software moved from approval to a verified version on each device.

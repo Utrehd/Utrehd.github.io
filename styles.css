@@ -1138,6 +1138,40 @@ svg {
     margin-top: 0;
 }
 
+.case-study-link {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 11px 16px;
+    border: 1px solid rgba(255, 165, 0, 0.28);
+    border-radius: 12px;
+    color: #ffd18a;
+    background: rgba(255, 165, 0, 0.08);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.case-study-link:hover {
+    border-color: rgba(255, 165, 0, 0.52);
+    background: rgba(255, 165, 0, 0.13);
+    transform: translateY(-2px);
+}
+
+.project-page-status {
+    display: block;
+    margin-top: 14px;
+    color: #697480;
+    font-size: 0.61rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
 .case-notes {
     margin-top: 22px;
     border: 1px solid var(--line-soft);

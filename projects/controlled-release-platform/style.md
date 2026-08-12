@@ -1,6 +1,12 @@
-# Controlled Release Platform - Style Decisions
+# Automation Release Control - Style Decisions
 
-This file is the visual source of truth for the Controlled Release Platform case study. Update it whenever a design decision changes.
+This file is the visual source of truth for the Automation Release Control case study. Update it whenever a design decision changes.
+
+## Naming
+
+- Public project name: **Automation Release Control**.
+- The name is domain-first and describes the system's function without the generic word "platform."
+- The published URL remains `/projects/controlled-release-platform/` to preserve existing links.
 
 ## Intent
 
@@ -91,6 +97,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Renamed the public case study from "Controlled Release Platform" to "Automation Release Control."
 - Established the paper structure and responsive system drawing.
 - Converted the complete case study from light paper surfaces to the PULSE dark theme.
 - Replaced generic eyebrows with lineup-selector-inspired active label heads.

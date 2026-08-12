@@ -1,6 +1,6 @@
 # Samuel Marti — portfolio draft
 
-A static, responsive portfolio designed for GitHub Pages. The featured case study covers the Automation Software Versioning Framework used to control and automate updates across 150+ PLCs.
+A static, responsive portfolio designed for GitHub Pages. The featured Automation Release Control case study covers a system used to control and automate updates across 150+ PLCs.
 
 Live site: [utrehd.github.io](https://utrehd.github.io/)
 

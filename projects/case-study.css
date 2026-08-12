@@ -778,8 +778,9 @@
     margin-top: 50px;
 }
 
-.paper-active-label {
+.paper-active-head > .paper-active-label {
     flex: 0 1 auto;
+    margin: 0;
     color: var(--case-orange);
     font-family: "Outfit", sans-serif;
     font-size: 0.72rem;
@@ -787,6 +788,10 @@
     letter-spacing: 0.16em;
     line-height: 1.25;
     text-transform: uppercase;
+}
+
+.executive-summary .summary-lede {
+    margin-top: 18px;
 }
 
 .paper-title-block h1,

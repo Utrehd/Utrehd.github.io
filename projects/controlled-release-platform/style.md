@@ -63,6 +63,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 ## Title and Subtitle System
 
 1. Every major section starts with `.paper-active-head > .paper-active-label`.
+   The Executive Summary uses this label as its semantic H2 instead of repeating the section with a second display title.
 2. Labels are orange, uppercase, Outfit, `0.72rem`, weight 800, and `0.16em` tracking.
 3. A subtle orange-to-transparent rule extends from the label to reinforce reading order.
 4. The document title is white Outfit at weight 700 with slightly open `0.01em` tracking.
@@ -106,6 +107,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Removed the redundant Executive Summary display title and promoted the existing section label to the accessible H2.
 - Increased metadata text size, reduced its weight, and added vertical spacing to improve scanning without changing the four-field structure.
 - Replaced the executive-summary opening with a plain-language explanation of how software moved from approval to a verified version on each device.
 - Rewrote the case narrative to lead with ownership and evidence, make cause and effect explicit, and retain the financial limitation.

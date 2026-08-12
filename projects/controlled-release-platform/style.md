@@ -62,6 +62,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 5. Section titles are white Outfit and remain semantic `h2` elements.
 6. Card titles use white Outfit; supporting labels use orange or lane-specific color.
 7. Body copy remains Mulish in muted white. Orange is never used for paragraphs.
+8. Case-study section H2s use the restrained site scale, while supporting card H3s remain at `1rem`.
 
 ## Dark Paper Surfaces
 
@@ -97,6 +98,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Reduced H1, H2, H3, and footer-heading sizes to improve line fit across desktop and mobile.
 - Reduced the case-study H1 scale and opened its tracking to `0.01em`, following the site-wide H1 rule in [`../../style.md`](../../style.md).
 - Renamed the public case study from "Controlled Release Platform" to "Automation Release Control."
 - Established the paper structure and responsive system drawing.

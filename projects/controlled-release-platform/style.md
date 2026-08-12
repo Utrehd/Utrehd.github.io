@@ -108,6 +108,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Rewrote the title thesis around the user workflow—approve, deploy, and confirm—instead of listing technical concepts.
 - Replaced the title-block Reach field with `Where: Lonza Visp, CH`; the 150+ target scope remains in the case-study evidence.
 - Removed the redundant Executive Summary display title and promoted the existing section label to the accessible H2.
 - Increased metadata text size, reduced its weight, and added vertical spacing to improve scanning without changing the four-field structure.

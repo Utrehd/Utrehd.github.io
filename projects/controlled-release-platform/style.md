@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Increased the shared dark-theme body color from `#b6c0cb` to `#c7d0d9`. This raises normal-text contrast on the `#101820` paper from 9.71:1 to 11.46:1 while preserving `#f4f4f4` for headings and `#7f8b98` for deliberately secondary captions.
+
 - Added the dashboard evidence image at the start of the Solution section, before the architecture drawing. The image uses the original 1774×887 PDF asset, a restrained dark-frame treatment, an orange evidence label, a full-resolution link, and a clear disclosure that the interface is a recreation with fictionalized operational data.
 
 - Removed sentence-style subtitles from the five remaining paper sections and promoted each orange section label to the accessible H2, matching the Executive Summary hierarchy.

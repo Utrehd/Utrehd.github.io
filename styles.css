@@ -19,6 +19,7 @@
     --radius-lg: 22px;
     --radius-md: 16px;
     --shell: 1180px;
+    --h1-letter-spacing: 0.01em;
 }
 
 *,
@@ -326,7 +327,6 @@ svg {
     box-shadow: 0 0 0 5px rgba(99, 220, 120, 0.1), 0 0 14px rgba(99, 220, 120, 0.6);
 }
 
-.hero h1,
 .section-heading h2,
 .approach-copy h2,
 .about-copy h2 {
@@ -340,7 +340,11 @@ svg {
 .hero h1 {
     max-width: 750px;
     margin-top: 24px;
-    font-size: clamp(3rem, 6vw, 5.25rem);
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(2.65rem, 5vw, 4.35rem);
+    font-weight: 700;
+    letter-spacing: var(--h1-letter-spacing);
+    line-height: 1.05;
 }
 
 .hero h1 span {
@@ -1524,7 +1528,7 @@ svg {
     }
 
     .hero h1 {
-        font-size: clamp(3rem, 6.3vw, 4.25rem);
+        font-size: clamp(2.65rem, 5.5vw, 3.8rem);
     }
 
     .proof {
@@ -1685,7 +1689,7 @@ svg {
 
     .hero h1 {
         margin-top: 18px;
-        font-size: clamp(2.7rem, 13vw, 4rem);
+        font-size: clamp(2.35rem, 10.5vw, 3.15rem);
     }
 
     .hero-lede {

@@ -58,7 +58,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 1. Every major section starts with `.paper-active-head > .paper-active-label`.
 2. Labels are orange, uppercase, Outfit, `0.72rem`, weight 800, and `0.16em` tracking.
 3. A subtle orange-to-transparent rule extends from the label to reinforce reading order.
-4. The document title is white Outfit at weight 700 with compact negative tracking.
+4. The document title is white Outfit at weight 700 with slightly open `0.01em` tracking.
 5. Section titles are white Outfit and remain semantic `h2` elements.
 6. Card titles use white Outfit; supporting labels use orange or lane-specific color.
 7. Body copy remains Mulish in muted white. Orange is never used for paragraphs.
@@ -97,6 +97,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Reduced the case-study H1 scale and opened its tracking to `0.01em`, following the site-wide H1 rule in [`../../style.md`](../../style.md).
 - Renamed the public case study from "Controlled Release Platform" to "Automation Release Control."
 - Established the paper structure and responsive system drawing.
 - Converted the complete case study from light paper surfaces to the PULSE dark theme.

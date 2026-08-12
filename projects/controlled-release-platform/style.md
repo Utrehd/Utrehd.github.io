@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Made the engineering-capacity outcome concrete by adding the approximate one-hour baseline, the few-click workflow, and device feedback as the basis for release confidence.
+
 - Shortened the dashboard caption while retaining ownership, interface scope, fictionalized-data disclosure, and the full-resolution action.
 
 - Increased the shared dark-theme body color from `#b6c0cb` to `#c7d0d9`. This raises normal-text contrast on the `#101820` paper from 9.71:1 to 11.46:1 while preserving `#f4f4f4` for headings and `#7f8b98` for deliberately secondary captions.

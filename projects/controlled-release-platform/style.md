@@ -108,7 +108,7 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
-- Replaced the HTML architecture drawing with a PlantUML-authored WebP block diagram. It prioritizes the physical components: operator workstation, application server, Git host, client computer, and PLC/machine. The diagram also shows Git on the host and client, OPC UA/MQTT feedback, and the Angular MVVM frontend. The editable `.puml` source remains public beside the image.
+- Reworked the architecture graphic into a deliberately composed 2400 × 1575 WebP. The editable `.puml` remains the logical source of truth, while a companion SVG controls the exact web arrangement, typography, paths, and premium dark styling. This avoids the tall or ultra-wide layouts produced automatically once the machine-feedback loop is included.
 
 - Corrected the system boundary throughout the case study. Automation Release Control itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. Validation and approval of the PLC applications and libraries happened in an external quality process before a Git version became releasable; the platform did not manage that validation.
 

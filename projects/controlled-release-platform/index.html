@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="How Samuel A. Marti built a controlled release system that connected approved software, GMP evidence, deployment, and installed-state feedback across 150+ PLC targets.">
+    <meta name="description" content="How Samuel A. Marti built a GAMP 5 release-control system for Git-based deployment and installed-state feedback across 150+ PLC targets.">
     <meta name="theme-color" content="#0d1218">
     <meta property="og:title" content="Automation Release Control — Samuel A. Marti">
-    <meta property="og:description" content="A technical case study in connecting Git-controlled releases, GMP evidence, SSH deployment, and device-reported state.">
+    <meta property="og:description" content="A technical case study in Git-controlled PLC deployment, host-to-client version control, and device-reported state.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://utrehd.github.io/projects/controlled-release-platform/">
     <meta property="og:image" content="https://utrehd.github.io/assets/samuel-marti.png">
@@ -66,7 +66,7 @@
                     <span class="paper-active-label">Industrial full stack · Controlled operations</span>
                 </div>
                 <h1>Automation Release Control</h1>
-                <p class="paper-thesis">Built in 2024, the system gave teams one controlled process to approve software, deploy it across 150+ PLC targets, and confirm which version was running on each device.</p>
+                <p class="paper-thesis">Built in 2024, the system let teams select and deploy releasable PLC software across 150+ targets, then confirm the version running on each device.</p>
 
                 <dl class="paper-meta">
                     <div>
@@ -89,6 +89,7 @@
 
                 <ul class="paper-skills" aria-label="Skills and technologies used">
                     <li>Angular</li>
+                    <li>MVVM</li>
                     <li>C# / ASP.NET</li>
                     <li>Git</li>
                     <li>GMP / CSV</li>
@@ -123,7 +124,7 @@
                                 <h2 class="paper-active-label" id="summary-title">Executive Summary</h2>
                             </div>
                             <p class="summary-lede">The Automation Release Control system is a version-control and deployment system for factory automation software. From one interface, users can release, update, or roll back PLC applications and software libraries on remote devices across the factory, without repeating each step manually at every PLC. After deployment, each device reports its installed version to the same interface, allowing the team to verify that the correct version is running.</p>
-                            <p>The previous process provided inconsistent version visibility and required repetitive, expert-led rollout steps. I combined an Angular operations interface, C#/ASP.NET services, Git-versioned software, GMP qualification evidence, controlled SSH distribution, and OPC UA/MQTT feedback. The resulting workflow supported more than 150 physical and virtual PLC targets, target computers, and several automation artefact types.</p>
+                            <p>The previous process provided inconsistent version visibility and required repetitive, expert-led rollout steps. I combined an Angular MVVM interface, C#/ASP.NET services, host-to-client Git deployment over SSH, and OPC UA/MQTT feedback. The release-control system itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. Validation of the PLC software being deployed remained outside the system.</p>
 
                             <div class="summary-proof" aria-label="Executive proof points">
                                 <div><strong>150+</strong><span>PLC targets</span></div>
@@ -139,12 +140,12 @@
                             <div class="paper-active-head">
                                 <h2 class="paper-active-label" id="context-title">Context</h2>
                             </div>
-                            <p>In a regulated manufacturing environment, each automation release had to connect one approved version to its targets, qualification evidence, approval, deployment method, recovery path, and actual installed result. The release was complete only when those links remained traceable.</p>
-                            <p>The scope included PLC applications, reusable libraries, firmware and runtime versions, recipes, and supporting software packages across physical PLCs, virtual PLCs, and computers. Because these artefacts affected production equipment, the workflow had to serve engineering, operations, release governance, and validation without separating evidence from execution.</p>
+                            <p>PLC software validation and approval occurred before a version became releasable. Automation Release Control then selected that Git version, deployed it to the target, preserved a rollback point, and compared the intended version with the version reported by the machine.</p>
+                            <p>The system itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. It did not validate the PLC applications or libraries being deployed. Its scope was controlled distribution and version visibility across physical PLCs, virtual PLCs, and computers.</p>
 
                             <aside class="paper-callout">
                                 <span>Design constraint</span>
-                                <p>Reduce release effort without weakening GMP evidence, approval control, or recovery readiness.</p>
+                                <p>Reduce release effort while preserving version control, rollback readiness, and a verified installed state.</p>
                             </aside>
                         </div>
                     </section>
@@ -155,13 +156,13 @@
                             <div class="paper-active-head">
                                 <h2 class="paper-active-label" id="problem-title">Problem</h2>
                             </div>
-                            <p>As a result, teams could not answer one operational question from a single record: <em>Which approved software version is installed on this device right now?</em></p>
+                            <p>As a result, teams could not answer one operational question from a single record: <em>Which releasable software version is installed on this device right now?</em></p>
 
                             <div class="problem-grid">
                                 <article>
                                     <span>01</span>
                                     <h3>Version ambiguity</h3>
-                                    <p>Approved source, packaged release, intended target, and actual device state could drift apart.</p>
+                                    <p>Releasable source, selected Git version, intended target, and actual device state could drift apart.</p>
                                 </article>
                                 <article>
                                     <span>02</span>
@@ -170,8 +171,8 @@
                                 </article>
                                 <article>
                                     <span>03</span>
-                                    <h3>Scattered evidence</h3>
-                                    <p>Qualification evidence, approvals, release notes, and rollback instructions lived in separate places.</p>
+                                    <h3>Scattered release data</h3>
+                                    <p>Target versions, device lists, release notes, rollback points, and installed state lived in separate places.</p>
                                 </article>
                                 <article>
                                     <span>04</span>
@@ -188,141 +189,43 @@
                             <div class="paper-active-head">
                                 <h2 class="paper-active-label" id="solution-title">Solution</h2>
                             </div>
-                            <p>Each record connected versioned software, target systems, validation evidence, approval state, deployment status, recovery information, and reported installed state. This changed the release from a collection of files and handoffs into one traceable workflow.</p>
+                            <p>Each release record connected a selected Git commit, target system, deployment status, rollback point, and reported installed state. The platform deployed versions made releasable through the external quality process; it did not validate the PLC software itself.</p>
 
                             <figure class="dashboard-figure" aria-labelledby="dashboard-caption">
                                 <a class="dashboard-image-link" href="assets/automation-release-control-dashboard.png" target="_blank" rel="noopener" aria-label="Open the Automation Release Control dashboard at full resolution">
-                                    <img src="assets/automation-release-control-dashboard.png" alt="Recreated Automation Release Control dashboard comparing installed and approved PLC software versions, release evidence, and deployment targets." width="1774" height="887" loading="lazy" decoding="async">
+                                    <img src="assets/automation-release-control-dashboard.png" alt="Recreated Automation Release Control dashboard comparing installed and target PLC software versions, release information, and deployment targets." width="1774" height="887" loading="lazy" decoding="async">
                                 </a>
                                 <figcaption id="dashboard-caption">
                                     <span>Dashboard recreation</span>
-                                    <p>UI recreation based on the system I designed and built. It shows version comparison, release evidence, and controlled deployment. Operational data is fictionalized, and employer identifiers are removed. Select the image for full resolution.</p>
+                                    <p>UI recreation based on the system I designed and built. It shows version comparison and controlled deployment. Approval and evidence labels provide release context; the validation of PLC software remained external. Operational data is fictionalized, and employer identifiers are removed.</p>
                                 </figcaption>
                             </figure>
 
-                            <figure class="architecture-figure" id="architecture">
-                                <figcaption>
+                            <figure class="architecture-figure architecture-image-figure" id="architecture" aria-labelledby="architecture-caption">
+                                <figcaption id="architecture-caption">
                                     <span>Software architecture</span>
-                                    <strong>Git-controlled deployment with machine-state feedback</strong>
+                                    <strong>Physical components and system boundary</strong>
                                 </figcaption>
 
-                                <div class="architecture-legend" aria-label="Architecture legend">
-                                    <span><i class="legend-control"></i> Application control</span>
-                                    <span><i class="legend-delivery"></i> Git version deployment</span>
-                                    <span><i class="legend-feedback"></i> Live state feedback</span>
-                                </div>
+                                <a class="architecture-image-link" href="assets/automation-release-control-architecture.webp" target="_blank" rel="noopener" aria-label="Open the Automation Release Control software architecture at full resolution">
+                                    <img src="assets/automation-release-control-architecture.webp" alt="PlantUML block diagram showing an external PLC software validation process, the GAMP 5 Automation Release Control boundary, an Angular MVVM operator workstation, a C# ASP.NET application server, a Git host, a client computer with a Git repository and deployment service, and an OPC UA or MQTT feedback path from the PLC and machine." width="2109" height="1904" loading="lazy" decoding="async">
+                                </a>
 
-                                <div class="software-architecture" aria-label="Software architecture from Angular MVVM frontend through host and client Git repositories to machine-state feedback">
-                                    <section class="architecture-tier architecture-tier-frontend">
-                                        <header class="architecture-tier-header">
-                                            <span>01 · Frontend</span>
-                                            <strong>Angular interface · MVVM</strong>
-                                        </header>
-                                        <div class="architecture-components architecture-flow architecture-flow-bidirectional">
-                                            <div class="architecture-component">
-                                                <small>View</small>
-                                                <strong>Dashboard + release actions</strong>
-                                            </div>
-                                            <div class="architecture-component">
-                                                <small>ViewModel</small>
-                                                <strong>UI state + commands</strong>
-                                            </div>
-                                            <div class="architecture-component">
-                                                <small>Model</small>
-                                                <strong>Release data + API client</strong>
-                                            </div>
-                                        </div>
-                                    </section>
+                                <p class="architecture-note">Automation Release Control itself followed a GAMP 5 lifecycle and had its own qualification evidence. Validation of the PLC software remained external. The system selected a releasable Git commit, checked it out on the client computer, deployed it to the PLC, and returned machine state through OPC UA or MQTT.</p>
 
-                                    <div class="architecture-connector architecture-connector-control">
-                                        <span>Release command + target selection</span>
-                                    </div>
-
-                                    <section class="architecture-tier architecture-tier-host">
-                                        <header class="architecture-tier-header">
-                                            <span>02 · Application host</span>
-                                            <strong>C# / ASP.NET release control</strong>
-                                        </header>
-                                        <div class="architecture-components architecture-flow">
-                                            <div class="architecture-component">
-                                                <small>Service</small>
-                                                <strong>C# / ASP.NET release API</strong>
-                                            </div>
-                                            <div class="architecture-component">
-                                                <small>Control record</small>
-                                                <strong>Targets, approvals + IQ/OQ evidence</strong>
-                                            </div>
-                                            <div class="architecture-component architecture-component-git">
-                                                <small>Git · host</small>
-                                                <strong>Approved commit + rollback point</strong>
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                    <div class="architecture-connector architecture-connector-deployment">
-                                        <span>Git over SSH · fetch + check out approved commit</span>
-                                    </div>
-
-                                    <section class="architecture-tier architecture-tier-target">
-                                        <header class="architecture-tier-header">
-                                            <span>03 · Client machine / PLC target</span>
-                                            <strong>Checked-out Git commit defines the deployed version</strong>
-                                        </header>
-                                        <div class="architecture-components architecture-flow">
-                                            <div class="architecture-component architecture-component-git">
-                                                <small>Git · client</small>
-                                                <strong>Local repository + working copy</strong>
-                                            </div>
-                                            <div class="architecture-component">
-                                                <small>Deployed software</small>
-                                                <strong>PLC application + libraries</strong>
-                                            </div>
-                                            <div class="architecture-component">
-                                                <small>Target</small>
-                                                <strong>Machine + PLC runtime</strong>
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                    <section class="architecture-feedback">
-                                        <header class="architecture-tier-header">
-                                            <span>04 · Feedback path</span>
-                                            <strong>Machine state returns to the frontend</strong>
-                                        </header>
-                                        <div class="architecture-components architecture-feedback-flow">
-                                            <div class="architecture-component">
-                                                <small>Source</small>
-                                                <strong>Machine + runtime state</strong>
-                                            </div>
-                                            <div class="architecture-component architecture-component-protocol">
-                                                <small>Protocol</small>
-                                                <strong>OPC UA or MQTT</strong>
-                                            </div>
-                                            <div class="architecture-component">
-                                                <small>Host</small>
-                                                <strong>State ingestion + API</strong>
-                                            </div>
-                                            <div class="architecture-component">
-                                                <small>Frontend</small>
-                                                <strong>Angular ViewModel</strong>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-
-                                <p class="architecture-note">The host selects an approved Git commit, and the client checks out that commit as the deployed version. OPC UA or MQTT then returns machine and runtime state through the host API to the Angular ViewModel, closing the release loop.</p>
+                                <a class="architecture-source-link" href="assets/automation-release-control-architecture.puml" target="_blank" rel="noopener">View PlantUML source <span aria-hidden="true">↗</span></a>
                             </figure>
 
                             <div class="solution-components">
                                 <article>
                                     <p>Modelled</p>
                                     <h3>Release domain</h3>
-                                    <p>Versions, targets, evidence, distribution status, recovery readiness, and installed state.</p>
+                                    <p>Releasable versions, targets, distribution status, rollback points, and installed state.</p>
                                 </article>
                                 <article>
                                     <p>Built</p>
                                     <h3>Operational workflow</h3>
-                                    <p>Angular MVVM frontend, C#/ASP.NET services, records, evidence links, and automated delivery.</p>
+                                    <p>Angular MVVM frontend, C#/ASP.NET services, release records, and automated delivery.</p>
                                 </article>
                                 <article>
                                     <p>Operationalized</p>
@@ -339,7 +242,7 @@
                             <div class="paper-active-head">
                                 <h2 class="paper-active-label" id="involvement-title">My Involvement</h2>
                             </div>
-                            <p>This was not a handoff or a one-off deployment script. As the 0-to-1 builder and system owner, I defined the workflow, implemented the platform, produced qualification evidence, and supported its use in the manufacturing environment.</p>
+                            <p>This was not a handoff or a one-off deployment script. As the 0-to-1 builder and system owner, I defined the workflow, implemented the platform, qualified Automation Release Control itself under GAMP 5, and supported its use in the manufacturing environment.</p>
 
                             <div class="involvement-list">
                                 <article>
@@ -348,37 +251,37 @@
                                 </article>
                                 <article>
                                     <span>Architect + model</span>
-                                    <p>I defined versions, targets, evidence, deployment state, installed state, and recovery information as one release domain.</p>
+                                    <p>I defined releasable versions, targets, deployment state, installed state, and rollback information as one release domain.</p>
                                 </article>
                                 <article>
                                     <span>Build full stack</span>
-                                    <p>I implemented the Angular operations interface, C#/ASP.NET services, and the release and evidence workflows around them.</p>
+                                    <p>I implemented the Angular MVVM interface, C#/ASP.NET services, Git release workflow, and state-feedback path.</p>
                                 </article>
                                 <article>
                                     <span>Automate deployment</span>
-                                    <p>I built the SSH delivery path for approved software across PLC and computer targets and multiple release artefact types.</p>
+                                    <p>I built the host-to-client Git and SSH delivery path for releasable software across PLC and computer targets.</p>
                                 </article>
                                 <article>
                                     <span>Close the loop</span>
                                     <p>I integrated OPC UA/MQTT version and runtime feedback so installed device state returned to the dashboard.</p>
                                 </article>
                                 <article>
-                                    <span>Validate + own</span>
-                                    <p>I prepared IQ/OQ evidence, release records, and rollback-ready documentation, then owned the operating workflow.</p>
+                                    <span>Qualify + own</span>
+                                    <p>I prepared IQ/OQ evidence for Automation Release Control itself, then owned the operating workflow. Validation of the deployed PLC software remained external.</p>
                                 </article>
                             </div>
 
-                            <div class="lifecycle-strip" aria-label="GMP release lifecycle">
-                                <p>Lifecycle delivered</p>
+                            <div class="lifecycle-strip" aria-label="GAMP 5 lifecycle delivered for Automation Release Control">
+                                <p>GAMP 5 lifecycle for this system</p>
                                 <ol>
                                     <li>Prototype + pitch</li>
                                     <li>Requirements + risk</li>
                                     <li>Functional design</li>
                                     <li>Implementation + Git</li>
-                                    <li>Review + approval</li>
-                                    <li>Controlled deployment</li>
-                                    <li>State verification</li>
-                                    <li>IQ/OQ evidence</li>
+                                    <li>System review</li>
+                                    <li>IQ/OQ qualification</li>
+                                    <li>Production release</li>
+                                    <li>System ownership</li>
                                 </ol>
                             </div>
                         </div>
@@ -390,7 +293,7 @@
                             <div class="paper-active-head">
                                 <h2 class="paper-active-label" id="outcome-title">Outcome + Bottom-Line Impact</h2>
                             </div>
-                            <p class="summary-lede">One controlled workflow could prepare, approve, distribute, verify, and recover automation releases across a heterogeneous fleet of more than 150 targets.</p>
+                            <p class="summary-lede">One controlled workflow could select, distribute, verify, and roll back releasable automation software across a heterogeneous fleet of more than 150 targets.</p>
 
                             <div class="outcome-grid">
                                 <article>
@@ -406,7 +309,7 @@
                                 <article>
                                     <strong>Traceable</strong>
                                     <span>Risk + audit readiness</span>
-                                    <p>Linked version, evidence, approval, target, deployment, rollback, and installed state.</p>
+                                    <p>Linked the selected Git version, target, deployment, rollback point, and installed state.</p>
                                 </article>
                                 <article>
                                     <strong>Closed loop</strong>
@@ -425,7 +328,7 @@
                     <div class="paper-active-head">
                         <span class="paper-active-label">Next step</span>
                     </div>
-                    <h2>Discuss the architecture, evidence model, or release workflow.</h2>
+                    <h2>Discuss the architecture, version model, or release workflow.</h2>
                 </div>
                 <div class="paper-footer-actions">
                     <a class="button button-primary" href="mailto:samuel.a@marti.to">Email Samuel <span aria-hidden="true">→</span></a>

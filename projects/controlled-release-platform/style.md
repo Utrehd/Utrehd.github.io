@@ -101,18 +101,20 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 - Desktop: sticky table of contents plus reading column.
 - Tablet: table of contents becomes an inline index.
-- Mobile: single-column paper; architecture lanes stack vertically with directional arrows.
+- Mobile: single-column paper; the architecture image scales to the reading column and opens at full resolution.
 - Skill labels wrap naturally and never force horizontal scrolling.
 
 ## Change Log
 
 ### 2026-08-12
 
-- Replaced the generic three-lane system drawing with a software architecture diagram. It now shows the Angular MVVM layers, C#/ASP.NET application host, approved Git commit on the host, checked-out Git repository on the client, deployed PLC application and libraries, and the OPC UA/MQTT state path back to the frontend.
+- Replaced the HTML architecture drawing with a PlantUML-authored WebP block diagram. It prioritizes the physical components: operator workstation, application server, Git host, client computer, and PLC/machine. The diagram also shows Git on the host and client, OPC UA/MQTT feedback, and the Angular MVVM frontend. The editable `.puml` source remains public beside the image.
+
+- Corrected the system boundary throughout the case study. Automation Release Control itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. Validation and approval of the PLC applications and libraries happened in an external quality process before a Git version became releasable; the platform did not manage that validation.
 
 - Removed the Evidence Boundary and Selected Artefacts note block and deleted the unused `.evidence-note` styles. The Outcome section now ends with its four impact cards.
 
-- Removed the separate "What changed for the bottom line" callout and its unused CSS; the Outcome section now moves directly from the four impact cards to the evidence notes.
+- Removed the separate "What changed for the bottom line" callout and its unused CSS; the Outcome section now ends with the four impact cards.
 
 - Made the engineering-capacity outcome concrete by adding the approximate one-hour baseline, the few-click workflow, and device feedback as the basis for release confidence.
 

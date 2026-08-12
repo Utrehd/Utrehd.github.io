@@ -1,0 +1,88 @@
+@startuml
+!pragma layout smetana
+top to bottom direction
+
+skinparam dpi 180
+skinparam backgroundColor #0D151D
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+skinparam defaultFontColor #E9EEF3
+skinparam ArrowFontName Arial
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #C7D0D9
+skinparam ArrowThickness 2
+skinparam packageStyle rectangle
+skinparam PackageBackgroundColor #101820
+skinparam PackageBorderColor #FFA500
+skinparam PackageFontColor #FFA500
+skinparam PackageFontStyle bold
+skinparam NodeBackgroundColor #17212C
+skinparam NodeBorderColor #4A5968
+skinparam NodeFontColor #F4F4F4
+skinparam NodeFontStyle bold
+skinparam ComponentBackgroundColor #17212C
+skinparam ComponentBorderColor #42A5D5
+skinparam ComponentFontColor #F4F4F4
+skinparam DatabaseBackgroundColor #153022
+skinparam DatabaseBorderColor #63DC78
+skinparam DatabaseFontColor #F4F4F4
+skinparam RectangleBackgroundColor #252D36
+skinparam RectangleBorderColor #7F8B98
+skinparam RectangleFontColor #E9EEF3
+skinparam LegendBackgroundColor #101820
+skinparam LegendBorderColor #35424F
+skinparam LegendFontColor #C7D0D9
+
+title <color:#FFA500><size:24><b>AUTOMATION RELEASE CONTROL</b></size></color>\n<color:#F4F4F4><size:18>Software component block diagram</size></color>
+
+rectangle "<b>EXTERNAL QUALITY PROCESS</b>\nValidates and approves the PLC software\nbefore it becomes releasable\nNot managed by Automation Release Control" as EXTERNAL #252D36
+
+package "AUTOMATION RELEASE CONTROL SYSTEM BOUNDARY\nGAMP 5 lifecycle and qualification apply to this system" as ARC {
+    node "OPERATOR WORKSTATION" as WORKSTATION {
+        component "<b>Angular frontend</b>\nMVVM\nView | ViewModel | Model" as UI #102B3D
+    }
+
+    node "APPLICATION SERVER" as SERVER {
+        component "<b>C# / ASP.NET</b>\nRelease API + orchestration\nState ingestion" as API #102B3D
+    }
+
+    node "GIT HOST" as HOST {
+        database "<b>Remote Git repository</b>\nReleasable PLC software + libraries\nSelected commit = target version\nPrevious commit = rollback point" as HOST_GIT #153022
+    }
+
+    node "CLIENT COMPUTER" as CLIENT {
+        database "<b>Git client repository</b>\nFetch + checkout selected commit\nWorking copy = deployed version" as CLIENT_GIT #153022
+        component "<b>Deployment service</b>\nApplies the selected application\nand software libraries" as DEPLOY #153022
+
+        CLIENT_GIT -[hidden]right-> DEPLOY
+    }
+}
+
+node "PLC / MACHINE" as MACHINE {
+    component "<b>PLC application</b>\n+ software libraries" as PLC_RUNTIME #2A2414
+    component "<b>Machine + runtime status</b>\nRunning version\nOperating state" as PLC_STATUS #2A2414
+
+    PLC_RUNTIME -[hidden]right-> PLC_STATUS
+}
+
+EXTERNAL -[#7F8B98,dashed,thickness=2]down-> HOST_GIT : releasable Git version\nvalidation remains external
+
+UI -[#42A5D5,thickness=2]down-> API : HTTPS\nrelease command + target
+API -[#42A5D5,thickness=2]down-> HOST_GIT : select target commit
+HOST_GIT -[#63DC78,thickness=3]down-> CLIENT_GIT : Git over SSH\nfetch + checkout
+CLIENT_GIT -[#63DC78,thickness=2]right-> DEPLOY : checked-out working copy
+DEPLOY -[#63DC78,thickness=3]down-> PLC_RUNTIME : deploy selected version
+
+PLC_STATUS -[#FFA500,thickness=3]up-> API : OPC UA or MQTT\nmachine state + running version
+API -[#FFA500,thickness=2]up-> UI : installed-version comparison\n+ machine status
+
+legend bottom
+  |<#42A5D5>  | Application control |
+  |<#63DC78>  | Git version deployment |
+  |<#FFA500>  | Machine-state feedback |
+  |<#7F8B98>  | External software-validation boundary |
+endlegend
+
+@enduml

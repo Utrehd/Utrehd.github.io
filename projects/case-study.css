@@ -338,8 +338,7 @@
     background: #f3f6f8;
 }
 
-.paper-callout span,
-.evidence-note span {
+.paper-callout span {
     color: #117499;
     font-size: 0.66rem;
     font-weight: 800;
@@ -385,8 +384,7 @@
 .problem-grid p,
 .solution-components p,
 .involvement-list p,
-.outcome-grid p,
-.evidence-note p {
+.outcome-grid p {
     margin: 7px 0 0 !important;
     font-size: 0.84rem;
     line-height: 1.65;
@@ -715,20 +713,6 @@
     text-transform: uppercase;
 }
 
-.evidence-note {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    margin-top: 18px;
-    border: 1px solid #d9e1e7;
-    background: #d9e1e7;
-}
-
-.evidence-note > div {
-    padding: 20px;
-    background: #f5f7f9;
-}
-
 .paper-footer {
     display: flex;
     align-items: center;
@@ -859,8 +843,7 @@
 .problem-grid p,
 .solution-components p,
 .involvement-list p,
-.outcome-grid p,
-.evidence-note p {
+.outcome-grid p {
     color: var(--case-body) !important;
 }
 
@@ -919,8 +902,7 @@
     background: rgba(255, 165, 0, 0.07);
 }
 
-.paper-callout span,
-.evidence-note span {
+.paper-callout span {
     color: var(--case-orange-soft);
 }
 
@@ -930,8 +912,7 @@
 
 .problem-grid article,
 .solution-components article,
-.involvement-list article,
-.evidence-note > div {
+.involvement-list article {
     border-color: var(--case-border);
     background: var(--case-surface);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
@@ -995,8 +976,7 @@
     border-top-color: rgba(255, 165, 0, 0.7);
 }
 
-.involvement-list,
-.evidence-note {
+.involvement-list {
     border-color: var(--case-border);
     background: var(--case-border-subtle);
 }
@@ -1099,8 +1079,7 @@
     .problem-grid,
     .solution-components,
     .involvement-list,
-    .outcome-grid,
-    .evidence-note {
+    .outcome-grid {
         grid-template-columns: 1fr;
     }
 

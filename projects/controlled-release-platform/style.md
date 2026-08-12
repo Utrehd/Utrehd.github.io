@@ -108,6 +108,8 @@ The local PULSE lineup treatment provides the typography baseline: Outfit, upper
 
 ### 2026-08-12
 
+- Removed the Evidence Boundary and Selected Artefacts note block and deleted the unused `.evidence-note` styles. The Outcome section now ends with its four impact cards.
+
 - Removed the separate "What changed for the bottom line" callout and its unused CSS; the Outcome section now moves directly from the four impact cards to the evidence notes.
 
 - Made the engineering-capacity outcome concrete by adding the approximate one-hour baseline, the few-click workflow, and device feedback as the basis for release confidence.

@@ -1,4 +1,4 @@
-# Samuel Marti — portfolio draft
+# Samuel A. Marti — portfolio
 
 A static, responsive portfolio designed for GitHub Pages. The featured Automation Release Control case study covers a system used to control and automate updates across 150+ PLCs.
 

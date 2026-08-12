@@ -25,6 +25,7 @@ The restrained scale reduces line wrapping, improves card fit, and preserves a c
 
 ## Editorial Voice
 
+- Use `Samuel A. Marti` as the public name in visible copy, metadata, accessibility labels, and page titles.
 - Use SAM writing style: direct, structured, evidence-led, and explicit about cause and effect.
 - The homepage uses professional mode: state the contribution, show owned work, and connect implementation to operational value.
 - Project pages use technical mode: problem, requirements, decision, implementation, validation, limitation, and result.
@@ -36,6 +37,7 @@ The restrained scale reduces line wrapping, improves card fit, and preserves a c
 
 ### 2026-08-12
 
+- Standardized the public name as `Samuel A. Marti` across the site and repository description.
 - Rewrote the homepage and case-study copy in SAM writing style while preserving factual claims and evidence boundaries.
 - Replaced the `SM` header monogram with a header-specific portrait on the homepage and case-study page.
 - Reduced every semantic heading level across the homepage and case-study page for more balanced wrapping and fit.

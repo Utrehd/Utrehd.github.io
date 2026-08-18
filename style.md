@@ -32,8 +32,8 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ## Portrait Usage
 
-- Keep the homepage identity and introduction text-only. Do not render a profile image in the homepage header or hero.
-- Use `assets/samuel-marti-header.webp` only in the case-study page headers.
+- Use `assets/samuel-marti-header.webp` as the small circular identity mark in the homepage and case-study headers.
+- Keep the homepage hero text-only. Do not render a large profile portrait in the introduction.
 - The header image uses a tight face-and-upper-shoulders crop and remains decorative because the adjacent name identifies Samuel.
 - Preserve `assets/samuel-marti.png` as the non-rendered source portrait.
 
@@ -50,6 +50,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Restored the small circular identity portrait in the homepage header while keeping the hero text-only.
 - Simplified the homepage with solid surfaces, plain section labels, lighter project cards, text-based skill groups, larger small text, and more compact mobile evidence grids.
 - Removed profile imagery from the homepage header and hero, then collapsed the introduction into a single-column layout.
 - Repositioned the first screen around full-stack software for connected industrial products.

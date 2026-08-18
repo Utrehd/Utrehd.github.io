@@ -41,27 +41,12 @@ body {
     margin: 0;
     min-width: 320px;
     overflow-x: hidden;
-    background:
-        radial-gradient(circle at 86% 8%, rgba(33, 83, 112, 0.13), transparent 28rem),
-        linear-gradient(180deg, #0d141b 0, var(--bg) 32rem, var(--bg-deep) 100%);
+    background: var(--bg);
     color: var(--body);
     font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.68;
     -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-    background-size: 48px 48px;
-    content: "";
-    pointer-events: none;
-    mask-image: linear-gradient(to bottom, black, transparent 68%);
 }
 
 img,
@@ -263,8 +248,8 @@ button {
 
 .menu-button {
     display: none;
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
     padding: 0;
     border: 1px solid var(--line);
     border-radius: 9px;
@@ -274,8 +259,8 @@ button {
 
 .nav-toggle {
     display: none;
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
     padding: 0;
     border: 1px solid var(--line);
     border-radius: 9px;
@@ -328,19 +313,8 @@ main {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--line);
-    border-radius: 20px;
-    background: rgba(16, 24, 32, 0.95);
-    box-shadow: var(--shadow);
-}
-
-.home-paper::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--orange), var(--orange-soft) 32%, transparent 76%);
-    content: "";
+    border-radius: 14px;
+    background: var(--paper);
 }
 
 .portfolio-title-block {
@@ -393,17 +367,15 @@ main {
 .paper-active-head {
     display: inline-flex;
     align-items: center;
-    min-height: 30px;
-    padding: 6px 14px 6px 11px;
-    border-left: 3px solid var(--orange);
-    background: linear-gradient(90deg, rgba(255, 163, 26, 0.13), rgba(255, 163, 26, 0.015));
+    min-height: 0;
+    padding: 0;
 }
 
 .paper-active-label {
     margin: 0;
     color: var(--orange-soft);
     font-family: var(--font-display);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     line-height: 1.2;
@@ -418,7 +390,7 @@ main {
     font-size: clamp(2.15rem, 4.4vw, 3.35rem);
     font-weight: 650;
     letter-spacing: 0.01em;
-    line-height: 1.01;
+    line-height: 1.06;
     text-wrap: balance;
 }
 
@@ -523,10 +495,8 @@ main {
 /* Paper sections */
 
 .home-section {
-    display: grid;
-    grid-template-columns: 68px minmax(0, 1fr);
-    gap: 28px;
-    padding: clamp(64px, 8vw, 96px) 42px;
+    display: block;
+    padding: clamp(56px, 7vw, 82px) 42px;
     border-top: 1px solid var(--line);
 }
 
@@ -544,11 +514,12 @@ main {
 }
 
 .section-heading {
-    display: grid;
-    grid-template-columns: minmax(190px, 0.65fr) minmax(320px, 1.35fr);
-    gap: 40px;
-    align-items: start;
-    margin-bottom: 38px;
+    display: block;
+    margin-bottom: 34px;
+}
+
+.section-heading .paper-active-head {
+    margin-bottom: 14px;
 }
 
 .section-heading p {
@@ -564,59 +535,44 @@ main {
 .skill-groups {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    gap: 0 34px;
 }
 
 .skill-group {
-    position: relative;
     min-width: 0;
-    padding: 24px;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: linear-gradient(145deg, rgba(19, 30, 39, 0.96), rgba(13, 21, 28, 0.96));
-}
-
-.skill-group::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 76px;
-    height: 2px;
-    background: var(--orange);
-    content: "";
+    padding: 24px 0 26px;
+    border-top: 1px solid var(--line);
 }
 
 .skill-group header {
     display: flex;
     align-items: center;
-    gap: 13px;
-    margin-bottom: 19px;
-}
-
-.skill-group header span {
-    display: grid;
-    width: 30px;
-    height: 30px;
-    flex: 0 0 30px;
-    place-items: center;
-    border: 1px solid rgba(255, 163, 26, 0.32);
-    border-radius: 50%;
-    background: rgba(255, 163, 26, 0.07);
-    color: var(--orange-soft);
-    font-family: var(--font-display);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    margin-bottom: 12px;
 }
 
 .skill-group h3 {
     margin: 0;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: 1.07rem;
+    font-size: 1.12rem;
     font-weight: 600;
     letter-spacing: 0.025em;
+}
+
+.skill-group > p {
+    margin: 0;
+}
+
+.skill-stack {
+    margin-top: 12px !important;
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.65;
+}
+
+.skill-stack strong {
+    color: var(--text);
+    font-weight: 600;
 }
 
 .skill-tags,
@@ -940,7 +896,7 @@ main {
 /* Evidence-first project showcase */
 
 .work-section {
-    background: linear-gradient(160deg, rgba(255, 163, 26, 0.035), transparent 42%);
+    background: transparent;
 }
 
 .project-showcase {
@@ -955,9 +911,8 @@ main {
     overflow: hidden;
     flex-direction: column;
     border: 1px solid var(--line);
-    border-radius: 14px;
-    background: linear-gradient(145deg, rgba(19, 30, 39, 0.98), rgba(11, 18, 24, 0.98));
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: var(--paper-soft);
 }
 
 .showcase-media {
@@ -1006,7 +961,7 @@ main {
     margin-bottom: 15px;
     color: var(--quiet);
     font-family: var(--font-display);
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.09em;
     line-height: 1.45;
@@ -1042,20 +997,19 @@ main {
 .showcase-proof {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
     margin: 23px 0 0;
-    padding: 1px;
-    border: 1px solid var(--line-soft);
-    border-radius: 9px;
-    overflow: hidden;
-    background: var(--line-soft);
+    padding: 0;
+    border-block: 1px solid var(--line-soft);
     list-style: none;
 }
 
 .showcase-proof li {
     min-width: 0;
     padding: 14px 12px;
-    background: rgba(7, 13, 18, 0.76);
+}
+
+.showcase-proof li + li {
+    border-left: 1px solid var(--line-soft);
 }
 
 .showcase-proof strong,
@@ -1066,14 +1020,15 @@ main {
 .showcase-proof strong {
     color: var(--text);
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.2;
+    overflow-wrap: anywhere;
 }
 
 .showcase-proof span {
     margin-top: 4px;
     color: var(--quiet);
-    font-size: 0.61rem;
+    font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     line-height: 1.35;
@@ -1114,16 +1069,20 @@ main {
 }
 
 .focused-skills .skill-group > p {
-    margin: -4px 0 19px;
+    margin: 0;
     color: var(--muted);
     font-size: 0.84rem;
     line-height: 1.64;
 }
 
+.focused-skills .skill-group > .skill-stack {
+    margin: 12px 0 0 !important;
+}
+
 /* About */
 
 .about-section {
-    background: linear-gradient(145deg, rgba(19, 30, 39, 0.3), transparent 60%);
+    background: transparent;
 }
 
 .about-section .section-heading {
@@ -1163,7 +1122,7 @@ main {
 .contact-panel > span {
     color: var(--orange-soft);
     font-family: var(--font-display);
-    font-size: 0.64rem;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -1236,7 +1195,7 @@ main {
 .footer-inner span,
 .footer-inner small {
     color: var(--quiet);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
 }
 
 .footer-links {
@@ -1322,14 +1281,8 @@ main {
         border-top: 1px solid var(--line-soft);
     }
 
-    .home-section {
-        grid-template-columns: 42px minmax(0, 1fr);
-        gap: 16px;
-    }
-
     .section-heading {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: block;
     }
 
     .skill-groups {
@@ -1495,11 +1448,11 @@ main {
     }
 
     main {
-        padding-block: 18px 48px;
+        padding-block: 12px 40px;
     }
 
     .home-paper {
-        border-radius: 14px;
+        border-radius: 12px;
     }
 
     .portfolio-title-block {
@@ -1511,7 +1464,8 @@ main {
         flex-direction: column;
         gap: 8px;
         padding-bottom: 19px;
-        font-size: 0.6rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
     }
 
     .availability {
@@ -1523,7 +1477,7 @@ main {
     .portfolio-intro-grid {
         grid-template-columns: 1fr;
         gap: 0;
-        padding-block: 42px 36px;
+        padding-block: 34px 32px;
     }
 
     .portfolio-intro h1 {
@@ -1550,13 +1504,7 @@ main {
     }
 
     .portfolio-meta {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-meta div + div,
-    .portfolio-meta div:nth-child(3) {
-        border-top: 1px solid var(--line-soft);
-        border-left: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .portfolio-meta div {
@@ -1565,15 +1513,11 @@ main {
 
     .home-section {
         display: block;
-        padding: 58px 20px;
-    }
-
-    .section-number {
-        margin-bottom: 16px;
+        padding: 46px 20px;
     }
 
     .section-heading {
-        margin-bottom: 28px;
+        margin-bottom: 24px;
     }
 
     .section-heading p {
@@ -1582,7 +1526,7 @@ main {
     }
 
     .skill-group {
-        padding: 21px 18px;
+        padding: 21px 0 23px;
     }
 
     .project-preview img {
@@ -1619,7 +1563,7 @@ main {
     .showcase-media,
     .showcase-media img,
     .showcase-card-wide .showcase-media img {
-        min-height: 168px;
+        min-height: 140px;
     }
 
     .showcase-copy {
@@ -1642,19 +1586,19 @@ main {
     }
 
     .showcase-proof {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .showcase-proof li {
-        display: grid;
-        grid-template-columns: minmax(90px, auto) 1fr;
-        gap: 10px;
-        align-items: baseline;
-        padding: 12px 13px;
+        display: block;
+        padding: 11px 6px;
+        text-align: center;
     }
 
     .showcase-proof span {
-        margin-top: 0;
+        margin-top: 4px;
+        font-size: 0.65rem;
+        overflow-wrap: anywhere;
     }
 
     .project-facts {
@@ -1691,6 +1635,12 @@ main {
     .footer-links {
         flex-wrap: wrap;
         gap: 12px 18px;
+    }
+
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 
     .compact-project-section {

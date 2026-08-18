@@ -4,7 +4,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ## Visual System
 
-- Use the same dark paper surface, fine borders, orange active labels, and restrained hierarchy as the Automation Release Control case study.
+- Use solid dark surfaces, fine borders, orange labels, and a restrained hierarchy. Avoid decorative grids, layered gradients, and heavy shadows.
 - Use orange for active labels, primary actions, and small directional details. Do not use it for long body copy.
 - Keep normal text at a high-contrast gray (`#d4d9dd`) and reserve pure off-white (`#f4f5f3`) for headings and important values.
 - Use real project artefacts as the primary visual material. Decorative diagrams or metrics must support the content, not compete with it.
@@ -12,17 +12,18 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 ## Heading Scale
 
 - Use Outfit for all headings and Inter for body copy.
-- Keep the homepage H1 at `clamp(2.15rem, 4.7vw, 3.15rem)` with open `0.01em` tracking.
+- Keep the homepage H1 at `clamp(2.15rem, 4.4vw, 3.35rem)` with open `0.01em` tracking.
 - Keep the project-card title at `clamp(1.85rem, 3.2vw, 2.35rem)`.
-- Use small uppercase section headings inside orange active-label bars, following the Lineup selector reference.
+- Use small uppercase orange section headings without decorative label bars.
 - On mobile, reduce the homepage H1 to `clamp(2.05rem, 9.6vw, 2.25rem)` and the project title to `1.75rem`.
-- The restrained scale reduces wrapping and keeps the title, portrait, skills, and project artefact in balance.
+- Keep secondary uppercase text at least `0.72rem` on mobile so status lines and project metadata remain readable.
 
 ## Homepage Structure
 
 - Keep the introduction compact. It must state full-stack, edge, and connected-industrial scope before the first scroll.
 - Present measured proof and selected work before the skills inventory.
-- Group the working stack into four evidence-backed areas instead of an exhaustive tag wall.
+- Group the working stack into four evidence-backed text areas instead of a tag wall.
+- Keep the four headline proof points in a two-by-two grid on mobile to reduce page length without hiding evidence.
 - Show only projects with a public case-study page. Do not use placeholder cards or inactive filters.
 - Give each project a substantial editorial card with a real artefact or labelled reconstruction, concrete scope, personal contribution, result, and direct case-study link.
 - Keep the three project families visible: modern full-stack product, connected-machine/edge systems, and controlled regulated delivery.
@@ -49,6 +50,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Simplified the homepage with solid surfaces, plain section labels, lighter project cards, text-based skill groups, larger small text, and more compact mobile evidence grids.
 - Removed profile imagery from the homepage header and hero, then collapsed the introduction into a single-column layout.
 - Repositioned the first screen around full-stack software for connected industrial products.
 - Moved project evidence before skills and expanded the index from a thin strip into three evidence-rich cards.

@@ -29,13 +29,12 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - State evidence boundaries beside the relevant claim. For Automation Release Control, distinguish the GAMP 5 lifecycle of the release system from the separate validation of deployed PLC software.
 - Preserve `#featured-work` on the first project card so project-page back links remain valid.
 
-## Header Portrait
+## Portrait Usage
 
-- Use `assets/samuel-marti-header.webp` in the shared 42px brand mark on every page.
-- The image uses a tight face-and-upper-shoulders crop so Samuel remains recognizable at header-icon size.
-- Keep the orange border and dark fallback surface around the image.
-- Treat the header portrait as decorative because the adjacent name and the parent link's accessible label already identify Samuel.
-- Preserve `assets/samuel-marti.png` as the source portrait and use the optimized `assets/samuel-marti.webp` in the homepage introduction.
+- Keep the homepage identity and introduction text-only. Do not render a profile image in the homepage header or hero.
+- Use `assets/samuel-marti-header.webp` only in the case-study page headers.
+- The header image uses a tight face-and-upper-shoulders crop and remains decorative because the adjacent name identifies Samuel.
+- Preserve `assets/samuel-marti.png` as the non-rendered source portrait.
 
 ## Editorial Voice
 
@@ -50,6 +49,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Removed profile imagery from the homepage header and hero, then collapsed the introduction into a single-column layout.
 - Repositioned the first screen around full-stack software for connected industrial products.
 - Moved project evidence before skills and expanded the index from a thin strip into three evidence-rich cards.
 - Added public PULSE and connected-machine case studies using real product artefacts and clearly labelled reconstructions.

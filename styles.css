@@ -380,10 +380,14 @@ main {
 
 .portfolio-intro-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 248px;
-    gap: clamp(36px, 5vw, 66px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
     align-items: center;
     padding-block: clamp(38px, 5vw, 58px);
+}
+
+.portfolio-intro {
+    max-width: 900px;
 }
 
 .paper-active-head {
@@ -473,72 +477,6 @@ main {
 .button-secondary:hover {
     border-color: #52616d;
     background: rgba(255, 255, 255, 0.05);
-}
-
-.portfolio-portrait {
-    position: relative;
-    margin: 0;
-    overflow: hidden;
-    border: 1px solid #3a4854;
-    border-radius: 14px;
-    background: var(--paper-soft);
-    box-shadow: 18px 18px 0 rgba(5, 9, 13, 0.34);
-}
-
-.portfolio-portrait::before {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(to bottom, transparent 55%, rgba(4, 8, 11, 0.96));
-    content: "";
-    pointer-events: none;
-}
-
-.portfolio-portrait::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 72px;
-    height: 3px;
-    background: var(--orange);
-    content: "";
-}
-
-.portfolio-portrait img {
-    width: 100%;
-    aspect-ratio: 0.86;
-    object-fit: cover;
-    object-position: center 30%;
-    filter: saturate(0.88) contrast(1.02);
-}
-
-.portfolio-portrait figcaption {
-    position: absolute;
-    right: 20px;
-    bottom: 18px;
-    left: 20px;
-    z-index: 3;
-}
-
-.portfolio-portrait figcaption span,
-.portfolio-portrait figcaption small {
-    display: block;
-}
-
-.portfolio-portrait figcaption span {
-    color: var(--text);
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.025em;
-}
-
-.portfolio-portrait figcaption small {
-    margin-top: 3px;
-    color: var(--muted);
-    font-size: 0.68rem;
-    letter-spacing: 0.05em;
 }
 
 .portfolio-meta {
@@ -1367,8 +1305,8 @@ main {
     }
 
     .portfolio-intro-grid {
-        grid-template-columns: minmax(0, 1fr) 250px;
-        gap: 36px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
     }
 
     .portfolio-meta {
@@ -1584,7 +1522,7 @@ main {
 
     .portfolio-intro-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 0;
         padding-block: 42px 36px;
     }
 
@@ -1609,11 +1547,6 @@ main {
     .portfolio-actions .button {
         width: 100%;
         min-width: 0;
-    }
-
-    .portfolio-portrait {
-        width: min(100%, 300px);
-        justify-self: center;
     }
 
     .portfolio-meta {

@@ -288,19 +288,24 @@ button {
 
 .menu-button span {
     display: block;
-    width: 18px;
-    height: 1px;
-    margin: 5px auto;
+    width: 20px;
+    height: 2px;
+    margin: 4px auto;
+    border-radius: 999px;
     background: var(--text);
-    transition: transform 180ms ease;
+    transition: opacity 160ms ease, transform 180ms ease;
 }
 
-.menu-button[aria-expanded="true"] span:first-child {
-    transform: translateY(3px) rotate(45deg);
+.menu-button[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
 }
 
-.menu-button[aria-expanded="true"] span:last-child {
-    transform: translateY(-3px) rotate(-45deg);
+.menu-button[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 /* Paper shell and title */

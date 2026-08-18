@@ -25,7 +25,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Group the working stack into four evidence-backed text areas instead of a tag wall.
 - Keep the four headline proof points in a two-by-two grid on mobile to reduce page length without hiding evidence.
 - Show only projects with a public case-study page. Do not use placeholder cards or inactive filters.
-- Give each project a substantial editorial card with a real artefact or labelled reconstruction, concrete scope, personal contribution, result, and direct case-study link.
+- Keep each homepage project preview to a real artefact, title, concise teaser, and direct case-study link. Put metrics, personal contribution, and technical detail inside the case study.
 - Keep the three project families visible: modern full-stack product, connected-machine/edge systems, and controlled regulated delivery.
 - State evidence boundaries beside the relevant claim. For Automation Release Control, distinguish the GAMP 5 lifecycle of the release system from the separate validation of deployed PLC software.
 - Preserve `#featured-work` on the first project card so project-page back links remain valid.
@@ -50,6 +50,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Reduced homepage project previews to an image, title, concise teaser, and case-study link, then aligned all three cards in one desktop row.
 - Simplified the mobile homepage footer into a compact two-row link layout with one centered copyright line.
 - Replaced the two-line mobile menu mark with a conventional three-line hamburger that becomes an X when open.
 - Restored the small circular identity portrait in the homepage header while keeping the hero text-only.

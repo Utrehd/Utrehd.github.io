@@ -906,7 +906,7 @@ main {
 
 .project-showcase {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
 }
 
@@ -923,25 +923,17 @@ main {
 .showcase-media {
     position: relative;
     display: block;
-    min-height: 210px;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
     background: #081118;
 }
 
-.showcase-media::after {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(5, 10, 14, 0.38), transparent 38%);
-    content: "";
-    pointer-events: none;
-}
-
 .showcase-media img {
     width: 100%;
     height: 100%;
-    min-height: 210px;
-    aspect-ratio: 16 / 9;
+    min-height: 0;
     object-fit: cover;
     object-position: center;
     transition: filter 220ms ease, transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -959,25 +951,6 @@ main {
     padding: 26px;
 }
 
-.showcase-topline {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 15px;
-    color: var(--quiet);
-    font-family: var(--font-display);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.09em;
-    line-height: 1.45;
-    text-transform: uppercase;
-}
-
-.showcase-topline span:last-child {
-    color: var(--orange-soft);
-    text-align: right;
-}
-
 .showcase-copy h3 {
     margin: 0;
     color: var(--text);
@@ -992,85 +965,17 @@ main {
     color: var(--orange-soft);
 }
 
-.showcase-copy > p:not(.personal-proof) {
+.showcase-copy > p {
     margin: 17px 0 0;
     color: var(--body);
     font-size: 0.94rem;
     line-height: 1.72;
 }
 
-.showcase-proof {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: 23px 0 0;
-    padding: 0;
-    border-block: 1px solid var(--line-soft);
-    list-style: none;
-}
-
-.showcase-proof li {
-    min-width: 0;
-    padding: 14px 12px;
-}
-
-.showcase-proof li + li {
-    border-left: 1px solid var(--line-soft);
-}
-
-.showcase-proof strong,
-.showcase-proof span {
-    display: block;
-}
-
-.showcase-proof strong {
-    color: var(--text);
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
-}
-
-.showcase-proof span {
-    margin-top: 4px;
-    color: var(--quiet);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    line-height: 1.35;
-    text-transform: uppercase;
-}
-
-.showcase-copy .personal-proof {
-    margin: 20px 0 22px;
-    padding-left: 13px;
-    border-left: 2px solid rgba(255, 163, 26, 0.7);
-    color: var(--muted);
-    font-size: 0.8rem;
-    line-height: 1.62;
-}
-
-.personal-proof strong {
-    color: var(--text);
-}
-
 .showcase-copy .case-link {
     min-height: 44px;
     margin-top: auto;
-}
-
-.showcase-card-wide {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
-}
-
-.showcase-card-wide .showcase-media {
-    border-right: 1px solid var(--line);
-    border-bottom: 0;
-}
-
-.showcase-card-wide .showcase-media img {
-    min-height: 100%;
+    padding-top: 20px;
 }
 
 .focused-skills .skill-group > p {
@@ -1296,20 +1201,6 @@ main {
 
     .project-showcase {
         grid-template-columns: 1fr;
-    }
-
-    .showcase-card-wide {
-        grid-column: auto;
-        display: flex;
-    }
-
-    .showcase-card-wide .showcase-media {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-    }
-
-    .showcase-card-wide .showcase-media img {
-        min-height: 210px;
     }
 
     .project-index-card {
@@ -1566,8 +1457,7 @@ main {
     }
 
     .showcase-media,
-    .showcase-media img,
-    .showcase-card-wide .showcase-media img {
+    .showcase-media img {
         min-height: 140px;
     }
 
@@ -1575,34 +1465,8 @@ main {
         padding: 21px 18px 23px;
     }
 
-    .showcase-topline {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .showcase-topline span:last-child {
-        text-align: left;
-    }
-
     .showcase-copy h3 {
         font-size: 1.55rem;
-        overflow-wrap: anywhere;
-    }
-
-    .showcase-proof {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .showcase-proof li {
-        display: block;
-        padding: 11px 6px;
-        text-align: center;
-    }
-
-    .showcase-proof span {
-        margin-top: 4px;
-        font-size: 0.65rem;
         overflow-wrap: anywhere;
     }
 

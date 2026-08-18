@@ -1,6 +1,10 @@
 # Samuel A. Marti — portfolio
 
-A static, responsive portfolio designed for GitHub Pages. The featured Automation Release Control case study covers a system used to control and automate updates across 150+ PLCs.
+A static, responsive portfolio designed for GitHub Pages. The site leads with full-stack and connected-industrial product engineering, supported by three public case studies:
+
+- Industrial Edge & Connected Machines
+- PULSE Product Engineering
+- Automation Release Control
 
 Live site: [utrehd.github.io](https://utrehd.github.io/)
 
@@ -28,9 +32,9 @@ gh repo create samuel-marti-portfolio --public --source=. --remote=origin --push
 
 In the repository on GitHub, open **Settings → Pages**, select **Deploy from a branch**, and choose `main` with the `/ (root)` folder. Future pushes to `main` will update the site.
 
-## Edit next
+## Public evidence policy
 
-- Replace or refine the three supporting project summaries.
-- Add a social preview image and `og:image` metadata.
-- Add a custom domain in a `CNAME` file if desired.
-- Confirm the public contact links before publishing.
+- Use real product artefacts or clearly labelled reconstructions.
+- Do not publish confidential employer material, factory identifiers, or private operational data.
+- State personal contribution and product maturity explicitly.
+- Preserve evidence boundaries when a prototype did not reach production.

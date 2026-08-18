@@ -20,12 +20,12 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ## Homepage Structure
 
-- Keep the introduction compact. It establishes Samuel's scope and evidence but does not compete with the work sections.
-- Present skills before projects.
-- Group the complete working skill inventory into six readable areas instead of one undifferentiated tag wall.
+- Keep the introduction compact. It must state full-stack, edge, and connected-industrial scope before the first scroll.
+- Present measured proof and selected work before the skills inventory.
+- Group the working stack into four evidence-backed areas instead of an exhaustive tag wall.
 - Show only projects with a public case-study page. Do not use placeholder cards or inactive filters.
-- Give each project one large editorial card with a real artefact, concrete scope, role, result, technology labels, and a direct case-study link.
-- Keep the entire project index section at or below 140px. Treat it as a compact navigation row with a thumbnail, one-line summary, and case-study link; move all detailed facts and technology labels to the project page.
+- Give each project a substantial editorial card with a real artefact or labelled reconstruction, concrete scope, personal contribution, result, and direct case-study link.
+- Keep the three project families visible: modern full-stack product, connected-machine/edge systems, and controlled regulated delivery.
 - State evidence boundaries beside the relevant claim. For Automation Release Control, distinguish the GAMP 5 lifecycle of the release system from the separate validation of deployed PLC software.
 - Preserve `#featured-work` on the first project card so project-page back links remain valid.
 
@@ -35,7 +35,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - The image uses a tight face-and-upper-shoulders crop so Samuel remains recognizable at header-icon size.
 - Keep the orange border and dark fallback surface around the image.
 - Treat the header portrait as decorative because the adjacent name and the parent link's accessible label already identify Samuel.
-- Preserve `assets/samuel-marti.png` as the original portrait and use it in the homepage introduction.
+- Preserve `assets/samuel-marti.png` as the source portrait and use the optimized `assets/samuel-marti.webp` in the homepage introduction.
 
 ## Editorial Voice
 
@@ -47,6 +47,17 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Preserve uncertainty and evidence boundaries. Do not invent savings, measurements, citations, or experience.
 
 ## Change Log
+
+### 2026-08-18
+
+- Repositioned the first screen around full-stack software for connected industrial products.
+- Moved project evidence before skills and expanded the index from a thin strip into three evidence-rich cards.
+- Added public PULSE and connected-machine case studies using real product artefacts and clearly labelled reconstructions.
+- Reduced the skills inventory from six generic groups to four evidence-backed engineering areas.
+- Added U.S. work authorization, relocation availability, résumé, LinkedIn, GitHub, and full-time contact actions.
+- Added route-specific social metadata and a portfolio social-preview card.
+- Corrected narrow-screen width calculations and hardened long headings, status copy, and actions against overflow.
+- Optimized the homepage portrait and new project images for web delivery.
 
 ### 2026-08-12
 

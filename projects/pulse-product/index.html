@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Samuel A. Marti built and operated PULSE, a live React and TypeScript football-management product with APIs, production operations, measured UX iteration, and agentic software tools.">
+    <meta name="theme-color" content="#0d1218">
+    <meta property="og:title" content="PULSE Product Engineering — Samuel A. Marti">
+    <meta property="og:description" content="A 0-to-1 React and TypeScript product built across UX, APIs, data, production operations, analytics, and agentic software tools.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://utrehd.github.io/projects/pulse-product/">
+    <meta property="og:image" content="https://utrehd.github.io/projects/pulse-product/assets/pulse-product-desktop.webp">
+    <meta property="og:image:alt" content="PULSE football-management product interface">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PULSE Product Engineering — Samuel A. Marti">
+    <meta name="twitter:description" content="A 0-to-1 React and TypeScript product built across UX, APIs, data, production operations, analytics, and agentic software tools.">
+    <meta name="twitter:image" content="https://utrehd.github.io/projects/pulse-product/assets/pulse-product-desktop.webp">
+    <link rel="canonical" href="https://utrehd.github.io/projects/pulse-product/">
+    <title>PULSE Product Engineering — Samuel A. Marti</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../case-study.css">
+    <script src="../../script.js" defer></script>
+</head>
+<body class="case-page">
+    <a class="skip-link" href="#paper">Skip to case study</a>
+    <header class="site-header case-header" data-header>
+        <div class="shell header-inner">
+            <a class="brand" href="../../" aria-label="Samuel A. Marti portfolio home">
+                <span class="brand-mark" aria-hidden="true"><img src="../../assets/samuel-marti-header.webp" alt="" width="42" height="42"></span>
+                <span class="brand-copy"><strong>Samuel A. Marti</strong><span>Selected work</span></span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle><span class="sr-only">Open navigation</span><span></span><span></span></button>
+            <nav class="primary-nav" id="primary-navigation" aria-label="Case study navigation" data-navigation>
+                <a href="#summary">Summary</a><a href="#product">Product</a><a href="#systems">Systems</a><a href="#outcome">Outcome</a><a class="nav-contact" href="../../#work">All work</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="paper">
+        <article class="paper-shell">
+            <header class="paper-title-block">
+                <div class="paper-kicker-row"><a class="paper-back-link" href="../../#work"><span aria-hidden="true">←</span> Selected work</a><span class="paper-index">Case study 02</span></div>
+                <div class="paper-active-head paper-active-head-hero"><span class="paper-active-label">Modern full stack · Live product operations</span></div>
+                <h1>PULSE Product Engineering</h1>
+                <p class="paper-thesis">I built and operated a live cross-platform football-management product across its user experience, data models, APIs, releases, analytics, support tooling, and agentic software systems.</p>
+                <dl class="paper-meta">
+                    <div><dt>Role</dt><dd>Lead Developer · Co-Founder</dd></div>
+                    <div><dt>Context</dt><dd>Live web and mobile product</dd></div>
+                    <div><dt>Period</dt><dd>2024–2026</dd></div>
+                    <div><dt>Status</dt><dd>Operations concluded in 2026</dd></div>
+                </dl>
+                <ul class="paper-skills" aria-label="Skills and technologies used"><li>React</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>REST APIs</li><li>PocketBase</li><li>Docker</li><li>AWS S3</li><li>Linux</li><li>Product analytics</li><li>A/B testing</li><li>Agentic workflows</li></ul>
+            </header>
+
+            <div class="paper-layout">
+                <aside class="paper-toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#summary">Executive Summary</a></li><li><a href="#product">Product + UX</a></li><li><a href="#systems">Systems + Operations</a></li><li><a href="#agents">Agentic Tools</a></li><li><a href="#outcome">Outcome</a></li></ol></aside>
+                <div class="paper-body">
+                    <section class="paper-section executive-summary" id="summary" aria-labelledby="summary-title">
+                        <p class="section-number">01</p>
+                        <div>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="summary-title">Executive Summary</h2></div>
+                            <p class="summary-lede">PULSE was a 0-to-1 product with a persistent football world, responsive management workflows, native-app surfaces, real-time updates, and daily production operation.</p>
+                            <p>I owned the full path from product and schema decisions through frontend and backend implementation, testing, release, monitoring, defect investigation, data recovery, and user support. The production system processed approximately 28,000 user-triggered application events per day.</p>
+                            <div class="summary-proof" aria-label="Executive proof points"><div><strong>28k</strong><span>events per day</span></div><div><strong>+236%</strong><span>first-lineup completion</span></div><div><strong>0→1</strong><span>product ownership</span></div></div>
+                        </div>
+                    </section>
+
+                    <section class="paper-section" id="product" aria-labelledby="product-title">
+                        <p class="section-number">02</p>
+                        <div>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="product-title">Product + Pixel-Level UX</h2></div>
+                            <p>The product covered scheduling, leagues, cups, tactics, player development, reports, transfers, and support tooling. I designed the responsive behavior and iterated individual screens using product instrumentation, funnel analysis, A/B tests, community feedback, and direct observation of user friction.</p>
+                            <div class="product-artifact-grid">
+                                <figure class="dashboard-figure"><a class="dashboard-image-link" href="assets/pulse-lineup-workspace.webp" target="_blank" rel="noopener"><img src="assets/pulse-lineup-workspace.webp" alt="PULSE desktop lineup workspace" loading="lazy" decoding="async"></a><figcaption><span>Desktop workspace</span><p>Persistent club state, lineup decisions, navigation, and operational prompts.</p></figcaption></figure>
+                                <figure class="dashboard-figure product-mobile-figure"><a class="dashboard-image-link" href="assets/pulse-mobile.webp" target="_blank" rel="noopener"><img src="assets/pulse-mobile.webp" alt="PULSE mobile screens showing fixtures and lineup workflows" loading="lazy" decoding="async"></a><figcaption><span>Mobile product</span><p>The same live club across mobile fixtures, results, and lineup decisions.</p></figcaption></figure>
+                            </div>
+                            <aside class="paper-callout"><span>Measured product decision</span><p>Deferring registration until after initial play, replacing the tutorial with milestone guidance, and tuning product pace increased first-time users completing their first lineup by 236%.</p></aside>
+                        </div>
+                    </section>
+
+                    <section class="paper-section solution-section" id="systems" aria-labelledby="systems-title">
+                        <p class="section-number">03</p>
+                        <div>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="systems-title">Systems + Production Operations</h2></div>
+                            <p>I designed the application database, schemas, backend logic, Node.js REST APIs, admin tooling, and PocketBase-backed real-time workflows. Docker-based delivery, Linux operations, DigitalOcean, AWS S3, monitoring, releases, investigation, and recovery stayed part of the engineering responsibility.</p>
+                            <div class="solution-components">
+                                <article><p>Frontend</p><h3>Responsive product</h3><p>Next.js, React, TypeScript, native-app surfaces, and instrumented user workflows.</p></article>
+                                <article><p>Backend</p><h3>State + APIs</h3><p>Data models, Node.js APIs, real-time workflows, scheduling, reporting, transfers, and match systems.</p></article>
+                                <article><p>Operations</p><h3>Own the outcome</h3><p>Daily releases, monitoring, defect investigation, data recovery, and production support.</p></article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="paper-section" id="agents" aria-labelledby="agents-title">
+                        <p class="section-number">04</p>
+                        <div>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="agents-title">Agentic Software Tools</h2></div>
+                            <p>I used agentic workflows across product ideation, specification, coding, validation, and bug triage. I also built an operational creator CRM spanning more than 1,000 profiles and PULSE agents that interacted directly with users.</p>
+                            <div class="problem-grid">
+                                <article><span>01</span><h3>Engineering agents</h3><p>Structured work from idea through specification, implementation, tests, review gates, debugging, and validation.</p></article>
+                                <article><span>02</span><h3>Operational agents</h3><p>Researched creators, prepared multilingual outreach, synchronized email conversations, followed up, and tracked content and attribution.</p></article>
+                                <article><span>03</span><h3>User-facing agents</h3><p>Built production agent surfaces that interacted directly with PULSE users as part of the product experience.</p></article>
+                                <article><span>04</span><h3>Control points</h3><p>Used review gates, approval controls, and human escalation where an exception required judgment.</p></article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="paper-section outcome-section" id="outcome" aria-labelledby="outcome-title">
+                        <p class="section-number">05</p>
+                        <div>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="outcome-title">Outcome + Bottom-Line Impact</h2></div>
+                            <p class="summary-lede">The project demonstrates current, hands-on full-stack engineering: a real product, real users, production constraints, measurable UX decisions, internal automation, and direct responsibility when the system failed.</p>
+                            <div class="outcome-grid">
+                                <article><strong>28,000</strong><span>Production usage</span><p>Approximate user-triggered application events processed per day.</p></article>
+                                <article><strong>+236%</strong><span>Activation</span><p>Increase in first-time users completing their first lineup after onboarding changes.</p></article>
+                                <article><strong>+83% / +114%</strong><span>Agentic outreach</span><p>Tracked-link opens and reply rate compared with the prior manual CRM workflow.</p></article>
+                                <article><strong>$30 → $1.50</strong><span>Cost per outreach</span><p>A 95% reduction compared with the previous manual CRM and outreach process.</p></article>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <footer class="paper-footer"><div><div class="paper-active-head"><span class="paper-active-label">Next step</span></div><h2>Discuss the product architecture, UX decisions, production workflow, or agentic systems.</h2></div><div class="paper-footer-actions"><a class="button button-primary" href="mailto:samuel.a@marti.to">Email Samuel <span aria-hidden="true">→</span></a><a class="button button-secondary" href="../../#work">Return to all work</a></div></footer>
+        </article>
+    </main>
+    <footer class="site-footer case-site-footer"><div class="shell footer-inner"><p>© <span data-year></span> Samuel A. Marti</p><p>PULSE Product Engineering · Technical case study</p><a href="#paper">Back to top ↑</a></div></footer>
+</body>
+</html>

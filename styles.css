@@ -392,7 +392,7 @@ main {
     margin: 25px 0 20px;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: clamp(2.15rem, 4.4vw, 3.35rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 650;
     letter-spacing: 0.01em;
     line-height: 1.06;
@@ -403,8 +403,8 @@ main {
     max-width: 720px;
     margin: 0;
     color: var(--body);
-    font-size: clamp(1.02rem, 1.5vw, 1.13rem);
-    line-height: 1.78;
+    font-size: clamp(1rem, 1.35vw, 1.08rem);
+    line-height: 1.72;
 }
 
 .portfolio-actions {
@@ -531,8 +531,8 @@ main {
     max-width: 690px;
     margin: 0;
     color: var(--body);
-    font-size: 1.02rem;
-    line-height: 1.76;
+    font-size: 0.98rem;
+    line-height: 1.7;
 }
 
 /* Skills */
@@ -559,7 +559,7 @@ main {
     margin: 0;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     font-weight: 600;
     letter-spacing: 0.025em;
 }
@@ -955,10 +955,10 @@ main {
     margin: 0;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 2.3vw, 2rem);
+    font-size: clamp(1.25rem, 1.7vw, 1.5rem);
     font-weight: 600;
     letter-spacing: 0.01em;
-    line-height: 1.1;
+    line-height: 1.16;
 }
 
 .showcase-copy h3 a:hover {
@@ -968,8 +968,8 @@ main {
 .showcase-copy > p {
     margin: 17px 0 0;
     color: var(--body);
-    font-size: 0.94rem;
-    line-height: 1.72;
+    font-size: 0.9rem;
+    line-height: 1.65;
 }
 
 .showcase-copy .case-link {
@@ -1014,8 +1014,8 @@ main {
 .about-grid p {
     margin: 0;
     color: var(--body);
-    font-size: 1.01rem;
-    line-height: 1.82;
+    font-size: 0.96rem;
+    line-height: 1.75;
 }
 
 .about-grid .button {
@@ -1042,9 +1042,9 @@ main {
     margin: 11px 0 0;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: 1.45rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    line-height: 1.18;
+    line-height: 1.25;
 }
 
 .contact-actions,
@@ -1378,15 +1378,15 @@ main {
 
     .portfolio-intro h1 {
         margin-block: 20px 17px;
-        font-size: clamp(2.05rem, 9.6vw, 2.25rem);
+        font-size: clamp(1.9rem, 8.3vw, 2.05rem);
         letter-spacing: 0.01em;
         overflow-wrap: anywhere;
         text-wrap: pretty;
     }
 
     .portfolio-thesis {
-        font-size: 0.98rem;
-        line-height: 1.72;
+        font-size: 0.95rem;
+        line-height: 1.68;
     }
 
     .portfolio-actions {
@@ -1417,8 +1417,8 @@ main {
     }
 
     .section-heading p {
-        font-size: 0.96rem;
-        line-height: 1.7;
+        font-size: 0.93rem;
+        line-height: 1.65;
     }
 
     .skill-group {
@@ -1466,7 +1466,7 @@ main {
     }
 
     .showcase-copy h3 {
-        font-size: 1.55rem;
+        font-size: 1.35rem;
         overflow-wrap: anywhere;
     }
 

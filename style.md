@@ -12,10 +12,10 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 ## Heading Scale
 
 - Use Outfit for all headings and Inter for body copy.
-- Keep the homepage H1 at `clamp(2.15rem, 4.4vw, 3.35rem)` with open `0.01em` tracking.
-- Keep the project-card title at `clamp(1.85rem, 3.2vw, 2.35rem)`.
+- Keep the homepage H1 at `clamp(2rem, 4vw, 3rem)` with open `0.01em` tracking.
+- Keep the compact project-card title at `clamp(1.25rem, 1.7vw, 1.5rem)`.
 - Use small uppercase orange section headings without decorative label bars.
-- On mobile, reduce the homepage H1 to `clamp(2.05rem, 9.6vw, 2.25rem)` and the project title to `1.75rem`.
+- On mobile, reduce the homepage H1 to `clamp(1.9rem, 8.3vw, 2.05rem)` and the project title to `1.35rem`.
 - Keep secondary uppercase text at least `0.72rem` on mobile so status lines and project metadata remain readable.
 
 ## Homepage Structure
@@ -50,6 +50,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Reduced the homepage headline, project titles, section copy, and about text to match the shorter preview cards while preserving readable mobile body sizes.
 - Reduced homepage project previews to an image, title, concise teaser, and case-study link, then aligned all three cards in one desktop row.
 - Simplified the mobile homepage footer into a compact two-row link layout with one centered copyright line.
 - Replaced the two-line mobile menu mark with a conventional three-line hamburger that becomes an X when open.

@@ -50,6 +50,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Simplified the mobile homepage footer into a compact two-row link layout with one centered copyright line.
 - Replaced the two-line mobile menu mark with a conventional three-line hamburger that becomes an X when open.
 - Restored the small circular identity portrait in the homepage header while keeping the hero text-only.
 - Simplified the homepage with solid surfaces, plain section labels, lighter project cards, text-based skill groups, larger small text, and more compact mobile evidence grids.

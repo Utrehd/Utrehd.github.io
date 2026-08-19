@@ -1378,6 +1378,30 @@ main {
     filter: none;
 }
 
+@keyframes typewriter-caret-blink {
+    0%,
+    48% {
+        opacity: 1;
+    }
+
+    49%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.js .typewriter-block.is-typewriter-intro-active::after {
+    display: inline-block;
+    width: 0.08em;
+    min-width: 1px;
+    height: 0.9em;
+    margin-left: 0.12em;
+    vertical-align: -0.08em;
+    content: "";
+    background: currentColor;
+    animation: typewriter-caret-blink 720ms steps(1, end) infinite;
+}
+
 .js .reveal {
     opacity: 0;
     transform: translateY(16px);

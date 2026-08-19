@@ -103,8 +103,95 @@ function wrapTypewriterCharacters(element) {
     return { element, characters, revealedCharacterCount: 0, revealProgress: 0, isComplete: false };
 }
 
+function revealTypewriterState(state, progress) {
+    if (state.isComplete) return;
+
+    state.revealProgress = Math.max(state.revealProgress, Math.min(Math.max(progress, 0), 1));
+
+    const nextCharacterCount = Math.ceil(state.characters.length * state.revealProgress);
+    for (let index = state.revealedCharacterCount; index < nextCharacterCount; index += 1) {
+        state.characters[index].classList.add("is-typed");
+    }
+
+    state.revealedCharacterCount = nextCharacterCount;
+    state.element.style.setProperty("--typewriter-blur", `${(1 - state.revealProgress) * 6}px`);
+
+    if (state.revealedCharacterCount < state.characters.length) return;
+
+    state.isComplete = true;
+    state.element.classList.add("is-typewriter-complete");
+    state.element.style.removeProperty("--typewriter-blur");
+}
+
+function getIntroTypewriterDuration(element, characterCount) {
+    if (element.matches("h1")) {
+        return Math.min(Math.max(characterCount * 24, 520), 860);
+    }
+
+    if (element.matches(".portfolio-thesis, .paper-thesis")) {
+        return Math.min(Math.max(characterCount * 7, 820), 1400);
+    }
+
+    return Math.min(Math.max(characterCount * 14, 380), 680);
+}
+
+function animateIntroTypewriter(states) {
+    if (!states.length) return;
+
+    const isTopOfPage = window.scrollY < 80;
+    const isTopDestination = !window.location.hash || ["#top", "#paper"].includes(window.location.hash);
+
+    if (!isTopOfPage || !isTopDestination) {
+        states.forEach((state) => revealTypewriterState(state, 1));
+        return;
+    }
+
+    let currentStateIndex = 0;
+
+    function startNextState() {
+        const state = states[currentStateIndex];
+        if (!state) return;
+
+        const duration = getIntroTypewriterDuration(state.element, state.characters.length);
+        const startedAt = performance.now();
+        state.element.classList.add("is-typewriter-intro-active");
+
+        function updateIntroState(currentTime) {
+            const progress = (currentTime - startedAt) / duration;
+            revealTypewriterState(state, progress);
+
+            if (!state.isComplete) {
+                window.requestAnimationFrame(updateIntroState);
+                return;
+            }
+
+            state.element.classList.remove("is-typewriter-intro-active");
+            currentStateIndex += 1;
+            window.setTimeout(startNextState, 110);
+        }
+
+        window.requestAnimationFrame(updateIntroState);
+    }
+
+    window.setTimeout(startNextState, 160);
+}
+
 function initializeTypewriterScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const introSelector = [
+        ".portfolio-intro .paper-active-label",
+        ".portfolio-intro .portfolio-thesis",
+        ".case-page .paper-title-block .paper-active-label",
+        ".case-page .paper-title-block h1",
+        ".case-page .paper-title-block .paper-thesis",
+    ].join(",");
+
+    const introElements = [...document.querySelectorAll(introSelector)];
+    const introElementSet = new Set(introElements);
+    const introStates = introElements
+        .map(wrapTypewriterCharacters)
+        .filter(Boolean);
 
     const targetSelector = [
         ".home-section .paper-active-label",
@@ -149,12 +236,14 @@ function initializeTypewriterScroll() {
     ].join(",");
 
     const targetElements = [...document.querySelectorAll(targetSelector)]
+        .filter((element) => !introElementSet.has(element))
         .filter((element) => !element.parentElement?.closest(targetSelector));
 
     const states = targetElements
         .map(wrapTypewriterCharacters)
         .filter(Boolean);
 
+    animateIntroTypewriter(introStates);
     if (!states.length) return;
 
     let animationFrame = 0;
@@ -171,22 +260,8 @@ function initializeTypewriterScroll() {
             const bounds = state.element.getBoundingClientRect();
             if (bounds.top > revealStart) return;
 
-            const currentProgress = Math.min(Math.max((revealStart - bounds.top) / revealDistance, 0), 1);
-            state.revealProgress = Math.max(state.revealProgress, currentProgress);
-
-            const nextCharacterCount = Math.ceil(state.characters.length * state.revealProgress);
-            for (let index = state.revealedCharacterCount; index < nextCharacterCount; index += 1) {
-                state.characters[index].classList.add("is-typed");
-            }
-
-            state.revealedCharacterCount = nextCharacterCount;
-            state.element.style.setProperty("--typewriter-blur", `${(1 - state.revealProgress) * 6}px`);
-
-            if (state.revealedCharacterCount < state.characters.length) return;
-
-            state.isComplete = true;
-            state.element.classList.add("is-typewriter-complete");
-            state.element.style.removeProperty("--typewriter-blur");
+            const currentProgress = (revealStart - bounds.top) / revealDistance;
+            revealTypewriterState(state, currentProgress);
         });
     }
 

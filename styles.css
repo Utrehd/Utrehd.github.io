@@ -1152,31 +1152,11 @@ main {
     line-height: 1.25;
 }
 
-.contact-actions,
-.contact-links {
+.contact-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-}
-
-.contact-actions {
     margin-top: 22px;
-}
-
-.contact-links {
-    gap: 18px;
-    margin-top: 18px;
-}
-
-.contact-links a {
-    color: var(--muted);
-    font-family: var(--font-display);
-    font-size: 0.76rem;
-    font-weight: 600;
-}
-
-.contact-links a:hover {
-    color: var(--orange-soft);
 }
 
 /* Footer */

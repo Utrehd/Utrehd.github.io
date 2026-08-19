@@ -71,7 +71,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Moved project evidence before skills and expanded the index from a thin strip into three evidence-rich cards.
 - Added public PULSE and connected-machine case studies using real product artefacts and clearly labelled reconstructions.
 - Reduced the skills inventory from six generic groups to four evidence-backed engineering areas.
-- Added U.S. work authorization, relocation availability, résumé, LinkedIn, GitHub, and full-time contact actions.
+- Added U.S. work authorization, relocation availability, LinkedIn, and personal email contact actions.
 - Added route-specific social metadata and a portfolio social-preview card.
 - Corrected narrow-screen width calculations and hardened long headings, status copy, and actions against overflow.
 - Optimized the homepage portrait and new project images for web delivery.

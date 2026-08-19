@@ -1347,8 +1347,14 @@ main {
         padding-block: 12px 40px;
     }
 
+    body:not(.case-page) main {
+        padding-block: 0;
+    }
+
     .home-paper {
-        border-radius: 12px;
+        width: 100%;
+        border: 0;
+        border-radius: 0;
     }
 
     .portfolio-title-block {

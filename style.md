@@ -24,6 +24,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Present measured proof and selected work before the skills inventory.
 - Group the working stack into four evidence-backed text areas instead of a tag wall.
 - Keep the four headline proof points in a two-by-two grid on mobile to reduce page length without hiding evidence.
+- On mobile, make the homepage surface full-width without an outer border or rounded frame. Preserve internal section and project-card borders.
 - Show only projects with a public case-study page. Do not use placeholder cards or inactive filters.
 - Keep each homepage project preview to a real artefact, title, concise teaser, and direct case-study link. Put metrics, personal contribution, and technical detail inside the case study.
 - Keep the three project families visible: modern full-stack product, connected-machine/edge systems, and controlled regulated delivery.
@@ -50,6 +51,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Removed the homepage outer frame and page margin on mobile while preserving the desktop paper treatment and internal separators.
 - Reduced the homepage headline, project titles, section copy, and about text to match the shorter preview cards while preserving readable mobile body sizes.
 - Reduced homepage project previews to an image, title, concise teaser, and case-study link, then aligned all three cards in one desktop row.
 - Simplified the mobile homepage footer into a compact two-row link layout with one centered copyright line.

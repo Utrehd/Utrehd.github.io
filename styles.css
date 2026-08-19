@@ -1327,7 +1327,7 @@ main {
 
 /* Motion */
 
-.js body:not(.case-page)::after {
+.js body::after {
     position: fixed;
     z-index: 40;
     right: 0;
@@ -1886,7 +1886,7 @@ main {
         transform: none;
     }
 
-    .js body:not(.case-page)::after {
+    .js body::after {
         display: none;
     }
 

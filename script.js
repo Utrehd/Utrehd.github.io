@@ -52,8 +52,6 @@ function updateCurrentSection() {
 }
 
 function updatePageEndState() {
-    if (!document.querySelector(".home-paper")) return;
-
     const remainingScroll = document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
     document.body.classList.toggle("is-at-page-end", remainingScroll < 24);
 }
@@ -106,7 +104,6 @@ function wrapTypewriterCharacters(element) {
 }
 
 function initializeTypewriterScroll() {
-    if (!document.querySelector(".home-paper")) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const targetSelector = [
@@ -131,9 +128,30 @@ function initializeTypewriterScroll() {
         ".site-footer:not(.case-site-footer) .footer-inner > div:first-child > span",
         ".site-footer:not(.case-site-footer) .footer-links a",
         ".site-footer:not(.case-site-footer) small",
+        ".case-page main h1",
+        ".case-page main h2",
+        ".case-page main h3",
+        ".case-page main p",
+        ".case-page main dt",
+        ".case-page main dd",
+        ".case-page main li",
+        ".case-page main strong",
+        ".case-page main .paper-back-link",
+        ".case-page main .paper-index",
+        ".case-page main .paper-active-label",
+        ".case-page main article > span",
+        ".case-page main figcaption > span",
+        ".case-page main .paper-callout > span",
+        ".case-page main .architecture-source-link",
+        ".case-page main .button",
+        ".case-page .case-site-footer p",
+        ".case-page .case-site-footer a",
     ].join(",");
 
-    const states = [...document.querySelectorAll(targetSelector)]
+    const targetElements = [...document.querySelectorAll(targetSelector)]
+        .filter((element) => !element.parentElement?.closest(targetSelector));
+
+    const states = targetElements
         .map(wrapTypewriterCharacters)
         .filter(Boolean);
 

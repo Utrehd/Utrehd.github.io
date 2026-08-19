@@ -21,6 +21,7 @@
     --h1-letter-spacing: 0.01em;
     --font-display: "Outfit", system-ui, sans-serif;
     --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
     --shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
     --radius: 16px;
     --header-height: 72px;
@@ -385,6 +386,12 @@ main {
     letter-spacing: 0.14em;
     line-height: 1.2;
     text-transform: uppercase;
+}
+
+.portfolio-intro .paper-active-label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.08em;
 }
 
 .portfolio-intro h1 {

@@ -1359,6 +1359,11 @@ main {
     display: inline !important;
     margin: 0 !important;
     padding: 0 !important;
+    color: inherit !important;
+    font: inherit !important;
+    letter-spacing: inherit !important;
+    line-height: inherit !important;
+    text-transform: inherit !important;
     transform: none !important;
 }
 
@@ -1366,6 +1371,11 @@ main {
     display: inline-block !important;
     margin: 0 !important;
     padding: 0 !important;
+    color: inherit !important;
+    font: inherit !important;
+    letter-spacing: inherit !important;
+    line-height: inherit !important;
+    text-transform: inherit !important;
     white-space: nowrap;
     transform: none !important;
 }
@@ -1374,7 +1384,12 @@ main {
     display: inline !important;
     margin: 0 !important;
     padding: 0 !important;
+    color: inherit !important;
+    font: inherit !important;
+    letter-spacing: inherit !important;
+    line-height: inherit !important;
     opacity: 0.05;
+    text-transform: inherit !important;
     transform: none !important;
     transition: opacity 70ms linear;
 }

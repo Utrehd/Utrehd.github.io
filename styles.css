@@ -700,7 +700,7 @@ main {
 }
 
 .influences-section .section-heading p a {
-    color: var(--text);
+    color: var(--orange-soft);
     text-decoration: underline;
     text-decoration-color: rgba(255, 194, 99, 0.38);
     text-underline-offset: 3px;

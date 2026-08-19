@@ -398,7 +398,19 @@ main {
 }
 
 .portfolio-intro .paper-active-head {
-    margin-bottom: clamp(14px, 2vw, 18px);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+    margin-top: clamp(18px, 2.5vw, 24px);
+}
+
+.portfolio-intro .paper-active-head::after {
+    min-width: 24px;
+    height: 1px;
+    flex: 1;
+    content: "";
+    background: linear-gradient(90deg, rgba(255, 163, 26, 0.62), rgba(255, 163, 26, 0));
 }
 
 .portfolio-thesis {
@@ -1441,6 +1453,10 @@ main {
 
 .js .reveal.reveal-delay {
     transition-delay: 80ms;
+}
+
+.js #featured-work.reveal {
+    transition-delay: 160ms;
 }
 
 .js .reveal.is-visible {

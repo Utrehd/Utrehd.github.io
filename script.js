@@ -7,6 +7,7 @@ const navigationLinks = [...document.querySelectorAll("#primary-navigation a[hre
 const sections = navigationLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let requestTypewriterUpdate = () => {};
 
 function updateHeaderState() {
@@ -56,6 +57,14 @@ function updateCurrentSection() {
 function updatePageEndState() {
     const remainingScroll = document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
     document.body.classList.toggle("is-at-page-end", remainingScroll < 24);
+}
+
+function updateReadingProgress() {
+    if (!document.body.classList.contains("case-page")) return;
+
+    const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
+    const readingProgress = scrollableDistance > 0 ? window.scrollY / scrollableDistance : 0;
+    document.documentElement.style.setProperty("--reading-progress", String(Math.min(Math.max(readingProgress, 0), 1)));
 }
 
 function wrapTypewriterCharacters(element) {
@@ -302,6 +311,119 @@ function initializeRevealAnimation() {
     revealItems.forEach((item) => observer.observe(item));
 }
 
+function revealElementsOnEntry(elements, visibleClass, observerOptions) {
+    if (!elements.length) return;
+
+    if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) {
+        elements.forEach((element) => element.classList.add(visibleClass));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add(visibleClass);
+            observer.unobserve(entry.target);
+        });
+    }, observerOptions);
+
+    elements.forEach((element) => observer.observe(element));
+}
+
+function initializePremiumMotion() {
+    const lineElements = [...document.querySelectorAll(".paper-active-head")];
+    lineElements.forEach((element) => element.classList.add("line-reveal"));
+    revealElementsOnEntry(lineElements, "is-line-visible", { rootMargin: "0px 0px -8%", threshold: 0.35 });
+
+    const mediaElements = [...document.querySelectorAll([
+        ".showcase-media",
+        ".project-preview",
+        ".dashboard-image-link",
+        ".architecture-image-link",
+    ].join(","))];
+    mediaElements.forEach((element) => element.classList.add("media-reveal"));
+    revealElementsOnEntry(mediaElements, "is-media-visible", { rootMargin: "0px 0px -6%", threshold: 0.12 });
+
+    const metricElements = [...document.querySelectorAll([
+        ".summary-proof strong",
+        ".outcome-grid strong",
+        ".project-facts dd",
+    ].join(","))];
+    metricElements.forEach((element) => element.classList.add("metric-emphasis"));
+    revealElementsOnEntry(metricElements, "is-metric-visible", { rootMargin: "0px 0px -7%", threshold: 0.45 });
+}
+
+function initializeImageLightbox() {
+    const imageLinks = [...document.querySelectorAll(".case-page .dashboard-image-link, .case-page .architecture-image-link")];
+    if (!imageLinks.length || typeof HTMLDialogElement === "undefined") return;
+
+    const dialog = document.createElement("dialog");
+    dialog.className = "image-lightbox";
+    dialog.setAttribute("aria-label", "Project image viewer");
+    dialog.innerHTML = [
+        '<div class="image-lightbox-frame">',
+        '<button class="image-lightbox-close" type="button" aria-label="Close image viewer">Close</button>',
+        '<img class="image-lightbox-image" alt="">',
+        '<p class="image-lightbox-caption"></p>',
+        "</div>",
+    ].join("");
+    document.body.append(dialog);
+
+    const closeButton = dialog.querySelector(".image-lightbox-close");
+    const lightboxImage = dialog.querySelector(".image-lightbox-image");
+    const lightboxCaption = dialog.querySelector(".image-lightbox-caption");
+    let triggerElement = null;
+    let closeTimer = 0;
+
+    function closeLightbox() {
+        if (!dialog.open) return;
+
+        dialog.classList.remove("is-open");
+        document.body.classList.remove("lightbox-open");
+        window.clearTimeout(closeTimer);
+
+        const closeDelay = reducedMotionQuery.matches ? 0 : 180;
+        closeTimer = window.setTimeout(() => {
+            dialog.close();
+            triggerElement?.focus();
+        }, closeDelay);
+    }
+
+    imageLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+            const sourceImage = link.querySelector("img");
+            if (!sourceImage) return;
+
+            event.preventDefault();
+            triggerElement = link;
+            lightboxImage.src = link.href;
+            lightboxImage.alt = sourceImage.alt;
+
+            const figure = link.closest("figure");
+            const figureCaption = figure?.querySelector("figcaption")?.textContent?.trim();
+            lightboxCaption.textContent = figureCaption || sourceImage.alt;
+            lightboxCaption.hidden = !lightboxCaption.textContent;
+
+            document.body.classList.add("lightbox-open");
+            dialog.showModal();
+            window.requestAnimationFrame(() => dialog.classList.add("is-open"));
+            closeButton.focus();
+        });
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+    dialog.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeLightbox();
+    });
+    dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) closeLightbox();
+    });
+}
+
 menuButton?.addEventListener("click", toggleNavigation);
 navigationLinks.forEach((link) => link.addEventListener("click", closeNavigation));
 
@@ -319,6 +441,7 @@ window.addEventListener("resize", () => {
     const desktopBreakpoint = document.body.classList.contains("case-page") ? 820 : 720;
     if (window.innerWidth > desktopBreakpoint) closeNavigation();
     updatePageEndState();
+    updateReadingProgress();
     requestTypewriterUpdate();
 });
 
@@ -326,6 +449,7 @@ window.addEventListener("scroll", () => {
     updateHeaderState();
     updateCurrentSection();
     updatePageEndState();
+    updateReadingProgress();
     requestTypewriterUpdate();
 }, { passive: true });
 
@@ -336,5 +460,8 @@ document.querySelectorAll("[data-year]").forEach((item) => {
 updateHeaderState();
 updateCurrentSection();
 updatePageEndState();
+updateReadingProgress();
 initializeRevealAnimation();
 initializeTypewriterScroll();
+initializePremiumMotion();
+initializeImageLightbox();

@@ -1011,11 +1011,11 @@ main {
     letter-spacing: 0.035em;
 }
 
-.case-link span {
+.case-link > span[aria-hidden="true"] {
     transition: transform 160ms ease;
 }
 
-.case-link:hover span {
+.case-link:hover > span[aria-hidden="true"] {
     transform: translate(3px, -3px);
 }
 
@@ -1916,9 +1916,395 @@ main {
         font-size: 0.68rem;
     }
 
-    .compact-project-card .case-link span {
+    .compact-project-card .case-link > span[aria-hidden="true"] {
         font-size: 0.68rem;
     }
+}
+
+/* Premium interaction system */
+
+@view-transition {
+    navigation: auto;
+}
+
+@keyframes premium-page-in {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes premium-page-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+::view-transition-old(root) {
+    animation: premium-page-out 140ms ease both;
+}
+
+::view-transition-new(root) {
+    animation: premium-page-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes ambient-depth-drift {
+    0%,
+    100% {
+        transform: translate3d(-2%, -1%, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(3%, 2%, 0) scale(1.05);
+    }
+}
+
+.home-paper::before,
+.paper-shell::before {
+    position: absolute;
+    z-index: 0;
+    inset: -18%;
+    pointer-events: none;
+    content: "";
+    opacity: 0.22;
+    background:
+        radial-gradient(circle at 16% 24%, rgba(255, 163, 26, 0.2), transparent 28%),
+        radial-gradient(circle at 84% 68%, rgba(79, 195, 237, 0.16), transparent 30%);
+    animation: ambient-depth-drift 28s ease-in-out infinite;
+    will-change: transform;
+}
+
+.home-paper > *,
+.paper-shell > * {
+    position: relative;
+    z-index: 1;
+}
+
+.paper-shell {
+    position: relative;
+}
+
+.site-header,
+.brand-mark,
+.brand-copy,
+.menu-button {
+    transition:
+        height 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        width 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        flex-basis 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 180ms ease,
+        background 180ms ease;
+}
+
+@media (min-width: 821px) {
+    .site-header.is-scrolled {
+        height: 64px;
+    }
+
+    .site-header.is-scrolled .brand-mark {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+}
+
+.case-header::after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 2px;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(90deg, var(--orange), var(--orange-soft));
+    transform: scaleX(var(--reading-progress, 0));
+    transform-origin: left center;
+    transition: transform 80ms linear;
+}
+
+.showcase-card,
+.project-index-card,
+.compact-project-card {
+    transition:
+        transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 180ms ease,
+        box-shadow 220ms ease,
+        background 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .showcase-card:hover,
+    .showcase-card:focus-within,
+    .project-index-card:hover,
+    .project-index-card:focus-within,
+    .compact-project-card:hover,
+    .compact-project-card:focus-within {
+        border-color: rgba(255, 163, 26, 0.48);
+        background: #111c25;
+        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+        transform: translateY(-4px);
+    }
+
+    .showcase-card:hover .showcase-media img,
+    .project-index-card:hover .project-preview img,
+    .compact-project-card:hover .project-preview img {
+        filter: brightness(1.07);
+        transform: scale(1.025);
+    }
+}
+
+.showcase-card:active,
+.project-index-card:active,
+.compact-project-card:active {
+    transform: scale(0.992);
+}
+
+.home-section .section-heading .paper-active-head {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+}
+
+.home-section .section-heading .paper-active-head::after {
+    min-width: 24px;
+    height: 1px;
+    flex: 1;
+    content: "";
+    background: linear-gradient(90deg, rgba(255, 163, 26, 0.62), rgba(255, 163, 26, 0));
+}
+
+.js .line-reveal::after {
+    opacity: 0.18;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: opacity 360ms ease, transform 620ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.js .line-reveal.is-line-visible::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.story-details,
+.principle-accordion,
+.sources-details,
+.skill-accordion {
+    interpolate-size: allow-keywords;
+}
+
+.story-details::details-content,
+.principle-accordion::details-content,
+.sources-details::details-content,
+.skill-accordion::details-content {
+    block-size: 0;
+    overflow: clip;
+    opacity: 0;
+    transition:
+        block-size 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        content-visibility 300ms allow-discrete,
+        opacity 180ms ease;
+}
+
+.story-details[open]::details-content,
+.principle-accordion[open]::details-content,
+.sources-details[open]::details-content,
+.skill-accordion[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+}
+
+.story-details summary::after,
+.principle-accordion summary::after,
+.sources-details summary::after,
+.skill-accordion summary::after {
+    content: "↓";
+    transform: rotate(0deg);
+    transform-origin: center;
+    transition: color 160ms ease, transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.story-details[open] summary::after,
+.principle-accordion[open] summary::after,
+.sources-details[open] summary::after,
+.skill-accordion[open] summary::after {
+    content: "↓";
+    transform: rotate(-180deg);
+}
+
+.js .media-reveal {
+    opacity: 0.5;
+    clip-path: inset(0 0 14% 0 round 6px);
+    transition:
+        clip-path 720ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 420ms ease,
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.js .media-reveal.is-media-visible {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 0);
+}
+
+.dashboard-image-link img,
+.architecture-image-link img {
+    transition: filter 220ms ease, transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .dashboard-image-link:hover img,
+    .architecture-image-link:hover img {
+        filter: brightness(1.04);
+        transform: scale(1.018);
+    }
+}
+
+.js .metric-emphasis {
+    opacity: 0.42;
+    transform: translateY(8px);
+    transition: opacity 360ms ease, color 360ms ease, text-shadow 360ms ease, transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.js .metric-emphasis.is-metric-visible {
+    opacity: 1;
+    text-shadow: 0 0 22px rgba(255, 163, 26, 0.1);
+    transform: none;
+}
+
+.paper-section p a:not(.button),
+.story-long a,
+.sources-details p a,
+.showcase-copy h3 a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: left calc(100% - 1px);
+    background-size: 0 1px;
+    transition: color 160ms ease, background-size 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.paper-section p a:not(.button):hover,
+.paper-section p a:not(.button):focus-visible,
+.story-long a:hover,
+.story-long a:focus-visible,
+.sources-details p a:hover,
+.sources-details p a:focus-visible,
+.showcase-copy h3 a:hover,
+.showcase-copy h3 a:focus-visible {
+    background-size: 100% 1px;
+}
+
+.button,
+.case-link {
+    transition:
+        color 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease,
+        box-shadow 180ms ease,
+        transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.button > span[aria-hidden="true"],
+.case-link > span[aria-hidden="true"] {
+    transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.button:hover > span[aria-hidden="true"] {
+    transform: translateX(4px);
+}
+
+.button:active,
+.case-link:active {
+    transform: scale(0.985);
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+.image-lightbox {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--text);
+    background: rgba(6, 10, 14, 0.9);
+    opacity: 0;
+    transition: opacity 180ms ease;
+}
+
+.image-lightbox::backdrop {
+    background: rgba(4, 7, 10, 0.82);
+    backdrop-filter: blur(18px);
+}
+
+.image-lightbox.is-open {
+    opacity: 1;
+}
+
+.image-lightbox-frame {
+    display: grid;
+    width: 100%;
+    min-height: 100%;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    align-items: center;
+    justify-items: center;
+    gap: 16px;
+    padding: clamp(18px, 4vw, 42px);
+}
+
+.image-lightbox-close {
+    min-height: 44px;
+    justify-self: end;
+    padding: 9px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--text);
+    background: rgba(16, 24, 32, 0.86);
+    cursor: pointer;
+    font: 600 0.78rem/1 var(--font-display);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.image-lightbox-image {
+    display: block;
+    max-width: min(94vw, 1500px);
+    max-height: min(78dvh, 1000px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    object-fit: contain;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+    transform: scale(0.985);
+    transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.image-lightbox.is-open .image-lightbox-image {
+    transform: none;
+}
+
+.image-lightbox-caption {
+    max-width: 820px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    text-align: center;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1950,5 +2336,27 @@ main {
 
     .js .typewriter-character {
         opacity: 1;
+    }
+
+    .home-paper::before,
+    .paper-shell::before {
+        animation: none;
+    }
+
+    .js .media-reveal,
+    .js .metric-emphasis {
+        opacity: 1;
+        clip-path: none;
+        transform: none;
+    }
+
+    .js .line-reveal::after {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
     }
 }

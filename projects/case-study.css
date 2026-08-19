@@ -10,6 +10,7 @@
     --case-orange: var(--orange);
     --case-orange-soft: var(--orange-soft);
     min-height: 100vh;
+    padding-top: var(--header-height);
     color: var(--case-body);
     background: var(--bg);
 }
@@ -19,6 +20,10 @@
 }
 
 .case-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     border-bottom-color: var(--case-line);
     background: rgba(8, 13, 18, 0.9);
 }

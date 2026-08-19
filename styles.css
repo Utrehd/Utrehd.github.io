@@ -431,8 +431,12 @@ main {
     font-size: clamp(1rem, 1.35vw, 1.08rem);
     letter-spacing: 0.01em;
     line-height: 1.72;
-    text-align: center;
+    text-align: left;
     text-wrap: pretty;
+}
+
+.portfolio-thesis + .portfolio-thesis {
+    margin-top: clamp(12px, 1.5vw, 16px);
 }
 
 .portfolio-intro .portfolio-kicker-row {

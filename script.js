@@ -146,7 +146,7 @@ function getIntroTypewriterDuration(element, characterCount) {
     return Math.min(Math.max(characterCount * 14, 380), 680);
 }
 
-function animateIntroTypewriter(states, onComplete) {
+function animateIntroTypewriter(states, onComplete, onStateStart = () => {}, onStateComplete = () => {}) {
     if (!states.length) {
         onComplete();
         return;
@@ -181,6 +181,7 @@ function animateIntroTypewriter(states, onComplete) {
         const duration = getIntroTypewriterDuration(state.element, state.characters.length);
         const startedAt = performance.now();
         state.element.classList.add("is-typewriter-intro-active");
+        onStateStart(currentStateIndex, state);
 
         function updateIntroState(currentTime) {
             const progress = (currentTime - startedAt) / duration;
@@ -192,6 +193,7 @@ function animateIntroTypewriter(states, onComplete) {
             }
 
             state.element.classList.remove("is-typewriter-intro-active");
+            onStateComplete(currentStateIndex, state);
             currentStateIndex += 1;
             window.setTimeout(startNextState, 110);
         }
@@ -199,11 +201,15 @@ function animateIntroTypewriter(states, onComplete) {
         window.requestAnimationFrame(updateIntroState);
     }
 
-    window.setTimeout(startNextState, 160);
+    window.setTimeout(startNextState, 260);
 }
 
 function initializeTypewriterScroll() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        window.clearTimeout(window.__portfolioIntroFallback);
+        document.documentElement.classList.remove("intro-sequence-staging", "intro-sequence-active", "intro-typing-started", "intro-brand-visible", "intro-evidence-visible", "intro-navigation-visible");
+        return;
+    }
 
     const introSelector = [
         ".portfolio-intro .paper-active-label",
@@ -280,12 +286,37 @@ function initializeTypewriterScroll() {
 
     function completeIntroSequence() {
         isIntroSequenceComplete = true;
-        document.documentElement.classList.remove("intro-sequence-active");
+        window.clearTimeout(window.__portfolioIntroFallback);
+
+        if (shouldSequenceIntro) {
+            document.documentElement.classList.add("intro-evidence-visible");
+            document.documentElement.classList.remove("intro-sequence-active");
+            window.setTimeout(() => document.documentElement.classList.add("intro-navigation-visible"), 420);
+            window.setTimeout(() => {
+                document.documentElement.classList.remove("intro-sequence-staging", "intro-typing-started", "intro-brand-visible", "intro-evidence-visible", "intro-navigation-visible");
+            }, 1050);
+        } else {
+            document.documentElement.classList.remove("intro-sequence-staging", "intro-sequence-active", "intro-typing-started", "intro-brand-visible", "intro-evidence-visible", "intro-navigation-visible");
+        }
+
         requestTypewriterUpdate();
     }
 
+    function startIntroState(stateIndex) {
+        if (!shouldSequenceIntro) return;
+
+        document.documentElement.classList.add("intro-typing-started");
+        if (stateIndex > 0) document.documentElement.classList.add("intro-brand-visible");
+    }
+
+    function completeIntroState(stateIndex) {
+        if (!shouldSequenceIntro || stateIndex !== 0) return;
+
+        document.documentElement.classList.add("intro-brand-visible");
+    }
+
     if (!states.length) {
-        animateIntroTypewriter(introStates, completeIntroSequence);
+        animateIntroTypewriter(introStates, completeIntroSequence, startIntroState, completeIntroState);
         return;
     }
 
@@ -319,7 +350,7 @@ function initializeTypewriterScroll() {
         detailsElement.addEventListener("toggle", requestTypewriterUpdate);
     });
 
-    animateIntroTypewriter(introStates, completeIntroSequence);
+    animateIntroTypewriter(introStates, completeIntroSequence, startIntroState, completeIntroState);
 }
 
 function initializeRevealAnimation() {

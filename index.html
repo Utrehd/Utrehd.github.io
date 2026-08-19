@@ -21,9 +21,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="styles.css?v=20260819-9">
-    <script src="script.js?v=20260819-7" defer></script>
+    <script>
+        document.documentElement.classList.add('js');
+        if (!window.location.hash || window.location.hash === '#top') {
+            document.documentElement.classList.add('intro-sequence-staging', 'intro-sequence-active');
+            window.__portfolioIntroFallback = window.setTimeout(function () {
+                document.documentElement.classList.remove('intro-sequence-staging', 'intro-sequence-active', 'intro-typing-started', 'intro-brand-visible', 'intro-evidence-visible', 'intro-navigation-visible');
+                document.querySelectorAll('.typewriter-character').forEach(function (character) { character.classList.add('is-typed'); });
+                document.querySelectorAll('.typewriter-block').forEach(function (block) { block.classList.add('is-typewriter-complete'); });
+            }, 6000);
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css?v=20260819-10">
+    <script src="script.js?v=20260819-10" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -43,13 +53,13 @@
     <main id="main-content">
         <article class="home-paper shell">
             <header class="portfolio-title-block" id="top">
-                <div class="portfolio-kicker-row reveal is-visible">
-                    <span class="availability"><i aria-hidden="true"></i> U.S. work authorized · Princeton, NJ · Open to relocation and on site work</span>
-                </div>
                 <div class="portfolio-intro-grid">
                     <div class="portfolio-intro reveal is-visible">
-                        <p class="portfolio-thesis">Software engineer with more than 10 years across full stack products, agentic systems, industrial edge, and regulated delivery. I build React and TypeScript applications, APIs, and machine integrations, and own delivery from product discovery through production support.</p>
                         <div class="paper-active-head"><span class="paper-active-label">Full stack · agentic systems · industrial edge</span></div>
+                        <p class="portfolio-thesis">Software engineer with more than 10 years across full stack products, agentic systems, industrial edge, and regulated delivery. I build React and TypeScript applications, APIs, and machine integrations, and own delivery from product discovery through production support.</p>
+                        <div class="portfolio-kicker-row reveal is-visible">
+                            <span class="availability"><i aria-hidden="true"></i> U.S. work authorized · Princeton, NJ · Open to relocation and on site work</span>
+                        </div>
                     </div>
                 </div>
             </header>

@@ -21,6 +21,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 ## Homepage Structure
 
 - Keep the introduction compact. It must state full-stack, edge, and connected-industrial scope before the first scroll.
+- Place a short career progression directly after the introduction. Keep the longer evidence-led story inside a native `details` disclosure so it remains optional and keyboard accessible.
 - Present measured proof and selected work before the skills inventory.
 - Group the working stack into four evidence-backed text areas instead of a tag wall.
 - Keep the four headline proof points in a two-by-two grid on mobile to reduce page length without hiding evidence.
@@ -51,6 +52,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-08-18
 
+- Added a compact `My path` section before selected work, with a concise career progression and an optional long-form story in a native disclosure.
 - Removed the homepage outer frame and page margin on mobile while preserving the desktop paper treatment and internal separators.
 - Reduced the homepage headline, project titles, section copy, and about text to match the shorter preview cards while preserving readable mobile body sizes.
 - Reduced homepage project previews to an image, title, concise teaser, and case-study link, then aligned all three cards in one desktop row.

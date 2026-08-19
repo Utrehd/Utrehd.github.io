@@ -686,13 +686,22 @@ main {
     line-height: 1.72;
 }
 
-.influences-section .philosophy-principle h3 a {
+.influences-section .section-heading {
+    margin-bottom: 0;
+}
+
+.influences-section .section-heading p {
+    max-width: 900px;
+}
+
+.influences-section .section-heading p a {
+    color: var(--text);
     text-decoration: underline;
     text-decoration-color: rgba(255, 194, 99, 0.38);
     text-underline-offset: 3px;
 }
 
-.influences-section .philosophy-principle h3 a:hover {
+.influences-section .section-heading p a:hover {
     color: var(--orange-soft);
     text-decoration-color: currentColor;
 }

@@ -351,11 +351,13 @@ main {
 }
 
 .availability i {
-    width: 7px;
-    height: 7px;
+    display: block;
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 0 4px rgba(99, 217, 133, 0.1);
+    box-shadow: none;
 }
 
 .portfolio-intro-grid {

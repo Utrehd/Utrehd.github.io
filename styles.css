@@ -662,6 +662,11 @@ main {
     border-left: 1px solid var(--line);
 }
 
+.philosophy-section .philosophy-principle:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    padding-right: 0;
+}
+
 .philosophy-principle > span {
     color: var(--orange-soft);
     font-family: var(--font-mono);

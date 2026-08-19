@@ -77,7 +77,7 @@
 .paper-eyebrow {
     margin: 0;
     color: #168cb9;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.13em;
@@ -96,7 +96,7 @@
     z-index: 1;
     max-width: 900px;
     margin: 12px 0 0;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(2.65rem, 5vw, 4.6rem);
     font-weight: 700;
     letter-spacing: var(--h1-letter-spacing);
@@ -144,7 +144,7 @@
 .paper-meta dd {
     margin: 8px 0 0;
     color: #f4f4f4;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 1.02rem;
     font-weight: 500;
     line-height: 1.5;
@@ -223,7 +223,7 @@
 .paper-toc a::before {
     content: counter(toc, decimal-leading-zero);
     color: #168cb9;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.6rem;
     font-weight: 800;
 }
@@ -259,7 +259,7 @@
     border-radius: 12px;
     color: #168cb9;
     background: #eef7fa;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.65rem;
     font-weight: 800;
 }
@@ -268,7 +268,7 @@
     max-width: 780px;
     margin: 8px 0 0;
     color: #111b25;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(1.8rem, 3.35vw, 2.9rem);
     font-weight: 700;
     letter-spacing: -0.04em;
@@ -318,7 +318,7 @@
 
 .summary-proof strong {
     color: #111b25;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 1.6rem;
     line-height: 1.1;
 }
@@ -368,7 +368,7 @@
 
 .problem-grid article > span {
     color: #168cb9;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.65rem;
     font-weight: 800;
 }
@@ -377,7 +377,7 @@
 .solution-components h3 {
     margin: 8px 0 0;
     color: #17232e;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 1rem;
 }
 
@@ -509,7 +509,7 @@
 
 .architecture-figure figcaption strong {
     color: #15222d;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 1rem;
 }
 
@@ -603,7 +603,7 @@
 
 .involvement-list span {
     color: #117499;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.83rem;
     font-weight: 800;
 }
@@ -652,7 +652,7 @@
     display: block;
     margin-bottom: 5px;
     color: #168cb9;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 0.58rem;
     font-weight: 800;
 }
@@ -677,7 +677,7 @@
 
 .outcome-grid strong {
     color: #101a24;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: 1.35rem;
     line-height: 1.15;
 }
@@ -704,7 +704,7 @@
 .paper-footer h2 {
     max-width: 620px;
     margin: 7px 0 0;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(1.45rem, 2.4vw, 2.1rem);
     line-height: 1.08;
 }

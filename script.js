@@ -146,7 +146,7 @@ function getIntroTypewriterDuration(element, characterCount) {
     return Math.min(Math.max(characterCount * 14, 380), 680);
 }
 
-function animateIntroTypewriter(states, onComplete, onStateStart = () => {}, onStateComplete = () => {}) {
+function animateIntroTypewriter(states, onComplete, initialDelay = 260) {
     if (!states.length) {
         onComplete();
         return;
@@ -181,7 +181,6 @@ function animateIntroTypewriter(states, onComplete, onStateStart = () => {}, onS
         const duration = getIntroTypewriterDuration(state.element, state.characters.length);
         const startedAt = performance.now();
         state.element.classList.add("is-typewriter-intro-active");
-        onStateStart(currentStateIndex, state);
 
         function updateIntroState(currentTime) {
             const progress = (currentTime - startedAt) / duration;
@@ -193,7 +192,6 @@ function animateIntroTypewriter(states, onComplete, onStateStart = () => {}, onS
             }
 
             state.element.classList.remove("is-typewriter-intro-active");
-            onStateComplete(currentStateIndex, state);
             currentStateIndex += 1;
             window.setTimeout(startNextState, 110);
         }
@@ -201,7 +199,37 @@ function animateIntroTypewriter(states, onComplete, onStateStart = () => {}, onS
         window.requestAnimationFrame(updateIntroState);
     }
 
-    window.setTimeout(startNextState, 260);
+    window.setTimeout(startNextState, initialDelay);
+}
+
+function revealIntroCapability() {
+    document.querySelectorAll(".intro-capability-phrase").forEach((phrase) => {
+        phrase.classList.add("is-visible");
+    });
+}
+
+function animateIntroCapability(onComplete) {
+    const phrases = [...document.querySelectorAll(".intro-capability-phrase")];
+    if (!phrases.length) {
+        onComplete();
+        return;
+    }
+
+    const blankDuration = 520;
+    const phraseStagger = 170;
+    const flightDuration = 480;
+    const completedHeadingPause = 620;
+
+    window.setTimeout(() => {
+        document.documentElement.classList.add("intro-typing-started");
+
+        phrases.forEach((phrase, phraseIndex) => {
+            window.setTimeout(() => phrase.classList.add("is-visible"), phraseIndex * phraseStagger);
+        });
+
+        const finalPhraseDelay = (phrases.length - 1) * phraseStagger;
+        window.setTimeout(onComplete, finalPhraseDelay + flightDuration + completedHeadingPause);
+    }, blankDuration);
 }
 
 function initializeTypewriterScroll() {
@@ -212,7 +240,6 @@ function initializeTypewriterScroll() {
     }
 
     const introSelector = [
-        ".portfolio-intro .paper-active-label",
         ".portfolio-intro .portfolio-thesis",
         ".case-page .paper-title-block .paper-active-label",
         ".case-page .paper-title-block h1",
@@ -277,7 +304,8 @@ function initializeTypewriterScroll() {
 
     const isTopOfPage = window.scrollY < 80;
     const isTopDestination = !window.location.hash || ["#top", "#paper"].includes(window.location.hash);
-    const shouldSequenceIntro = introStates.length > 0 && isTopOfPage && isTopDestination;
+    const hasIntroCapability = document.querySelector(".intro-capability-phrase") !== null;
+    const shouldSequenceIntro = hasIntroCapability && introStates.length > 0 && isTopOfPage && isTopDestination;
     let isIntroSequenceComplete = false;
 
     if (shouldSequenceIntro) {
@@ -302,21 +330,23 @@ function initializeTypewriterScroll() {
         requestTypewriterUpdate();
     }
 
-    function startIntroState(stateIndex) {
-        if (!shouldSequenceIntro) return;
-
-        document.documentElement.classList.add("intro-typing-started");
-        if (stateIndex > 0) document.documentElement.classList.add("intro-brand-visible");
+    function startIntroText() {
+        document.documentElement.classList.add("intro-brand-visible");
+        animateIntroTypewriter(introStates, completeIntroSequence, 160);
     }
 
-    function completeIntroState(stateIndex) {
-        if (!shouldSequenceIntro || stateIndex !== 0) return;
+    function startIntroSequence() {
+        if (!shouldSequenceIntro) {
+            revealIntroCapability();
+            animateIntroTypewriter(introStates, completeIntroSequence);
+            return;
+        }
 
-        document.documentElement.classList.add("intro-brand-visible");
+        animateIntroCapability(startIntroText);
     }
 
     if (!states.length) {
-        animateIntroTypewriter(introStates, completeIntroSequence, startIntroState, completeIntroState);
+        startIntroSequence();
         return;
     }
 
@@ -350,7 +380,7 @@ function initializeTypewriterScroll() {
         detailsElement.addEventListener("toggle", requestTypewriterUpdate);
     });
 
-    animateIntroTypewriter(introStates, completeIntroSequence, startIntroState, completeIntroState);
+    startIntroSequence();
 }
 
 function initializeRevealAnimation() {

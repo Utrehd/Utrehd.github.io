@@ -1070,6 +1070,10 @@ main {
     transition: filter 220ms ease, transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.showcase-media .pulse-showcase-image {
+    object-position: center 78%;
+}
+
 .showcase-media:hover img {
     filter: brightness(1.06);
     transform: scale(1.015);

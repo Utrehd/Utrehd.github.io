@@ -1447,6 +1447,12 @@ main {
     transform: translateY(0);
 }
 
+.js.intro-sequence-active .home-section .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: none;
+}
+
 @media (max-width: 900px) {
     .shell {
         width: min(calc(100% - 32px), 760px);

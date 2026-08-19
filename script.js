@@ -146,22 +146,37 @@ function getIntroTypewriterDuration(element, characterCount) {
     return Math.min(Math.max(characterCount * 14, 380), 680);
 }
 
-function animateIntroTypewriter(states) {
-    if (!states.length) return;
+function animateIntroTypewriter(states, onComplete) {
+    if (!states.length) {
+        onComplete();
+        return;
+    }
 
     const isTopOfPage = window.scrollY < 80;
     const isTopDestination = !window.location.hash || ["#top", "#paper"].includes(window.location.hash);
 
     if (!isTopOfPage || !isTopDestination) {
         states.forEach((state) => revealTypewriterState(state, 1));
+        onComplete();
         return;
     }
 
     let currentStateIndex = 0;
+    let isComplete = false;
+
+    function completeIntroSequence() {
+        if (isComplete) return;
+
+        isComplete = true;
+        onComplete();
+    }
 
     function startNextState() {
         const state = states[currentStateIndex];
-        if (!state) return;
+        if (!state) {
+            completeIntroSequence();
+            return;
+        }
 
         const duration = getIntroTypewriterDuration(state.element, state.characters.length);
         const startedAt = performance.now();
@@ -254,13 +269,32 @@ function initializeTypewriterScroll() {
         .map(wrapTypewriterCharacters)
         .filter(Boolean);
 
-    animateIntroTypewriter(introStates);
-    if (!states.length) return;
+    const isTopOfPage = window.scrollY < 80;
+    const isTopDestination = !window.location.hash || ["#top", "#paper"].includes(window.location.hash);
+    const shouldSequenceIntro = introStates.length > 0 && isTopOfPage && isTopDestination;
+    let isIntroSequenceComplete = false;
+
+    if (shouldSequenceIntro) {
+        document.documentElement.classList.add("intro-sequence-active");
+    }
+
+    function completeIntroSequence() {
+        isIntroSequenceComplete = true;
+        document.documentElement.classList.remove("intro-sequence-active");
+        requestTypewriterUpdate();
+    }
+
+    if (!states.length) {
+        animateIntroTypewriter(introStates, completeIntroSequence);
+        return;
+    }
 
     let animationFrame = 0;
 
     function updateTypewriterProgress() {
         animationFrame = 0;
+        if (!isIntroSequenceComplete) return;
+
         const revealStart = window.innerHeight * 0.98;
         const revealEnd = window.innerHeight * 0.7;
         const revealDistance = Math.max(revealStart - revealEnd, 1);
@@ -285,7 +319,7 @@ function initializeTypewriterScroll() {
         detailsElement.addEventListener("toggle", requestTypewriterUpdate);
     });
 
-    requestTypewriterUpdate();
+    animateIntroTypewriter(introStates, completeIntroSequence);
 }
 
 function initializeRevealAnimation() {

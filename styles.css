@@ -425,11 +425,14 @@ main {
 }
 
 .portfolio-thesis {
-    max-width: 720px;
-    margin: 0;
+    max-width: 680px;
+    margin: 0 auto;
     color: var(--body);
     font-size: clamp(1rem, 1.35vw, 1.08rem);
+    letter-spacing: 0.01em;
     line-height: 1.72;
+    text-align: center;
+    text-wrap: pretty;
 }
 
 .portfolio-intro .portfolio-kicker-row {
@@ -1387,6 +1390,10 @@ main {
     transition: filter 90ms linear;
 }
 
+.js .portfolio-thesis.typewriter-block {
+    filter: none;
+}
+
 .js .typewriter-fragment {
     display: inline !important;
     margin: 0 !important;
@@ -1436,6 +1443,24 @@ main {
     opacity: 1;
 }
 
+.js .portfolio-thesis .typewriter-character {
+    position: relative;
+    opacity: 0;
+    filter: blur(0);
+    transition: opacity 70ms linear, filter 90ms linear;
+}
+
+.js .portfolio-thesis .typewriter-character.is-typewriter-preview {
+    opacity: 0.34;
+    filter: blur(2.4px);
+}
+
+.js .portfolio-thesis .typewriter-character.is-typed,
+.js .portfolio-thesis.typewriter-block.is-typewriter-complete .typewriter-character {
+    opacity: 1;
+    filter: none;
+}
+
 .js .typewriter-block.is-typewriter-complete {
     filter: none;
 }
@@ -1461,6 +1486,21 @@ main {
     vertical-align: -0.08em;
     content: "";
     background: currentColor;
+    animation: typewriter-caret-blink 720ms steps(1, end) infinite;
+}
+
+.js .portfolio-thesis.typewriter-block.is-typewriter-intro-active::after {
+    display: none;
+}
+
+.js .portfolio-thesis .typewriter-character.is-typewriter-cursor::after {
+    position: absolute;
+    bottom: 0.04em;
+    left: calc(100% + 0.04em);
+    width: 1px;
+    height: 0.9em;
+    content: "";
+    background: var(--orange-soft);
     animation: typewriter-caret-blink 720ms steps(1, end) infinite;
 }
 

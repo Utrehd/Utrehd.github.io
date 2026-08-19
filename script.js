@@ -111,11 +111,24 @@ function wrapTypewriterCharacters(element) {
     if (!characters.length) return null;
 
     element.classList.add("typewriter-block");
-    return { element, characters, revealedCharacterCount: 0, revealProgress: 0, isComplete: false };
+    return {
+        element,
+        characters,
+        previewCharacters: [],
+        cursorCharacter: null,
+        revealedCharacterCount: 0,
+        revealProgress: 0,
+        isComplete: false,
+    };
 }
 
 function revealTypewriterState(state, progress) {
     if (state.isComplete) return;
+
+    state.previewCharacters.forEach((character) => character.classList.remove("is-typewriter-preview"));
+    state.previewCharacters = [];
+    state.cursorCharacter?.classList.remove("is-typewriter-cursor");
+    state.cursorCharacter = null;
 
     state.revealProgress = Math.max(state.revealProgress, Math.min(Math.max(progress, 0), 1));
 
@@ -126,6 +139,17 @@ function revealTypewriterState(state, progress) {
 
     state.revealedCharacterCount = nextCharacterCount;
     state.element.style.setProperty("--typewriter-blur", `${(1 - state.revealProgress) * 6}px`);
+
+    if (state.element.matches(".portfolio-thesis") && state.revealedCharacterCount < state.characters.length) {
+        const previewEnd = Math.min(state.revealedCharacterCount + 5, state.characters.length);
+        state.previewCharacters = state.characters.slice(state.revealedCharacterCount, previewEnd);
+        state.previewCharacters.forEach((character) => character.classList.add("is-typewriter-preview"));
+
+        if (state.revealedCharacterCount > 0) {
+            state.cursorCharacter = state.characters[state.revealedCharacterCount - 1];
+            state.cursorCharacter.classList.add("is-typewriter-cursor");
+        }
+    }
 
     if (state.revealedCharacterCount < state.characters.length) return;
 

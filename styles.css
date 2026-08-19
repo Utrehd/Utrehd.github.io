@@ -1153,8 +1153,8 @@ main {
 .showcase-media {
     position: relative;
     display: block;
+    height: 220px;
     min-height: 0;
-    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
     background: #081118;
@@ -1673,9 +1673,13 @@ main {
         line-height: 1.72;
     }
 
-    .showcase-media,
+    .showcase-media {
+        height: 150px;
+        min-height: 150px;
+    }
+
     .showcase-media img {
-        min-height: 140px;
+        min-height: 0;
     }
 
     .showcase-copy {

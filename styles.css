@@ -392,6 +392,7 @@ main {
 
 .portfolio-intro .paper-active-label {
     font-family: var(--font-mono);
+    font-size: clamp(0.84rem, 1.5vw, 0.94rem);
     font-weight: 500;
     letter-spacing: 0.08em;
 }

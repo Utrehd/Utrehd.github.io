@@ -9,11 +9,10 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Keep normal text at a high-contrast gray (`#d4d9dd`) and reserve pure off-white (`#f4f5f3`) for headings and important values.
 - Use real project artefacts as the primary visual material. Decorative diagrams or metrics must support the content, not compete with it.
 
-## Heading Scale
+## Typography
 
-- Use Outfit for all headings and Inter for body copy.
+- Use Geist for headings and body copy. Use Geist Mono for technical labels, evidence markers, and small system text.
 - Keep the homepage H1 at `clamp(2rem, 4vw, 3rem)` with open `0.01em` tracking.
-- Keep the compact project-card title at `clamp(1.25rem, 1.7vw, 1.5rem)`.
 - Use small uppercase orange section headings without decorative label bars.
 - On mobile, reduce the homepage H1 to `clamp(1.9rem, 8.3vw, 2.05rem)` and the project title to `1.35rem`.
 - Keep secondary uppercase text at least `0.72rem` on mobile so status lines and project metadata remain readable.
@@ -22,13 +21,12 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 - Keep the introduction compact. It must state full-stack, edge, and connected-industrial scope before the first scroll.
 - Place a short career progression directly after the introduction. Keep the longer evidence-led story inside a native `details` disclosure so it remains optional and keyboard accessible.
-- Present measured proof and selected work before the skills inventory.
-- Group the working stack into four evidence-backed text areas instead of a tag wall.
-- Keep the four headline proof points in a two-by-two grid on mobile to reduce page length without hiding evidence.
+- Present selected work before the skills inventory.
+- Group the working stack into six focused, expandable skill areas instead of a tag wall.
 - On mobile, make the homepage surface full-width without an outer border or rounded frame. Preserve internal section and project-card borders.
 - Show only projects with a public case-study page. Do not use placeholder cards or inactive filters.
 - Keep each homepage project preview to a real artefact, title, concise teaser, and direct case-study link. Put metrics, personal contribution, and technical detail inside the case study.
-- Keep the three project families visible: modern full-stack product, connected-machine/edge systems, and controlled regulated delivery.
+- Keep the four project families visible: modern full stack game engineering, agentic internal tooling, connected machine systems, and controlled regulated delivery.
 - State evidence boundaries beside the relevant claim. For Automation Release Control, distinguish the GAMP 5 lifecycle of the release system from the separate validation of deployed PLC software.
 - Preserve `#featured-work` on the first project card so project-page back links remain valid.
 
@@ -38,6 +36,13 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Keep the homepage hero text-only. Do not render a large profile portrait in the introduction.
 - The header image uses a tight face-and-upper-shoulders crop and remains decorative because the adjacent name identifies Samuel.
 - Preserve `assets/samuel-marti.png` as the non-rendered source portrait.
+
+## Shared Interaction
+
+- Keep the identity header fixed on the homepage and every case study.
+- Use one thin orange line below the header to indicate reading progress.
+- Preserve native links, disclosures, and content when JavaScript is unavailable.
+- Respect reduced motion preferences and reveal content immediately when animation is disabled.
 
 ## Editorial Voice
 

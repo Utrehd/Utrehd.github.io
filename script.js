@@ -1,57 +1,183 @@
-document.documentElement.classList.add("js");
-
 const header = document.querySelector("[data-header]");
-const menuButton = document.querySelector(".menu-button, [data-nav-toggle]");
-const primaryNavigation = document.querySelector("#primary-navigation, [data-navigation]");
+const menuButton = document.querySelector(".menu-button");
+const primaryNavigation = document.querySelector("#primary-navigation");
 const navigationLinks = [...document.querySelectorAll("#primary-navigation a[href^='#']")];
-const sections = navigationLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
+const navigationSections = getNavigationSections(navigationLinks);
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const introSequenceClassNames = [
+    "intro-sequence-staging",
+    "intro-sequence-active",
+    "intro-typing-started",
+    "intro-brand-visible",
+    "intro-evidence-visible",
+    "intro-navigation-visible",
+];
+const topDestinationHashes = new Set(["", "#top", "#paper"]);
 let requestTypewriterUpdate = () => {};
+
+initializePortfolio();
+
+function initializePortfolio() {
+    initializeRevealAnimation();
+    initializeTypewriterScroll();
+    initializePremiumMotion();
+    initializeImageLightbox();
+    initializeNavigationEvents();
+    initializeViewportEvents();
+    updateFooterYear();
+    updateViewportState();
+}
+
+function getNavigationSections(links) {
+    const matchingSections = [];
+
+    for (const link of links) {
+        const sectionSelector = link.getAttribute("href");
+        const section = document.querySelector(sectionSelector);
+        if (section) matchingSections.push(section);
+    }
+
+    return matchingSections;
+}
+
+function initializeNavigationEvents() {
+    menuButton?.addEventListener("click", toggleNavigation);
+
+    for (const link of navigationLinks) {
+        link.addEventListener("click", closeNavigation);
+    }
+
+    document.addEventListener("click", closeNavigationAfterOutsideClick);
+    document.addEventListener("keydown", closeNavigationWithEscape);
+}
+
+function initializeViewportEvents() {
+    window.addEventListener("resize", handleViewportResize);
+    window.addEventListener("scroll", updateViewportState, { passive: true });
+}
+
+function updateViewportState() {
+    updateHeaderState();
+    updateCurrentSection();
+    updatePageEndState();
+    updateReadingProgress();
+    requestTypewriterUpdate();
+}
+
+function handleViewportResize() {
+    const desktopBreakpoint = document.body.classList.contains("case-page") ? 820 : 720;
+    const isDesktopViewport = window.innerWidth > desktopBreakpoint;
+    if (isDesktopViewport) closeNavigation();
+
+    updateViewportState();
+}
+
+function updateFooterYear() {
+    const currentYear = String(new Date().getFullYear());
+    const yearElements = document.querySelectorAll("[data-year]");
+
+    for (const yearElement of yearElements) {
+        yearElement.textContent = currentYear;
+    }
+}
+
+function clamp(value, minimum, maximum) {
+    return Math.min(Math.max(value, minimum), maximum);
+}
+
+function isAtTopDestination() {
+    const isNearPageTop = window.scrollY < 80;
+    const isTopHash = topDestinationHashes.has(window.location.hash);
+    return isNearPageTop && isTopHash;
+}
+
+function clearIntroSequenceClasses() {
+    document.documentElement.classList.remove(...introSequenceClassNames);
+}
+
+function createTypewriterStates(elements) {
+    const states = [];
+
+    for (const element of elements) {
+        const state = wrapTypewriterCharacters(element);
+        if (state) states.push(state);
+    }
+
+    return states;
+}
+
+function getTopLevelTypewriterElements(selector, excludedElements) {
+    const matchingElements = document.querySelectorAll(selector);
+    const topLevelElements = [];
+
+    for (const element of matchingElements) {
+        if (excludedElements.has(element)) continue;
+
+        const matchingParent = element.parentElement?.closest(selector);
+        if (matchingParent) continue;
+
+        topLevelElements.push(element);
+    }
+
+    return topLevelElements;
+}
 
 function updateHeaderState() {
     header?.classList.toggle("is-scrolled", window.scrollY > 12);
 }
 
 function closeNavigation() {
-    if (!menuButton || !primaryNavigation) return;
-
-    menuButton.setAttribute("aria-expanded", "false");
-    if (menuButton.classList.contains("menu-button")) {
-        menuButton.setAttribute("aria-label", "Open navigation");
-    }
-    primaryNavigation.classList.remove("is-open");
-    document.body.classList.remove("nav-open");
+    setNavigationOpen(false);
 }
 
 function toggleNavigation() {
     if (!menuButton || !primaryNavigation) return;
 
-    const willOpen = menuButton.getAttribute("aria-expanded") !== "true";
-    menuButton.setAttribute("aria-expanded", String(willOpen));
-    if (menuButton.classList.contains("menu-button")) {
-        menuButton.setAttribute("aria-label", willOpen ? "Close navigation" : "Open navigation");
-    }
-    primaryNavigation.classList.toggle("is-open", willOpen);
-    document.body.classList.toggle("nav-open", willOpen);
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    setNavigationOpen(!isOpen);
+}
+
+function setNavigationOpen(isOpen) {
+    if (!menuButton || !primaryNavigation) return;
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    primaryNavigation.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
+}
+
+function closeNavigationAfterOutsideClick(event) {
+    if (!primaryNavigation?.classList.contains("is-open")) return;
+
+    const clickedNavigation = primaryNavigation.contains(event.target);
+    const clickedMenuButton = menuButton?.contains(event.target);
+    if (clickedNavigation || clickedMenuButton) return;
+
+    closeNavigation();
+}
+
+function closeNavigationWithEscape(event) {
+    if (event.key === "Escape") closeNavigation();
 }
 
 function updateCurrentSection() {
-    if (!sections.length) return;
+    if (!navigationSections.length) return;
 
     const marker = window.scrollY + window.innerHeight * 0.3;
-    let currentSection = sections[0];
+    let currentSection = navigationSections[0];
 
-    sections.forEach((section) => {
+    for (const section of navigationSections) {
         if (section.offsetTop <= marker) currentSection = section;
-    });
+    }
 
-    navigationLinks.forEach((link) => {
+    for (const link of navigationLinks) {
         const isCurrent = link.getAttribute("href") === `#${currentSection.id}`;
-        if (isCurrent) link.setAttribute("aria-current", "true");
-        else link.removeAttribute("aria-current");
-    });
+        if (isCurrent) {
+            link.setAttribute("aria-current", "true");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+    }
 }
 
 function updatePageEndState() {
@@ -62,10 +188,11 @@ function updatePageEndState() {
 function updateReadingProgress() {
     const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
     const readingProgress = scrollableDistance > 0 ? window.scrollY / scrollableDistance : 0;
-    document.documentElement.style.setProperty("--reading-progress", String(Math.min(Math.max(readingProgress, 0), 1)));
+    const clampedProgress = clamp(readingProgress, 0, 1);
+    document.documentElement.style.setProperty("--reading-progress", String(clampedProgress));
 }
 
-function wrapTypewriterCharacters(element) {
+function getTypewriterTextNodes(element) {
     const textNodes = [];
     const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
         acceptNode(node) {
@@ -76,35 +203,48 @@ function wrapTypewriterCharacters(element) {
     });
 
     while (walker.nextNode()) textNodes.push(walker.currentNode);
+    return textNodes;
+}
+
+function createTypewriterFragment(text) {
+    const fragment = document.createElement("span");
+    fragment.className = "typewriter-fragment";
 
     const characters = [];
-    textNodes.forEach((textNode) => {
-        const textFragment = document.createElement("span");
-        textFragment.className = "typewriter-fragment";
-        let wordElement = null;
+    let currentWord = null;
 
-        [...textNode.nodeValue].forEach((character) => {
-            if (/\s/.test(character)) {
-                textFragment.append(character);
-                wordElement = null;
-                return;
-            }
+    for (const character of text) {
+        if (/\s/.test(character)) {
+            fragment.append(character);
+            currentWord = null;
+            continue;
+        }
 
-            if (!wordElement) {
-                wordElement = document.createElement("span");
-                wordElement.className = "typewriter-word";
-                textFragment.append(wordElement);
-            }
+        if (!currentWord) {
+            currentWord = document.createElement("span");
+            currentWord.className = "typewriter-word";
+            fragment.append(currentWord);
+        }
 
-            const characterElement = document.createElement("span");
-            characterElement.className = "typewriter-character";
-            characterElement.textContent = character;
-            wordElement.append(characterElement);
-            characters.push(characterElement);
-        });
+        const characterElement = document.createElement("span");
+        characterElement.className = "typewriter-character";
+        characterElement.textContent = character;
+        currentWord.append(characterElement);
+        characters.push(characterElement);
+    }
 
-        textNode.replaceWith(textFragment);
-    });
+    return { fragment, characters };
+}
+
+function wrapTypewriterCharacters(element) {
+    const textNodes = getTypewriterTextNodes(element);
+    const characters = [];
+
+    for (const textNode of textNodes) {
+        const fragmentResult = createTypewriterFragment(textNode.nodeValue);
+        textNode.replaceWith(fragmentResult.fragment);
+        characters.push(...fragmentResult.characters);
+    }
 
     if (!characters.length) return null;
 
@@ -128,7 +268,8 @@ function revealTypewriterState(state, progress) {
     state.cursorCharacter?.classList.remove("is-typewriter-cursor");
     state.cursorCharacter = null;
 
-    state.revealProgress = Math.max(state.revealProgress, Math.min(Math.max(progress, 0), 1));
+    const clampedProgress = clamp(progress, 0, 1);
+    state.revealProgress = Math.max(state.revealProgress, clampedProgress);
 
     const nextCharacterCount = Math.ceil(state.characters.length * state.revealProgress);
     for (let index = state.revealedCharacterCount; index < nextCharacterCount; index += 1) {
@@ -158,14 +299,14 @@ function revealTypewriterState(state, progress) {
 
 function getIntroTypewriterDuration(element, characterCount) {
     if (element.matches("h1")) {
-        return Math.min(Math.max(characterCount * 24, 520), 860);
+        return clamp(characterCount * 24, 520, 860);
     }
 
     if (element.matches(".portfolio-thesis, .paper-thesis")) {
-        return Math.min(Math.max(characterCount * 7, 820), 1400);
+        return clamp(characterCount * 7, 820, 1400);
     }
 
-    return Math.min(Math.max(characterCount * 14, 380), 680);
+    return clamp(characterCount * 14, 380, 680);
 }
 
 function animateIntroTypewriter(states, onComplete, initialDelay = 260) {
@@ -174,10 +315,7 @@ function animateIntroTypewriter(states, onComplete, initialDelay = 260) {
         return;
     }
 
-    const isTopOfPage = window.scrollY < 80;
-    const isTopDestination = !window.location.hash || ["#top", "#paper"].includes(window.location.hash);
-
-    if (!isTopOfPage || !isTopDestination) {
+    if (!isAtTopDestination()) {
         states.forEach((state) => revealTypewriterState(state, 1));
         onComplete();
         return;
@@ -225,9 +363,11 @@ function animateIntroTypewriter(states, onComplete, initialDelay = 260) {
 }
 
 function revealIntroCapability() {
-    document.querySelectorAll(".intro-capability-phrase").forEach((phrase) => {
+    const phrases = document.querySelectorAll(".intro-capability-phrase");
+
+    for (const phrase of phrases) {
         phrase.classList.add("is-visible");
-    });
+    }
 }
 
 function animateIntroCapability(onComplete) {
@@ -245,9 +385,9 @@ function animateIntroCapability(onComplete) {
     window.setTimeout(() => {
         document.documentElement.classList.add("intro-typing-started");
 
-        phrases.forEach((phrase, phraseIndex) => {
+        for (const [phraseIndex, phrase] of phrases.entries()) {
             window.setTimeout(() => phrase.classList.add("is-visible"), phraseIndex * phraseStagger);
-        });
+        }
 
         const finalPhraseDelay = (phrases.length - 1) * phraseStagger;
         window.setTimeout(onComplete, finalPhraseDelay + flightDuration + completedHeadingPause);
@@ -255,9 +395,9 @@ function animateIntroCapability(onComplete) {
 }
 
 function initializeTypewriterScroll() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (reducedMotionQuery.matches) {
         window.clearTimeout(window.__portfolioIntroFallback);
-        document.documentElement.classList.remove("intro-sequence-staging", "intro-sequence-active", "intro-typing-started", "intro-brand-visible", "intro-evidence-visible", "intro-navigation-visible");
+        clearIntroSequenceClasses();
         return;
     }
 
@@ -270,9 +410,7 @@ function initializeTypewriterScroll() {
 
     const introElements = [...document.querySelectorAll(introSelector)];
     const introElementSet = new Set(introElements);
-    const introStates = introElements
-        .map(wrapTypewriterCharacters)
-        .filter(Boolean);
+    const introStates = createTypewriterStates(introElements);
 
     const targetSelector = [
         ".home-section .paper-active-label",
@@ -316,18 +454,11 @@ function initializeTypewriterScroll() {
         ".case-page .case-site-footer a",
     ].join(",");
 
-    const targetElements = [...document.querySelectorAll(targetSelector)]
-        .filter((element) => !introElementSet.has(element))
-        .filter((element) => !element.parentElement?.closest(targetSelector));
+    const targetElements = getTopLevelTypewriterElements(targetSelector, introElementSet);
+    const states = createTypewriterStates(targetElements);
 
-    const states = targetElements
-        .map(wrapTypewriterCharacters)
-        .filter(Boolean);
-
-    const isTopOfPage = window.scrollY < 80;
-    const isTopDestination = !window.location.hash || ["#top", "#paper"].includes(window.location.hash);
     const hasIntroCapability = document.querySelector(".intro-capability-phrase") !== null;
-    const shouldSequenceIntro = hasIntroCapability && introStates.length > 0 && isTopOfPage && isTopDestination;
+    const shouldSequenceIntro = hasIntroCapability && introStates.length > 0 && isAtTopDestination();
     let isIntroSequenceComplete = false;
 
     if (shouldSequenceIntro) {
@@ -343,10 +474,10 @@ function initializeTypewriterScroll() {
             document.documentElement.classList.remove("intro-sequence-active");
             window.setTimeout(() => document.documentElement.classList.add("intro-navigation-visible"), 420);
             window.setTimeout(() => {
-                document.documentElement.classList.remove("intro-sequence-staging", "intro-typing-started", "intro-brand-visible", "intro-evidence-visible", "intro-navigation-visible");
+                clearIntroSequenceClasses();
             }, 1050);
         } else {
-            document.documentElement.classList.remove("intro-sequence-staging", "intro-sequence-active", "intro-typing-started", "intro-brand-visible", "intro-evidence-visible", "intro-navigation-visible");
+            clearIntroSequenceClasses();
         }
 
         requestTypewriterUpdate();
@@ -406,69 +537,86 @@ function initializeTypewriterScroll() {
 }
 
 function initializeRevealAnimation() {
-    const revealItems = document.querySelectorAll(".reveal:not(.is-visible)");
-
-    if (!revealItems.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        revealItems.forEach((item) => item.classList.add("is-visible"));
-        return;
-    }
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-            });
-        },
-        { rootMargin: "0px 0px -9%", threshold: 0.06 },
-    );
-
-    revealItems.forEach((item) => observer.observe(item));
+    const revealElements = [...document.querySelectorAll(".reveal:not(.is-visible)")];
+    const observerOptions = { rootMargin: "0px 0px -9%", threshold: 0.06 };
+    revealElementsWhenVisible(revealElements, "is-visible", observerOptions);
 }
 
-function revealElementsOnEntry(elements, visibleClass, observerOptions) {
+function revealElementsWhenVisible(elements, visibleClass, observerOptions) {
     if (!elements.length) return;
 
     if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) {
-        elements.forEach((element) => element.classList.add(visibleClass));
+        for (const element of elements) {
+            element.classList.add(visibleClass);
+        }
         return;
     }
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
+        for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
 
             entry.target.classList.add(visibleClass);
             observer.unobserve(entry.target);
-        });
+        }
     }, observerOptions);
 
-    elements.forEach((element) => observer.observe(element));
+    for (const element of elements) {
+        observer.observe(element);
+    }
+}
+
+function initializeObservedMotion(selector, preparedClass, visibleClass, observerOptions) {
+    const elements = [...document.querySelectorAll(selector)];
+
+    for (const element of elements) {
+        element.classList.add(preparedClass);
+    }
+
+    revealElementsWhenVisible(elements, visibleClass, observerOptions);
 }
 
 function initializePremiumMotion() {
-    const lineElements = [...document.querySelectorAll(".paper-active-head")];
-    lineElements.forEach((element) => element.classList.add("line-reveal"));
-    revealElementsOnEntry(lineElements, "is-line-visible", { rootMargin: "0px 0px -8%", threshold: 0.35 });
+    initializeObservedMotion(
+        ".paper-active-head",
+        "line-reveal",
+        "is-line-visible",
+        { rootMargin: "0px 0px -8%", threshold: 0.35 },
+    );
 
-    const mediaElements = [...document.querySelectorAll([
+    const mediaSelector = [
         ".showcase-media",
-        ".project-preview",
         ".dashboard-image-link",
         ".architecture-image-link",
-    ].join(","))];
-    mediaElements.forEach((element) => element.classList.add("media-reveal"));
-    revealElementsOnEntry(mediaElements, "is-media-visible", { rootMargin: "0px 0px -6%", threshold: 0.12 });
+    ].join(",");
+    initializeObservedMotion(
+        mediaSelector,
+        "media-reveal",
+        "is-media-visible",
+        { rootMargin: "0px 0px -6%", threshold: 0.12 },
+    );
 
-    const metricElements = [...document.querySelectorAll([
+    const metricSelector = [
         ".summary-proof strong",
         ".outcome-grid strong",
-        ".project-facts dd",
-    ].join(","))];
-    metricElements.forEach((element) => element.classList.add("metric-emphasis"));
-    revealElementsOnEntry(metricElements, "is-metric-visible", { rootMargin: "0px 0px -7%", threshold: 0.45 });
+    ].join(",");
+    initializeObservedMotion(
+        metricSelector,
+        "metric-emphasis",
+        "is-metric-visible",
+        { rootMargin: "0px 0px -7%", threshold: 0.45 },
+    );
+}
+
+function isPlainPrimaryClick(event) {
+    const hasModifier = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+    return event.button === 0 && !hasModifier;
+}
+
+function getLightboxCaption(link, sourceImage) {
+    const figure = link.closest("figure");
+    const figureCaption = figure?.querySelector("figcaption")?.textContent?.trim();
+    return figureCaption || sourceImage.alt;
 }
 
 function initializeImageLightbox() {
@@ -493,6 +641,26 @@ function initializeImageLightbox() {
     let triggerElement = null;
     let closeTimer = 0;
 
+    function openLightbox(event, link) {
+        if (!isPlainPrimaryClick(event)) return;
+
+        const sourceImage = link.querySelector("img");
+        if (!sourceImage) return;
+
+        event.preventDefault();
+        triggerElement = link;
+        lightboxImage.src = link.href;
+        lightboxImage.alt = sourceImage.alt;
+
+        lightboxCaption.textContent = getLightboxCaption(link, sourceImage);
+        lightboxCaption.hidden = !lightboxCaption.textContent;
+
+        document.body.classList.add("lightbox-open");
+        dialog.showModal();
+        window.requestAnimationFrame(() => dialog.classList.add("is-open"));
+        closeButton.focus();
+    }
+
     function closeLightbox() {
         if (!dialog.open) return;
 
@@ -507,29 +675,9 @@ function initializeImageLightbox() {
         }, closeDelay);
     }
 
-    imageLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-
-            const sourceImage = link.querySelector("img");
-            if (!sourceImage) return;
-
-            event.preventDefault();
-            triggerElement = link;
-            lightboxImage.src = link.href;
-            lightboxImage.alt = sourceImage.alt;
-
-            const figure = link.closest("figure");
-            const figureCaption = figure?.querySelector("figcaption")?.textContent?.trim();
-            lightboxCaption.textContent = figureCaption || sourceImage.alt;
-            lightboxCaption.hidden = !lightboxCaption.textContent;
-
-            document.body.classList.add("lightbox-open");
-            dialog.showModal();
-            window.requestAnimationFrame(() => dialog.classList.add("is-open"));
-            closeButton.focus();
-        });
-    });
+    for (const link of imageLinks) {
+        link.addEventListener("click", (event) => openLightbox(event, link));
+    }
 
     closeButton.addEventListener("click", closeLightbox);
     dialog.addEventListener("cancel", (event) => {
@@ -540,45 +688,3 @@ function initializeImageLightbox() {
         if (event.target === dialog) closeLightbox();
     });
 }
-
-menuButton?.addEventListener("click", toggleNavigation);
-navigationLinks.forEach((link) => link.addEventListener("click", closeNavigation));
-
-document.addEventListener("click", (event) => {
-    if (!primaryNavigation?.classList.contains("is-open")) return;
-    if (primaryNavigation.contains(event.target) || menuButton?.contains(event.target)) return;
-    closeNavigation();
-});
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeNavigation();
-});
-
-window.addEventListener("resize", () => {
-    const desktopBreakpoint = document.body.classList.contains("case-page") ? 820 : 720;
-    if (window.innerWidth > desktopBreakpoint) closeNavigation();
-    updatePageEndState();
-    updateReadingProgress();
-    requestTypewriterUpdate();
-});
-
-window.addEventListener("scroll", () => {
-    updateHeaderState();
-    updateCurrentSection();
-    updatePageEndState();
-    updateReadingProgress();
-    requestTypewriterUpdate();
-}, { passive: true });
-
-document.querySelectorAll("[data-year]").forEach((item) => {
-    item.textContent = String(new Date().getFullYear());
-});
-
-updateHeaderState();
-updateCurrentSection();
-updatePageEndState();
-updateReadingProgress();
-initializeRevealAnimation();
-initializeTypewriterScroll();
-initializePremiumMotion();
-initializeImageLightbox();

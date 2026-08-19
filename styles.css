@@ -394,16 +394,8 @@ main {
     letter-spacing: 0.08em;
 }
 
-.portfolio-intro h1 {
-    max-width: 760px;
-    margin: 25px 0 20px;
-    color: var(--text);
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 650;
-    letter-spacing: 0.01em;
-    line-height: 1.06;
-    text-wrap: balance;
+.portfolio-intro .paper-active-head {
+    margin-bottom: clamp(14px, 2vw, 18px);
 }
 
 .portfolio-thesis {
@@ -1488,14 +1480,6 @@ main {
         grid-template-columns: 1fr;
         gap: 0;
         padding-block: 34px 32px;
-    }
-
-    .portfolio-intro h1 {
-        margin-block: 20px 17px;
-        font-size: clamp(1.9rem, 8.3vw, 2.05rem);
-        letter-spacing: 0.01em;
-        overflow-wrap: anywhere;
-        text-wrap: pretty;
     }
 
     .portfolio-thesis {

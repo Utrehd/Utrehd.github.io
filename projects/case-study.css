@@ -983,9 +983,17 @@
 }
 
 @media (max-width: 760px) {
+    .case-page main {
+        padding-block: 0;
+    }
+
     .paper-shell {
-        width: min(calc(100% - 24px), 1180px);
-        margin-top: 24px;
+        width: 100%;
+        margin: 0;
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .paper-title-block {

@@ -782,10 +782,10 @@
     flex: 0 1 auto;
     margin: 0;
     color: var(--case-orange);
-    font-family: "Outfit", sans-serif;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     line-height: 1.25;
     text-transform: uppercase;
 }
@@ -1005,9 +1005,33 @@
     }
 
     .paper-title-block h1 {
-        font-size: clamp(2.3rem, 10.5vw, 3.1rem);
+        font-size: clamp(1.9rem, 8.3vw, 2.05rem);
+        line-height: 1.06;
         overflow-wrap: anywhere;
         text-wrap: pretty;
+    }
+
+    .paper-thesis,
+    .paper-section p {
+        font-size: 0.95rem;
+        line-height: 1.68;
+    }
+
+    .summary-lede {
+        font-size: 1rem;
+        line-height: 1.68 !important;
+    }
+
+    .paper-meta dt {
+        font-size: 0.68rem;
+    }
+
+    .paper-meta dd {
+        font-size: 0.94rem;
+    }
+
+    .paper-footer h2 {
+        font-size: 1.35rem;
     }
 
     .paper-kicker-row,

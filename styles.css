@@ -1232,7 +1232,7 @@ main {
 /* Shared case-study compatibility */
 
 .case-page {
-    font-family: "Mulish", var(--font-body);
+    font-family: var(--font-body);
 }
 
 .case-site-footer .footer-inner {

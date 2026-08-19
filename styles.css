@@ -1355,6 +1355,15 @@ main {
     transition: filter 90ms linear;
 }
 
+.js .typewriter-fragment {
+    display: inline;
+}
+
+.js .typewriter-word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 .js .typewriter-character {
     opacity: 0.05;
     transition: opacity 70ms linear;

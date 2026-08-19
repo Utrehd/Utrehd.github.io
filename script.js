@@ -72,22 +72,31 @@ function wrapTypewriterCharacters(element) {
 
     const characters = [];
     textNodes.forEach((textNode) => {
-        const fragment = document.createDocumentFragment();
+        const textFragment = document.createElement("span");
+        textFragment.className = "typewriter-fragment";
+        let wordElement = null;
 
         [...textNode.nodeValue].forEach((character) => {
             if (/\s/.test(character)) {
-                fragment.append(character);
+                textFragment.append(character);
+                wordElement = null;
                 return;
+            }
+
+            if (!wordElement) {
+                wordElement = document.createElement("span");
+                wordElement.className = "typewriter-word";
+                textFragment.append(wordElement);
             }
 
             const characterElement = document.createElement("span");
             characterElement.className = "typewriter-character";
             characterElement.textContent = character;
-            fragment.append(characterElement);
+            wordElement.append(characterElement);
             characters.push(characterElement);
         });
 
-        textNode.replaceWith(fragment);
+        textNode.replaceWith(textFragment);
     });
 
     if (!characters.length) return null;

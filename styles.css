@@ -1124,40 +1124,16 @@ main {
     margin: 12px 0 0 !important;
 }
 
-/* About */
+/* Contact */
 
-.about-section {
+.home-section.contact-section {
+    padding-block: clamp(40px, 5vw, 56px);
     background: transparent;
 }
 
-.about-section .section-heading {
-    margin-bottom: 32px;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 38px;
-    align-items: start;
-}
-
-.about-copy {
-    display: grid;
-    gap: 18px;
-}
-
-.about-grid p {
-    margin: 0;
-    color: var(--body);
-    font-size: 0.96rem;
-    line-height: 1.75;
-}
-
-.about-grid .button {
-    width: fit-content;
-}
-
 .contact-panel {
+    width: min(100%, 760px);
+    margin: 0 auto;
     padding: 26px;
     border: 1px solid var(--line);
     border-radius: 12px;
@@ -1173,7 +1149,7 @@ main {
     text-transform: uppercase;
 }
 
-.contact-panel h3 {
+.contact-panel h2 {
     margin: 11px 0 0;
     color: var(--text);
     font-family: var(--font-display);
@@ -1609,10 +1585,6 @@ main {
     .project-facts div + div {
         border-top: 1px solid var(--line-soft);
         border-left: 0;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
     }
 
     .contact-actions {

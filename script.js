@@ -216,7 +216,7 @@ function animateIntroCapability(onComplete) {
     }
 
     const blankDuration = 520;
-    const phraseStagger = 170;
+    const phraseStagger = 280;
     const flightDuration = 480;
     const completedHeadingPause = 620;
 

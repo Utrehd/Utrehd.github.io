@@ -558,13 +558,13 @@ main {
 
 .story-details summary::after {
     color: var(--muted);
-    content: "+";
-    font-size: 1.2rem;
+    content: "↓";
+    font-size: 0.95rem;
     font-weight: 400;
 }
 
 .story-details[open] summary::after {
-    content: "−";
+    content: "↑";
 }
 
 .story-long {
@@ -641,6 +641,38 @@ main {
 }
 
 /* Skills */
+
+.skills-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 28px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.skills-overview li {
+    padding: 14px 0;
+    border-top: 1px solid var(--line-soft);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.skills-details {
+    max-width: none;
+    margin-top: 18px;
+}
+
+.skills-details .skill-groups {
+    padding: 4px 0 18px;
+}
+
+.skills-details .skill-group > .skill-stack {
+    margin-top: 0 !important;
+}
 
 .skill-groups {
     display: grid;
@@ -1271,6 +1303,10 @@ main {
         grid-template-columns: 1fr;
     }
 
+    .skills-overview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .project-showcase {
         grid-template-columns: 1fr;
     }
@@ -1525,6 +1561,10 @@ main {
 
     .skill-group {
         padding: 21px 0 23px;
+    }
+
+    .skills-overview {
+        grid-template-columns: 1fr;
     }
 
     .project-preview img {

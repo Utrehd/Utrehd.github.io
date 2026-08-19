@@ -60,8 +60,6 @@ function updatePageEndState() {
 }
 
 function updateReadingProgress() {
-    if (!document.body.classList.contains("case-page")) return;
-
     const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
     const readingProgress = scrollableDistance > 0 ? window.scrollY / scrollableDistance : 0;
     document.documentElement.style.setProperty("--reading-progress", String(Math.min(Math.max(readingProgress, 0), 1)));

@@ -50,6 +50,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+body:not(.case-page) {
+    padding-top: var(--header-height);
+}
+
 img,
 svg {
     display: block;
@@ -118,8 +122,10 @@ button {
 /* Shared header */
 
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
     z-index: 50;
     height: var(--header-height);
     border-bottom: 1px solid transparent;
@@ -2156,7 +2162,7 @@ main {
     }
 }
 
-.case-header::after {
+.site-header::after {
     position: absolute;
     right: 0;
     bottom: -1px;

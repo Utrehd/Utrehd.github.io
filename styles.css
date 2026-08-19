@@ -1356,17 +1356,32 @@ main {
 }
 
 .js .typewriter-fragment {
-    display: inline;
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
 }
 
 .js .typewriter-word {
-    display: inline-block;
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
     white-space: nowrap;
+    transform: none !important;
 }
 
 .js .typewriter-character {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
     opacity: 0.05;
+    transform: none !important;
     transition: opacity 70ms linear;
+}
+
+.js summary > .typewriter-fragment {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .js .typewriter-character.is-typed,

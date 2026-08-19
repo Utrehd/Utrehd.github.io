@@ -686,34 +686,14 @@ main {
     line-height: 1.72;
 }
 
-.philosophy-references {
-    max-width: 980px;
-    margin: 28px 0 0;
-    color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.75;
-}
-
-.philosophy-references > span {
-    display: block;
-    margin-bottom: 7px;
-    color: var(--quiet);
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.philosophy-references a {
-    color: var(--orange-soft);
+.influences-section .philosophy-principle h3 a {
     text-decoration: underline;
     text-decoration-color: rgba(255, 194, 99, 0.38);
     text-underline-offset: 3px;
 }
 
-.philosophy-references a:hover {
-    color: var(--text);
+.influences-section .philosophy-principle h3 a:hover {
+    color: var(--orange-soft);
     text-decoration-color: currentColor;
 }
 

@@ -391,16 +391,19 @@ main {
 }
 
 .portfolio-intro .paper-active-label {
+    width: 100%;
     font-family: var(--font-mono);
-    font-size: clamp(0.84rem, 1.5vw, 0.94rem);
+    font-size: clamp(0.96rem, 1.8vw, 1.12rem);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
+    text-align: center;
 }
 
 .intro-capability {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.45em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.42em;
 }
 
 .intro-capability-phrase {
@@ -412,16 +415,8 @@ main {
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
     margin-bottom: clamp(18px, 2.5vw, 24px);
-}
-
-.portfolio-intro .paper-active-head::after {
-    min-width: 24px;
-    height: 1px;
-    flex: 1;
-    content: "";
-    background: linear-gradient(90deg, rgba(255, 163, 26, 0.62), rgba(255, 163, 26, 0));
 }
 
 .portfolio-thesis {

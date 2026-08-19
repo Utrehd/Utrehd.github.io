@@ -1421,9 +1421,8 @@ main {
 }
 
 @media (max-width: 820px) {
-    .case-page .nav-toggle {
-        display: grid;
-        place-items: center;
+    .case-page .menu-button {
+        display: block;
     }
 
     .case-page .primary-nav {

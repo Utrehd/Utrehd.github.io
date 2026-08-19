@@ -47,8 +47,14 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 - Project pages use technical mode: problem, requirements, decision, implementation, validation, limitation, and result.
 - Put evidence before self-description. Prefer shipped scope, measured outcomes, and owned responsibility over promotional adjectives.
 - Preserve uncertainty and evidence boundaries. Do not invent savings, measurements, citations, or experience.
+- Do not use em dashes, en dashes, or hyphens as sentence punctuation. Use a full stop, comma, colon, or separate sentence instead. Rewrite visible compound phrases without hyphens when the meaning remains clear.
 
 ## Change Log
+
+### 2026-08-19
+
+- Reframed the Factory of the Future work around product direction, government collaboration, direct engineering, factory validation, and explicit maturity boundaries.
+- Added the editorial rule that visible copy must not use dashes or hyphens as punctuation.
 
 ### 2026-08-18
 

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="How Samuel A. Marti built a GAMP 5 release-control system for Git-based deployment and installed-state feedback across 150+ PLC targets.">
+<meta name="description" content="How Samuel A. Marti built a GAMP 5 release control system for Git based deployment and installed state feedback across 150+ PLC targets.">
     <meta name="theme-color" content="#0d1218">
-    <meta property="og:title" content="Automation Release Control — Samuel A. Marti">
-    <meta property="og:description" content="A technical case study in Git-controlled PLC deployment, host-to-client version control, and device-reported state.">
+<meta property="og:title" content="Automation Release Control | Samuel A. Marti">
+<meta property="og:description" content="A technical case study in Git controlled PLC deployment, version control between host and client, and state reported by devices.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://utrehd.github.io/projects/controlled-release-platform/">
     <meta property="og:image" content="https://utrehd.github.io/projects/controlled-release-platform/assets/automation-release-control-dashboard.webp">
     <meta property="og:image:alt" content="Automation Release Control dashboard">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Automation Release Control — Samuel A. Marti">
-    <meta name="twitter:description" content="A technical case study in Git-controlled PLC deployment, host-to-client version control, and device-reported state.">
+<meta name="twitter:title" content="Automation Release Control | Samuel A. Marti">
+<meta name="twitter:description" content="A technical case study in Git controlled PLC deployment, version control between host and client, and state reported by devices.">
     <meta name="twitter:image" content="https://utrehd.github.io/projects/controlled-release-platform/assets/automation-release-control-dashboard.webp">
     <link rel="canonical" href="https://utrehd.github.io/projects/controlled-release-platform/">
-    <title>Automation Release Control — Samuel A. Marti</title>
+<title>Automation Release Control | Samuel A. Marti</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,12 +127,12 @@
                             <div class="paper-active-head">
                                 <h2 class="paper-active-label" id="summary-title">Executive Summary</h2>
                             </div>
-                            <p class="summary-lede">The Automation Release Control system is a version-control and deployment system for factory automation software. From one interface, users can release, update, or roll back PLC applications and software libraries on remote devices across the factory, without repeating each step manually at every PLC. After deployment, each device reports its installed version to the same interface, allowing the team to verify that the correct version is running.</p>
-                            <p>The previous process provided inconsistent version visibility and required repetitive, expert-led rollout steps. I combined an Angular MVVM interface, C#/ASP.NET services, host-to-client Git deployment over SSH, and OPC UA/MQTT feedback. The release-control system itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. Validation of the PLC software being deployed remained outside the system.</p>
+<p class="summary-lede">The Automation Release Control system manages versions and deployments for factory automation software. From one interface, users can release, update, or roll back PLC applications and software libraries on remote devices across the factory, without repeating each step manually at every PLC. After deployment, each device reports its installed version to the same interface, allowing the team to verify that the correct version is running.</p>
+<p>The previous process provided inconsistent version visibility and required repetitive rollout steps by experts. I combined an Angular MVVM interface, C#/ASP.NET services, Git deployment over SSH between host and client, and OPC UA/MQTT feedback. The release control system itself followed a GAMP 5 lifecycle and had its own IQ/OQ qualification evidence. Validation of the PLC software being deployed remained outside the system.</p>
 
                             <div class="summary-proof" aria-label="Executive proof points">
                                 <div><strong>150+</strong><span>PLC targets</span></div>
-                                <div><strong>0→1</strong><span>Platform delivery</span></div>
+<div><strong>Concept to live</strong><span>Platform delivery</span></div>
                                 <div><strong>Closed loop</strong><span>Release to verified state</span></div>
                             </div>
                         </div>
@@ -180,8 +180,8 @@
                                 </article>
                                 <article>
                                     <span>04</span>
-                                    <h3>Open-loop delivery</h3>
-                                    <p>Delivery did not prove success. The process required device-reported version and runtime confirmation.</p>
+<h3>Delivery without feedback</h3>
+<p>Delivery did not prove success. The process required version and runtime confirmation reported by each device.</p>
                                 </article>
                             </div>
                         </div>
@@ -208,7 +208,7 @@
                             <figure class="architecture-figure architecture-image-figure" id="architecture" aria-labelledby="architecture-caption">
                                 <figcaption id="architecture-caption">
                                     <span>Component diagram</span>
-                                    <strong>Release-control components and system boundary</strong>
+<strong>Release control components and system boundary</strong>
                                 </figcaption>
 
                                 <a class="architecture-image-link" href="assets/automation-release-control-architecture.webp" target="_blank" rel="noopener" aria-label="Open the Automation Release Control component diagram at full resolution">
@@ -233,8 +233,8 @@
                                 </article>
                                 <article>
                                     <p>Operationalized</p>
-                                    <h3>Fleet-scale release</h3>
-                                    <p>Host-to-client Git deployment over SSH with OPC UA/MQTT feedback across 150+ targets.</p>
+<h3>Release across the fleet</h3>
+<p>Git deployment over SSH between host and client with OPC UA/MQTT feedback across 150+ targets.</p>
                                 </article>
                             </div>
                         </div>
@@ -246,7 +246,7 @@
                             <div class="paper-active-head">
                                 <h2 class="paper-active-label" id="involvement-title">My Involvement</h2>
                             </div>
-                            <p>This was not a handoff or a one-off deployment script. As the 0-to-1 builder and system owner, I defined the workflow, implemented the platform, qualified Automation Release Control itself under GAMP 5, and supported its use in the manufacturing environment.</p>
+<p>This was not a handoff or a single deployment script. I built and owned the system from the first workflow through implementation, GAMP 5 qualification, and support in the manufacturing environment.</p>
 
                             <div class="involvement-list">
                                 <article>
@@ -259,11 +259,11 @@
                                 </article>
                                 <article>
                                     <span>Build full stack</span>
-                                    <p>I implemented the Angular MVVM interface, C#/ASP.NET services, Git release workflow, and state-feedback path.</p>
+<p>I implemented the Angular MVVM interface, C#/ASP.NET services, Git release workflow, and feedback path for installed state.</p>
                                 </article>
                                 <article>
                                     <span>Automate deployment</span>
-                                    <p>I built the host-to-client Git and SSH delivery path for releasable software across PLC and computer targets.</p>
+<p>I built the Git and SSH delivery path between host and client for releasable software across PLC and computer targets.</p>
                                 </article>
                                 <article>
                                     <span>Close the loop</span>
@@ -294,8 +294,8 @@
                     <section class="paper-section outcome-section" id="outcome" aria-labelledby="outcome-title">
                         <p class="section-number">06</p>
                         <div>
-                            <div class="paper-active-head">
-                                <h2 class="paper-active-label" id="outcome-title">Outcome + Bottom-Line Impact</h2>
+<div class="paper-active-head">
+<h2 class="paper-active-label" id="outcome-title">Outcome + Operational Impact</h2>
                             </div>
                             <p class="summary-lede">One controlled workflow could select, distribute, verify, and roll back releasable automation software across a heterogeneous fleet of more than 150 targets.</p>
 
@@ -318,7 +318,7 @@
                                 <article>
                                     <strong>Closed loop</strong>
                                     <span>Operational confidence</span>
-                                    <p>Device-reported state exposed the rollout result instead of treating delivery as proof of success.</p>
+<p>State reported by each device exposed the rollout result instead of treating delivery as proof of success.</p>
                                 </article>
                             </div>
 

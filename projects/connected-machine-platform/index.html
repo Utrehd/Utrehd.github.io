@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="../../styles.css?v=20260819-22">
-    <link rel="stylesheet" href="../case-study.css?v=20260819-20">
+    <link rel="stylesheet" href="../case-study.css?v=20260819-21">
     <script src="../../script.js?v=20260819-19" defer></script>
 </head>
 <body class="case-page">
@@ -100,7 +100,7 @@
                     <section class="paper-section solution-section" id="portfolio" aria-labelledby="portfolio-title">
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="portfolio-title">Edge Product Portfolio</h2></div>
-                            <p>The program was a portfolio, not a single gateway. Each product addressed a different part of the path from embedded device communication to useful factory information and local control.</p>
+                            <p>The program combined four product tracks across embedded device communication, reusable PLC software, factory data, and local control. Each product addressed a different part of the path from machine signals to useful factory information.</p>
                             <div class="solution-components solution-components-four">
                                 <article><p>Gateway and data</p><h3>Connect existing machines</h3><p>Developed gateway and data collector concepts with digital and analog I/O, OPC UA, MQTT, HTTPS, Azure SQL, MES, and scheduling interfaces.</p></article>
                                 <article><p>PLC connectivity</p><h3>Publish reusable software</h3><p>Developed the CODESYS MQTT client library in alignment with IEC 61131 and released it through the <a href="https://store.codesys.com/en/" target="_blank" rel="noopener noreferrer">CODESYS Store</a>.</p></article>
@@ -112,11 +112,11 @@
 
                     <section class="paper-section" id="implementation" aria-labelledby="implementation-title">
                         <div>
-                            <div class="paper-active-head"><h2 class="paper-active-label" id="implementation-title">Hands on Engineering</h2></div>
-                            <p>For the embedded OPC UA gateway, I worked as product manager and directly tested the software and hardware. I did not implement the OPC Foundation SDK or the FreeRTOS integration.</p>
-                            <p>My ASIC2 contribution had a different boundary. I mainly managed the chip and embedded software library workstream, including priorities, coordination, and delivery. My direct source contribution was limited to targeted bug fixes and small modules. The silicon architecture and complete communication stack were team outputs, not work I claim as mine alone. Eaton's current SmartWire-DT documentation still exposes the <a href="https://documents.eaton.com/en-us/products/industrial-controls-drives-sensors/plcs-io/easye4-programmable-relays/v900/Content/10_es/view_comm_SWD.htm" target="_blank" rel="noopener noreferrer">ASIC firmware</a> as part of each module's hardware information.</p>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="implementation-title">Product Leadership and Engineering</h2></div>
+                            <p>For the embedded OPC UA gateway, I owned product management and directly tested the software and hardware.</p>
+                            <p>I managed the ASIC2 chip and embedded software library workstream, including priorities, coordination, and delivery, and contributed targeted bug fixes and small source modules. Eaton's current SmartWire-DT documentation exposes the <a href="https://documents.eaton.com/en-us/products/industrial-controls-drives-sensors/plcs-io/easye4-programmable-relays/v900/Content/10_es/view_comm_SWD.htm" target="_blank" rel="noopener noreferrer">ASIC firmware</a> as part of each module's hardware information.</p>
                             <p>The distributed Local Control Function, known internally as LCF, shows the depth of that work. I worked with <a href="https://www.linkedin.com/in/oxana-kovbasjuková" target="_blank" rel="noopener noreferrer">Oxana Kovbasjuková</a> on the function and led her initial internship at Eaton. We built a browser based function block programming application, a Python compiler that generated instructions for a stack machine, and an embedded C interpreter that executed the logic on an ASIC2 based SmartWire-DT I/O target.</p>
-                            <figure class="dashboard-figure"><a class="dashboard-image-link" href="assets/connected-machine-visual-programming.webp" target="_blank" rel="noopener"><img src="assets/connected-machine-visual-programming.webp" alt="Reconstructed visual function block programming interface for the distributed control prototype" loading="lazy" decoding="async"></a><figcaption><span>Reconstructed interface</span><p>A reconstruction of the HTML, CSS, and JavaScript browser workflow for function block programming. It contains no employer data or confidential factory information.</p></figcaption></figure>
+                            <figure class="dashboard-figure"><a class="dashboard-image-link" href="assets/connected-machine-visual-programming.webp" target="_blank" rel="noopener"><img src="assets/connected-machine-visual-programming.webp" alt="Reconstructed visual function block programming interface for distributed control" loading="lazy" decoding="async"></a><figcaption><span>Reconstructed interface</span><p>A reconstruction of the HTML, CSS, and JavaScript browser workflow for function block programming.</p></figcaption></figure>
                             <figure class="architecture-figure architecture-image-figure" aria-labelledby="architecture-caption"><figcaption id="architecture-caption"><span>Implementation path</span><strong>Browser model to embedded execution</strong></figcaption><a class="architecture-image-link" href="assets/edge-control-architecture.webp" target="_blank" rel="noopener"><img src="assets/edge-control-architecture.webp" alt="Architecture showing a web programming tool, Python compiler stages, communication path, and embedded target interpreter" loading="lazy" decoding="async"></a><p class="architecture-note">The browser produced a program model. The Python compiler tokenized, parsed, and converted it into byte commands. A loader transferred the program to an embedded C interpreter that executed a repeating input, logic, and output cycle.</p></figure>
                         </div>
                     </section>
@@ -124,7 +124,7 @@
                     <section class="paper-section" id="field" aria-labelledby="field-title">
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="field-title">Factory Validation</h2></div>
-                            <p>The pilots were not the final product. They were the validation method. We used real machines and real factory interfaces to test whether the portfolio solved the installation, connectivity, and information problems identified during discovery.</p>
+                            <p>We used pilots on real machines and factory interfaces to validate the portfolio against the installation, connectivity, and information problems identified during discovery.</p>
                             <div class="problem-grid">
                                 <article><span>01</span><h3>Connect machines</h3><p>Retrofitted approximately 12 live machines with physical I/O connectivity and digital twins across three production plants.</p></article>
                                 <article><span>02</span><h3>Model useful state</h3><p>Mapped cycle time, operating state, faults, performance, and utilization into consistent machine data.</p></article>
@@ -136,13 +136,12 @@
 
                     <section class="paper-section outcome-section" id="outcome" aria-labelledby="outcome-title">
                         <div>
-                            <div class="paper-active-head"><h2 class="paper-active-label" id="outcome-title">Outcome and Evidence Boundary</h2></div>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="outcome-title">Outcomes</h2></div>
                             <p class="summary-lede">The program produced a validated product direction, reusable software, one published library, the ASIC2 chip and embedded software foundation, and direct evidence from real factories.</p>
-                            <div class="outcome-grid">
+                            <div class="outcome-grid outcome-grid-three">
                                 <article><strong>12 machines</strong><span>Field validation</span><p>Physical I/O and digital twin retrofits demonstrated the concepts with real factory equipment.</p></article>
                                 <article><strong>3 plants</strong><span>Operational context</span><p>Pilots exposed actual installation, networking, workflow, and data quality constraints.</p></article>
                                 <article><strong>ASIC2 chip platform</strong><span>Reusable foundations</span><p>ASIC2 and its embedded libraries became a shared SmartWire-DT device platform. The MQTT client library reached the CODESYS Store.</p></article>
-                                <article><strong>Candid scope</strong><span>Evidence boundary</span><p>The gateway was planned for production when I left. Data Collector and Local Control Function remained prototypes.</p></article>
                             </div>
                         </div>
                     </section>

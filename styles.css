@@ -598,7 +598,7 @@ main {
 /* Engineering philosophy */
 
 .philosophy-section .section-heading {
-    margin-bottom: 34px;
+    margin-bottom: 40px;
 }
 
 .philosophy-section .section-heading > p {
@@ -606,6 +606,8 @@ main {
 }
 
 .principle-accordions {
+    position: relative;
+    isolation: isolate;
     border-top: 1px solid var(--line);
 }
 
@@ -1022,6 +1024,11 @@ main {
 }
 
 .js .portfolio-thesis.typewriter-block {
+    filter: none;
+}
+
+/* Native details sizing prevents animated text layers from crossing lesson rows on mobile. */
+.js .principle-accordion .typewriter-block {
     filter: none;
 }
 
@@ -1698,14 +1705,12 @@ main {
 }
 
 .story-details,
-.principle-accordion,
 .sources-details,
 .skill-accordion {
     interpolate-size: allow-keywords;
 }
 
 .story-details::details-content,
-.principle-accordion::details-content,
 .sources-details::details-content,
 .skill-accordion::details-content {
     block-size: 0;
@@ -1718,7 +1723,6 @@ main {
 }
 
 .story-details[open]::details-content,
-.principle-accordion[open]::details-content,
 .sources-details[open]::details-content,
 .skill-accordion[open]::details-content {
     block-size: auto;

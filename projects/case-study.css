@@ -46,8 +46,15 @@
 .paper-kicker-row {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 24px;
+}
+
+.paper-next-link.button {
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 0.68rem;
+    white-space: nowrap;
 }
 
 .paper-back-link {

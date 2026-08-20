@@ -335,6 +335,10 @@
     background: transparent;
 }
 
+.validation-evidence-grid {
+    border-bottom: 0;
+}
+
 .solution-components {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }

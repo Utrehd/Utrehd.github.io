@@ -650,7 +650,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 42px;
-    padding: clamp(48px, 7vw, 76px) 0 clamp(48px, 7vw, 88px);
+    padding: clamp(48px, 7vw, 76px) 0 22px;
     border-top: 1px solid var(--case-line);
 }
 
@@ -691,8 +691,6 @@
 
 .case-pagination-next {
     justify-content: flex-end;
-    border-color: rgba(255, 163, 26, 0.44);
-    color: var(--case-orange-soft);
 }
 
 .case-pagination-back:hover > span[aria-hidden="true"] {
@@ -941,7 +939,7 @@
 
     .paper-footer {
         padding-top: 44px;
-        padding-bottom: 56px;
+        padding-bottom: 22px;
     }
 
     .paper-footer-actions {

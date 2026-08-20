@@ -857,9 +857,11 @@ main {
     font-weight: 600;
     letter-spacing: 0.01em;
     line-height: 1.16;
+    transition: color 160ms ease;
 }
 
-.showcase-copy h3 a:hover {
+.showcase-card:hover .showcase-copy h3,
+.showcase-card:focus-visible .showcase-copy h3 {
     color: var(--orange-soft);
 }
 
@@ -1646,7 +1648,7 @@ main {
 
 @media (hover: hover) and (pointer: fine) {
     .showcase-card:hover,
-    .showcase-card:focus-within {
+    .showcase-card:focus-visible {
         border-color: rgba(255, 163, 26, 0.48);
         background: #111c25;
         box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
@@ -1656,6 +1658,11 @@ main {
     .showcase-card:hover .showcase-media img {
         filter: brightness(1.07);
         transform: scale(1.025);
+    }
+
+    .showcase-card:hover .case-link > span[aria-hidden="true"],
+    .showcase-card:focus-visible .case-link > span[aria-hidden="true"] {
+        transform: translate(3px, -3px);
     }
 }
 
@@ -1779,8 +1786,7 @@ main {
 
 .paper-section p a:not(.button),
 .story-long a,
-.sources-details p a,
-.showcase-copy h3 a {
+.sources-details p a {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
     background-repeat: no-repeat;
@@ -1794,9 +1800,7 @@ main {
 .story-long a:hover,
 .story-long a:focus-visible,
 .sources-details p a:hover,
-.sources-details p a:focus-visible,
-.showcase-copy h3 a:hover,
-.showcase-copy h3 a:focus-visible {
+.sources-details p a:focus-visible {
     background-size: 100% 1px;
 }
 

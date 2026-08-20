@@ -430,10 +430,6 @@ function initializeTypewriterScroll() {
         ".contact-panel > span",
         ".contact-panel h2",
         ".contact-panel .button",
-        ".site-footer:not(.case-site-footer) strong",
-        ".site-footer:not(.case-site-footer) .footer-inner > div:first-child > span",
-        ".site-footer:not(.case-site-footer) .footer-links a",
-        ".site-footer:not(.case-site-footer) small",
         ".case-page main h1",
         ".case-page main h2",
         ".case-page main h3",
@@ -449,8 +445,6 @@ function initializeTypewriterScroll() {
         ".case-page main .paper-callout > span",
         ".case-page main .architecture-source-link",
         ".case-page main .button",
-        ".case-page .case-site-footer p",
-        ".case-page .case-site-footer a",
     ].join(",");
 
     const targetElements = getTopLevelTypewriterElements(targetSelector, introElementSet);

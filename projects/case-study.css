@@ -19,7 +19,7 @@
 
 .case-page main {
     max-width: 100%;
-    padding: 0 0 clamp(48px, 7vw, 88px);
+    padding: 0;
     overflow-x: clip;
 }
 
@@ -650,7 +650,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 42px;
-    padding: clamp(48px, 7vw, 76px) 0 0;
+    padding: clamp(48px, 7vw, 76px) 0 clamp(48px, 7vw, 88px);
     border-top: 1px solid var(--case-line);
 }
 
@@ -743,7 +743,7 @@
     }
 
     .case-page main {
-        padding-bottom: 56px;
+        padding-bottom: 0;
     }
 
     .paper-shell {
@@ -913,6 +913,7 @@
 
     .paper-footer {
         padding-top: 44px;
+        padding-bottom: 56px;
     }
 
     .paper-footer-actions {

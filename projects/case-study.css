@@ -245,6 +245,10 @@
     border-top: 1px solid var(--case-line);
 }
 
+.executive-summary + .paper-section {
+    border-top: 0;
+}
+
 .paper-section h2 {
     max-width: 760px;
 }

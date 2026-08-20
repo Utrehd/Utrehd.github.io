@@ -728,12 +728,29 @@
         grid-template-columns: 1fr;
     }
 
+    .summary-proof {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .summary-proof div,
     .problem-grid article,
     .solution-components article,
     .involvement-list article,
     .outcome-grid article {
         padding: 19px 0;
+    }
+
+    .summary-proof div {
+        padding: 16px 10px;
+    }
+
+    .summary-proof strong {
+        font-size: clamp(1.05rem, 4.8vw, 1.25rem);
+    }
+
+    .summary-proof span {
+        font-size: 0.55rem;
+        letter-spacing: 0.04em;
     }
 
     .product-artifact-grid {

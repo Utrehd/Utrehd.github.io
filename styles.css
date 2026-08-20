@@ -959,6 +959,10 @@ main {
     font-size: 0.75rem;
 }
 
+.footer-inner [data-year] {
+    display: inline;
+}
+
 .footer-links {
     display: flex;
     gap: 18px;

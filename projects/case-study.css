@@ -245,7 +245,8 @@
     border-top: 1px solid var(--case-line);
 }
 
-.executive-summary + .paper-section {
+.executive-summary + .paper-section,
+.solution-section + .paper-section {
     border-top: 0;
 }
 

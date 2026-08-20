@@ -159,6 +159,14 @@
     text-wrap: pretty;
 }
 
+.paper-meta a,
+.paper-section p a:not(.button) {
+    color: var(--case-orange-soft);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 194, 99, 0.38);
+    text-underline-offset: 0.2em;
+}
+
 .paper-skills {
     display: flex;
     flex-wrap: wrap;

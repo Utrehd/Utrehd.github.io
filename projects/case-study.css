@@ -316,6 +316,13 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.outcome-grid {
+    gap: 0 32px;
+    border: 0;
+    border-bottom: 1px solid var(--case-line);
+    background: transparent;
+}
+
 .problem-grid {
     gap: 0;
     background: transparent;
@@ -345,6 +352,12 @@
     column-gap: 18px;
     row-gap: 7px;
     padding: 28px 26px;
+    background: transparent;
+}
+
+.outcome-grid article {
+    padding: 28px 6px;
+    border-top: 1px solid var(--case-line);
     background: transparent;
 }
 
@@ -828,6 +841,14 @@
         column-gap: 18px;
         padding: 24px 8px;
         border-right: 0;
+    }
+
+    .outcome-grid {
+        gap: 0;
+    }
+
+    .outcome-grid article {
+        padding: 26px 12px;
     }
 
     .problem-grid article:nth-child(-n + 2) {

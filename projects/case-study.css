@@ -32,12 +32,11 @@
 .paper-kicker-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 24px;
 }
 
-.paper-back-link,
-.paper-index {
+.paper-back-link {
     color: var(--case-quiet);
     font-family: var(--font-mono);
     font-size: 0.68rem;
@@ -860,16 +859,6 @@
 }
 
 @media (max-width: 420px) {
-    .paper-kicker-row {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 2px;
-    }
-
-    .paper-index {
-        margin-left: 0;
-    }
-
     .lifecycle-strip ol {
         grid-template-columns: 1fr;
     }

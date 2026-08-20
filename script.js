@@ -443,7 +443,6 @@ function initializeTypewriterScroll() {
         ".case-page main li",
         ".case-page main strong",
         ".case-page main .paper-back-link",
-        ".case-page main .paper-index",
         ".case-page main .paper-active-label",
         ".case-page main article > span",
         ".case-page main figcaption > span",

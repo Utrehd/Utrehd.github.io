@@ -34,6 +34,9 @@
 }
 
 html {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-height) + 24px);
 }
@@ -42,6 +45,7 @@ body {
     margin: 0;
     min-width: 320px;
     overflow-x: hidden;
+    overflow-x: clip;
     background: var(--bg);
     color: var(--body);
     font-family: var(--font-body);

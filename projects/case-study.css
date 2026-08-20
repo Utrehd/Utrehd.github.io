@@ -10,18 +10,32 @@
     --case-orange: var(--orange);
     --case-orange-soft: var(--orange-soft);
     min-height: 100vh;
+    max-width: 100%;
     padding-top: var(--header-height);
+    overflow-x: clip;
     color: var(--case-body);
     background: var(--bg);
 }
 
 .case-page main {
+    max-width: 100%;
     padding: 0 0 clamp(48px, 7vw, 88px);
+    overflow-x: clip;
 }
 
 .paper-shell {
     width: min(1120px, calc(100% - 48px));
+    max-width: 100%;
     margin: 0 auto;
+}
+
+.paper-title-block,
+.paper-layout,
+.paper-body,
+.paper-section,
+.paper-section > div {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .paper-title-block {
@@ -650,6 +664,12 @@
 }
 
 @media (max-width: 760px) {
+    .js .case-page .typewriter-word {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
+
     .case-page main {
         padding-bottom: 56px;
     }

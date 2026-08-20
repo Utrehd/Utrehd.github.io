@@ -512,16 +512,22 @@ function initializeTypewriterScroll() {
         const revealStart = window.innerHeight * 0.98;
         const revealEnd = window.innerHeight * 0.7;
         const revealDistance = Math.max(revealStart - revealEnd, 1);
+        const isAtPageEnd = document.body.classList.contains("is-at-page-end");
 
-        states.forEach((state) => {
-            if (state.isComplete || state.element.offsetParent === null) return;
+        for (const state of states) {
+            if (state.isComplete || state.element.offsetParent === null) continue;
+
+            if (isAtPageEnd) {
+                revealTypewriterState(state, 1);
+                continue;
+            }
 
             const bounds = state.element.getBoundingClientRect();
-            if (bounds.top > revealStart) return;
+            if (bounds.top > revealStart) continue;
 
             const currentProgress = (revealStart - bounds.top) / revealDistance;
             revealTypewriterState(state, currentProgress);
-        });
+        }
     }
 
     requestTypewriterUpdate = () => {

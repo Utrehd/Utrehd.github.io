@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="How Samuel A. Marti led Eaton's Factory of the Future product program across product strategy, industrial edge engineering, government collaboration, and factory validation.">
+    <meta name="description" content="How Samuel A. Marti led Eaton's Factory of the Future product program across product strategy, industrial edge and SmartWire-DT platforms, government collaboration, and factory validation.">
     <meta name="theme-color" content="#0d1218">
     <meta property="og:title" content="Factory of the Future | Samuel A. Marti">
-    <meta property="og:description" content="Product strategy and direct engineering for an industrial edge portfolio validated on approximately 12 live machines across three production plants.">
+    <meta property="og:description" content="Product strategy, embedded platforms, and direct engineering for an industrial portfolio validated on approximately 12 live machines across three production plants.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://utrehd.github.io/projects/connected-machine-platform/">
     <meta property="og:image" content="https://utrehd.github.io/projects/connected-machine-platform/assets/connected-machine-visual-programming.webp">
     <meta property="og:image:alt" content="Reconstructed industrial edge visual programming interface">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Factory of the Future | Samuel A. Marti">
-    <meta name="twitter:description" content="Product strategy and direct engineering for an industrial edge portfolio validated on approximately 12 live machines across three production plants.">
+    <meta name="twitter:description" content="Product strategy, embedded platforms, and direct engineering for an industrial portfolio validated on approximately 12 live machines across three production plants.">
     <meta name="twitter:image" content="https://utrehd.github.io/projects/connected-machine-platform/assets/connected-machine-visual-programming.webp">
     <link rel="canonical" href="https://utrehd.github.io/projects/connected-machine-platform/">
     <title>Factory of the Future | Samuel A. Marti</title>
@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="../../styles.css?v=20260819-21">
-    <link rel="stylesheet" href="../case-study.css?v=20260819-15">
+    <link rel="stylesheet" href="../case-study.css?v=20260819-16">
     <script src="../../script.js?v=20260819-19" defer></script>
 </head>
 <body class="case-page">
@@ -61,14 +61,14 @@
                 <div class="paper-kicker-row"><a class="paper-back-link" href="../../#work"><span aria-hidden="true">←</span> All work</a></div>
                 <div class="paper-active-head paper-active-head-hero"><span class="paper-active-label">Product strategy · Industrial software · Factory validation</span></div>
                 <h1>Factory of the Future</h1>
-                <p class="paper-thesis">I led Eaton's Factory of the Future product program from factory discovery and roadmap definition through direct software implementation and pilot validation. The team created an industrial edge portfolio and proved the concepts on approximately 12 live machines across three production plants.</p>
+                <p class="paper-thesis">I led Eaton's Factory of the Future product program from factory discovery and roadmap definition through embedded and edge software delivery and pilot validation. The team created a connected product portfolio and proved its factory facing concepts on approximately 12 live machines across three production plants.</p>
                 <dl class="paper-meta">
                     <div><dt>Role</dt><dd>Technical Product Lead</dd></div>
                     <div><dt>Context</dt><dd>Eaton and Czech Technical University</dd></div>
                     <div><dt>Period</dt><dd>2017 to 2020</dd></div>
                     <div><dt>Scope</dt><dd>Product direction and implementation</dd></div>
                 </dl>
-                <ul class="paper-skills" aria-label="Skills and technologies used"><li>Product roadmap</li><li>OPC UA</li><li>MQTT</li><li>Physical I/O</li><li>CODESYS</li><li>Python</li><li>Embedded C</li><li>FreeRTOS</li><li>Azure SQL</li><li>MES integration</li><li>Installation UX</li><li>Factory pilots</li></ul>
+                <ul class="paper-skills" aria-label="Skills and technologies used"><li>Product roadmap</li><li>OPC UA</li><li>MQTT</li><li>SmartWire-DT</li><li>ASIC2</li><li>Physical I/O</li><li>CODESYS</li><li>Python</li><li>Embedded C</li><li>FreeRTOS</li><li>Azure SQL</li><li>MES integration</li><li>Installation UX</li><li>Factory pilots</li></ul>
             </header>
 
             <div class="paper-layout">
@@ -77,7 +77,7 @@
                     <section class="paper-section executive-summary" id="summary" aria-labelledby="summary-title">
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="summary-title">Executive Summary</h2></div>
-                            <p class="summary-lede">The program developed products that could connect existing machines to modern factory systems without requiring factories to replace working equipment.</p>
+                            <p class="summary-lede">The program developed reusable software, embedded device foundations, and edge products that connected existing machines to modern factory systems without requiring factories to replace working equipment.</p>
                             <p>It was a partially government funded collaboration between Eaton and the Czech Institute of Informatics, Robotics and Cybernetics at the Czech Technical University. I led five engineers and two interns across projects with budgets up to approximately $1.2 million. I led product direction, agile delivery, stakeholder alignment, and direct engineering. This meant I could carry a factory problem from discovery through product definition, implementation, and validation.</p>
                             <div class="summary-proof" aria-label="Executive proof points"><div><strong>12</strong><span>live machines</span></div><div><strong>3</strong><span>production plants</span></div><div><strong>7</strong><span>engineers + interns led</span></div></div>
                         </div>
@@ -100,11 +100,12 @@
                     <section class="paper-section solution-section" id="portfolio" aria-labelledby="portfolio-title">
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="portfolio-title">Edge Product Portfolio</h2></div>
-                            <p>The program was a portfolio, not a single gateway. Each product addressed a different part of the path from a physical machine to useful factory information and local control.</p>
-                            <div class="solution-components">
+                            <p>The program was a portfolio, not a single gateway. Each product addressed a different part of the path from embedded device communication to useful factory information and local control.</p>
+                            <div class="solution-components solution-components-four">
                                 <article><p>Gateway and data</p><h3>Connect existing machines</h3><p>Developed gateway and data collector concepts with digital and analog I/O, OPC UA, MQTT, HTTPS, Azure SQL, MES, and scheduling interfaces.</p></article>
                                 <article><p>PLC connectivity</p><h3>Publish reusable software</h3><p>Developed the CODESYS MQTT client library in alignment with IEC 61131 and released it through the CODESYS Store.</p></article>
                                 <article><p>Local control</p><h3>Move logic toward the field</h3><p>Created a distributed local control concept that could execute simple behavior within intelligent field I/O.</p></article>
+                                <article><p>Device platform</p><h3>Build the SmartWire-DT foundation</h3><p><a href="https://rtime.ciirc.cvut.cz/~sojka/students/F3-DP-2020-Kovbasjukova-Oxana.pdf" target="_blank" rel="noopener noreferrer">ASIC2</a> was Eaton's second generation application specific chip for SmartWire-DT. Its dual core Arm Cortex-M0+ architecture separated protocol communication from device application logic and became the shared ASIC foundation across the SmartWire-DT device family.</p></article>
                             </div>
                         </div>
                     </section>
@@ -113,7 +114,8 @@
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="implementation-title">Hands on Engineering</h2></div>
                             <p>I remained directly involved in the software and system architecture. For the embedded OPC UA gateway, I integrated an OPC Foundation SDK in C++ and worked with FreeRTOS execution. I also modeled machine states, physical I/O, protocol interfaces, and the flow of operational data toward factory applications.</p>
-                            <p>The distributed Local Control Function, known internally as LCF, shows the depth of that work. I worked with <a href="https://www.linkedin.com/in/oxana-kovbasjuková" target="_blank" rel="noopener noreferrer">Oxana Kovbasjuková</a> on the function and led her initial internship at Eaton. I built a browser based function block programming application, a Python compiler that generated instructions for a stack machine, and an embedded C interpreter that executed the logic on the target.</p>
+                            <p>My ASIC2 contribution had a different boundary. I mainly managed the chip and embedded software library workstream, including priorities, coordination, and delivery. My direct source contribution was limited to targeted bug fixes and small modules. The silicon architecture and complete communication stack were team outputs, not work I claim as mine alone. Eaton's current SmartWire-DT documentation still exposes the <a href="https://documents.eaton.com/en-us/products/industrial-controls-drives-sensors/plcs-io/easye4-programmable-relays/v900/Content/10_es/view_comm_SWD.htm" target="_blank" rel="noopener noreferrer">ASIC firmware</a> as part of each module's hardware information.</p>
+                            <p>The distributed Local Control Function, known internally as LCF, shows the depth of that work. I worked with <a href="https://www.linkedin.com/in/oxana-kovbasjuková" target="_blank" rel="noopener noreferrer">Oxana Kovbasjuková</a> on the function and led her initial internship at Eaton. I built a browser based function block programming application, a Python compiler that generated instructions for a stack machine, and an embedded C interpreter that executed the logic on an ASIC2 based SmartWire-DT I/O target.</p>
                             <figure class="dashboard-figure"><a class="dashboard-image-link" href="assets/connected-machine-visual-programming.webp" target="_blank" rel="noopener"><img src="assets/connected-machine-visual-programming.webp" alt="Reconstructed visual function block programming interface for the distributed control prototype" loading="lazy" decoding="async"></a><figcaption><span>Reconstructed interface</span><p>A reconstruction of the browser based visual programming workflow. It contains no employer data or confidential factory information.</p></figcaption></figure>
                             <figure class="architecture-figure architecture-image-figure" aria-labelledby="architecture-caption"><figcaption id="architecture-caption"><span>Implementation path</span><strong>Browser model to embedded execution</strong></figcaption><a class="architecture-image-link" href="assets/edge-control-architecture.webp" target="_blank" rel="noopener"><img src="assets/edge-control-architecture.webp" alt="Architecture showing a web programming tool, Python compiler stages, communication path, and embedded target interpreter" loading="lazy" decoding="async"></a><p class="architecture-note">The browser produced a program model. The Python compiler tokenized, parsed, and converted it into byte commands. A loader transferred the program to an embedded C interpreter that executed a repeating input, logic, and output cycle.</p></figure>
                         </div>
@@ -140,7 +142,7 @@
                             <div class="outcome-grid">
                                 <article><strong>12 machines</strong><span>Field validation</span><p>Physical I/O and digital twin retrofits demonstrated the concepts with real factory equipment.</p></article>
                                 <article><strong>3 plants</strong><span>Operational context</span><p>Pilots exposed actual installation, networking, workflow, and data quality constraints.</p></article>
-                                <article><strong>Published</strong><span>Product maturity</span><p>The MQTT client library reached the CODESYS Store; other components remained at different maturity levels.</p></article>
+                                <article><strong>Reusable foundations</strong><span>Product maturity</span><p>The MQTT client library reached the CODESYS Store. ASIC2 and its embedded libraries became a shared SmartWire-DT device platform.</p></article>
                                 <article><strong>Candid scope</strong><span>Evidence boundary</span><p>The gateway was planned for production when I left. Data Collector and Local Control Function remained prototypes.</p></article>
                             </div>
                         </div>

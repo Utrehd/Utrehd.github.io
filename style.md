@@ -58,6 +58,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-09-12
 
+- Added PULSE Product Analytics beside the game case study, preserving the shared layout and using four real, permanently redacted dashboard screenshots. Percentages remain visible; absolute operating counts and numeric count scales do not.
 - Added AI Assisted Product Engineering after PULSE in Selected Work and in the case study navigation sequence.
 - Reused real PULSE product screenshots and the shared case study layout, with a four stage delivery workflow and scoped typography for the longer title.
 - Kept the onboarding outcome separate from claims about agent productivity. The workflow is identified as a practice summary, not an original release record.

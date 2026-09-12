@@ -1,0 +1,31 @@
+.analytics-case .paper-title-block h1 {
+    font-size: clamp(2.1rem, 5.6vw, 4.2rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+}
+
+.analytics-subtitle {
+    margin: 18px 0 0;
+    color: var(--case-text);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.analytics-case .paper-section p {
+    font-size: 1rem;
+}
+
+.analytics-case .dashboard-figure figcaption p,
+.analytics-case .lifecycle-strip li {
+    font-size: 0.875rem;
+}
+
+.analytics-case .paper-section .analytics-followup {
+    margin-top: 28px;
+}
+
+.analytics-case .paper-section p a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}

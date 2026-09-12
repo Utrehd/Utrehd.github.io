@@ -1,9 +1,10 @@
 # Samuel A. Marti — portfolio
 
-A static, responsive portfolio designed for GitHub Pages. The site leads with full stack, agentic, and industrial edge engineering, supported by five public case studies:
+A static, responsive portfolio designed for GitHub Pages. The site leads with full stack, agentic, and industrial edge engineering, supported by six public case studies:
 
 - Factory of the Future
 - PULSE Game Engineering
+- PULSE Product Analytics: From Acquisition to Retention
 - AI Assisted Product Engineering: From User Signal to Verified Release
 - Agentic Influencer Outreach CRM
 - Automation Release Control
@@ -51,3 +52,4 @@ In the repository on GitHub, open **Settings → Pages**, select **Deploy from a
 - Do not publish confidential employer material, factory identifiers, or private operational data.
 - State personal contribution and product maturity explicitly.
 - Preserve evidence boundaries when a prototype did not reach production.
+- Analytics screenshots under `projects/pulse-product-analytics/assets/` are flattened, metadata-stripped PNG derivatives. Absolute counts and count-based chart scales are permanently redacted; percentages are retained with the user's approval. Never add the original screenshots or a reversible redaction layer to this repository.

@@ -56,6 +56,12 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ## Change Log
 
+### 2026-09-12
+
+- Added AI Assisted Product Engineering after PULSE in Selected Work and in the case study navigation sequence.
+- Reused real PULSE product screenshots and the shared case study layout, with a four stage delivery workflow and scoped typography for the longer title.
+- Kept the onboarding outcome separate from claims about agent productivity. The workflow is identified as a practice summary, not an original release record.
+
 ### 2026-08-19
 
 - Reframed the Factory of the Future work around product direction, government collaboration, direct engineering, factory validation, and explicit maturity boundaries.

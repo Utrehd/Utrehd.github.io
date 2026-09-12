@@ -1,9 +1,10 @@
 # Samuel A. Marti — portfolio
 
-A static, responsive portfolio designed for GitHub Pages. The site leads with full stack, agentic, and industrial edge engineering, supported by four public case studies:
+A static, responsive portfolio designed for GitHub Pages. The site leads with full stack, agentic, and industrial edge engineering, supported by five public case studies:
 
 - Factory of the Future
 - PULSE Game Engineering
+- AI Assisted Product Engineering: From User Signal to Verified Release
 - Agentic Influencer Outreach CRM
 - Automation Release Control
 
@@ -15,6 +16,7 @@ Live site: [utrehd.github.io](https://utrehd.github.io/)
 - `projects/*/index.html` contains complete static case studies. Shared header markup remains in each page so navigation and identity render without JavaScript.
 - `styles.css` contains the shared design system and homepage components.
 - `projects/case-study.css` contains case study layout and evidence components.
+- `projects/ai-assisted-product-engineering/case.css` contains scoped typography adjustments for the engineering workflow case study.
 - `script.js` contains shared navigation, scroll progress, typewriter, reveal, and image viewer behavior.
 
 The source follows SAM coding style: explicit flow, focused helpers, descriptive names, and shared behavior without unnecessary abstractions.

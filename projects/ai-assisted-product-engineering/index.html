@@ -106,8 +106,9 @@
                     <section class="paper-section" id="signal" aria-labelledby="signal-title">
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="signal-title">User Signal and Product Decision</h2></div>
-                            <p>I used product instrumentation, funnel analysis, A/B tests, community feedback, and user research to identify friction in the game. For onboarding, the outcome that mattered was whether a first time user completed their first lineup.</p>
+                            <p>I built the internal analytics used to identify friction and measure product changes: acquisition and activation funnels, branching signup journeys, cohort retention, repeat authentication milestones, and bottleneck reports. I used those reports alongside A/B tests, community feedback, and user research. For onboarding, the outcome that mattered was whether a first time user completed their first lineup.</p>
                             <p>The resulting changes moved registration until after initial play, replaced the tutorial with a milestone system, and adjusted the pace and speed of actions. This let users experience the game before committing to registration and gave them guidance through progress.</p>
+                            <aside class="paper-callout"><span>From evidence to specification</span><p>The <a href="../pulse-product-analytics/">PULSE Product Analytics case study</a> shows the reporting tools I built and used as input to optimization. Its screenshots are redacted and illustrate the measurement capabilities, not the original before and after record for the onboarding change.</p></aside>
                             <figure class="dashboard-figure">
                                 <a class="dashboard-image-link" href="../pulse-product/assets/pulse-lineup-workspace.webp" target="_blank" rel="noopener">
                                     <img src="../pulse-product/assets/pulse-lineup-workspace.webp" alt="PULSE's desktop lineup workspace, showing the product activity used as the onboarding completion milestone" loading="lazy" decoding="async">
@@ -124,7 +125,7 @@
                             <div class="problem-grid">
                                 <article>
                                     <span>01</span><h3>Define the change</h3>
-                                    <p>I framed the user problem and product objective. Agents helped develop specifications and implementation steps.</p>
+                                    <p>I used the analytics reports and user feedback to frame the problem and product objective. Agents helped develop specifications and implementation steps.</p>
                                 </article>
                                 <article>
                                     <span>02</span><h3>Direct implementation</h3>
@@ -136,7 +137,7 @@
                                 </article>
                                 <article>
                                     <span>04</span><h3>Operate and learn</h3>
-                                    <p>I owned releases, monitoring, production support, and defect investigation. User feedback and analytics informed subsequent work.</p>
+                                    <p>I owned releases, monitoring, production support, and defect investigation. The analytics I built and user feedback informed subsequent work.</p>
                                 </article>
                             </div>
                             <p class="engineering-note">This is a summary of my delivery practice, not a reproduction of an individual ticket, pull request, or release log.</p>
@@ -147,7 +148,7 @@
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="verification-title">Verification and Ownership</h2></div>
                             <p>Validation included unit tests and integration testing. Function and pull request review let me assess the implementation alongside its architectural fit and direct the agent on which changes to adopt.</p>
-                            <p>Engineering verification and product validation answered different questions. Tests and review addressed whether the implementation behaved as intended. Production observation addressed whether that behavior helped users complete their first lineup.</p>
+                            <p>Engineering verification and product validation answered different questions. Tests and review addressed whether the implementation behaved as intended. The product reports let me examine activation and subsequent return behavior. A passing test suite did not, by itself, establish that a product decision improved those outcomes.</p>
                             <p>I remained responsible for operating the resulting system. At PULSE, that included daily releases, monitoring, defect investigation, data recovery, and user support.</p>
                             <aside class="paper-callout"><span>Engineering principle</span><p>A clear specification gives an agent a target. Tests and review provide evidence about its implementation. Production feedback shows whether the original product decision was useful.</p></aside>
                         </div>

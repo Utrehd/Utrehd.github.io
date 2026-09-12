@@ -58,6 +58,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-09-12
 
+- Aligned the PULSE game, agentic engineering, CRM, and homepage descriptions with confirmed analytics ownership and coding-agent review responsibilities. Kept development agents distinct from operational agents, and corrected the onboarding result to a relative improvement in the share of first-time users.
 - Added PULSE Product Analytics beside the game case study, preserving the shared layout and using four real, permanently redacted dashboard screenshots. Percentages remain visible; absolute operating counts and numeric count scales do not.
 - Added AI Assisted Product Engineering after PULSE in Selected Work and in the case study navigation sequence.
 - Reused real PULSE product screenshots and the shared case study layout, with a four stage delivery workflow and scoped typography for the longer title.

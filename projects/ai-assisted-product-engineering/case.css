@@ -32,3 +32,108 @@
     text-decoration: underline;
     text-underline-offset: 0.2em;
 }
+
+.engineering-vmodel {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 28px;
+    border-collapse: collapse;
+    color: var(--case-body);
+    font-size: 0.875rem;
+    line-height: 1.65;
+}
+
+.engineering-vmodel caption {
+    padding-bottom: 18px;
+    color: var(--case-muted);
+    text-align: left;
+}
+
+.engineering-vmodel th,
+.engineering-vmodel td {
+    width: 50%;
+    padding: 20px 18px;
+    border-bottom: 1px solid var(--case-line);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: break-word;
+}
+
+.engineering-vmodel th + th,
+.engineering-vmodel th + td {
+    border-left: 1px solid var(--case-line);
+}
+
+.engineering-vmodel thead th {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-top: 1px solid var(--case-line);
+    color: var(--case-orange-soft);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.engineering-vmodel tbody th,
+.engineering-vmodel strong {
+    color: var(--case-text);
+    font-weight: 500;
+}
+
+.engineering-vmodel strong {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.engineering-vmodel tbody th > span {
+    display: block;
+    margin-top: 7px;
+    color: var(--case-body);
+    font-weight: 400;
+}
+
+.engineering-implementation {
+    padding: 22px 18px;
+    border-bottom: 1px solid var(--case-line);
+    text-align: center;
+}
+
+.engineering-implementation > span {
+    color: var(--case-orange-soft);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+.engineering-case .engineering-implementation p {
+    max-width: 620px;
+    margin: 10px auto 0;
+    font-size: 0.875rem;
+}
+
+.engineering-case .paper-section .engineering-followup {
+    margin-top: 26px;
+}
+
+@media (max-width: 540px) {
+    .engineering-vmodel th,
+    .engineering-vmodel td {
+        padding: 16px 10px;
+    }
+}
+
+@media print {
+    .engineering-vmodel,
+    .engineering-vmodel caption,
+    .engineering-vmodel th,
+    .engineering-vmodel td,
+    .engineering-vmodel strong,
+    .engineering-vmodel tbody th > span,
+    .engineering-implementation > span {
+        color: #111;
+    }
+
+    .engineering-vmodel tr,
+    .engineering-implementation {
+        break-inside: avoid;
+    }
+}

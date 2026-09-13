@@ -59,6 +59,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-09-13
 
+- Corrected the central achievement to Samuel's design of PULSE's V model workflow and agent instruction system, as he confirmed. Added a conceptual V shaped image; retained the detailed text mapping in a native disclosure. This credits the PULSE adaptation and instructions, not invention of the general V model.
 - Reframed AI Assisted Product Engineering around the documented V model: feature brief, traceable requirements, test definition before implementation, QA evidence, objective assessment, and human approval. Added a compact definition to evidence mapping without publishing private feature records or implying all planned checks have passed.
 - Removed the case study paper overlay so the main content and left navigation share the surrounding page background at every screen width. Preserved layout, spacing, section borders, and the homepage treatment.
 - Clarified that the user flow analysis tool is configurable: administrators choose the actions to track and inspect observed flows between them. The signup screenshot is an example configuration, not the tool's fixed scope. Existing redacted images remain unchanged.

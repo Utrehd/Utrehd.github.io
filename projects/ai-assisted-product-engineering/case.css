@@ -33,6 +33,28 @@
     text-underline-offset: 0.2em;
 }
 
+.engineering-vmodel-details {
+    margin-top: 26px;
+    border-top: 1px solid var(--case-line);
+}
+
+.engineering-vmodel-details > summary {
+    padding: 18px 0;
+    color: var(--case-text);
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.engineering-vmodel-details > summary:hover {
+    color: var(--case-orange-soft);
+}
+
+.engineering-vmodel-figure img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 .engineering-vmodel {
     width: 100%;
     table-layout: fixed;

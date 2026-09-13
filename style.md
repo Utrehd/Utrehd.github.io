@@ -56,6 +56,10 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ## Change Log
 
+### 2026-09-13
+
+- Clarified that the user flow analysis tool is configurable: administrators choose the actions to track and inspect observed flows between them. The signup screenshot is an example configuration, not the tool's fixed scope. Existing redacted images remain unchanged.
+
 ### 2026-09-12
 
 - Aligned the PULSE game, agentic engineering, CRM, and homepage descriptions with confirmed analytics ownership and coding-agent review responsibilities. Kept development agents distinct from operational agents, and corrected the onboarding result to a relative improvement in the share of first-time users.

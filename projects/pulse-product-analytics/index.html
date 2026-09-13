@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PULSE product analytics built by Samuel A. Marti: acquisition funnels, signup journeys, activation, cohort retention, and evidence for product optimization.">
+    <meta name="description" content="PULSE product analytics built by Samuel A. Marti: configurable user flow analysis, acquisition funnels, activation, cohort retention, and evidence for product optimization.">
     <meta name="theme-color" content="#0d1218">
     <meta property="og:title" content="PULSE Product Analytics | Samuel A. Marti">
     <meta property="og:description" content="From acquisition to retention: internal analytics used to identify friction, guide product changes, and measure improvement. Confidential figures are redacted.">
@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://utrehd.github.io/projects/pulse-product-analytics/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="PULSE Product Analytics | Samuel A. Marti">
-    <meta name="twitter:description" content="Acquisition funnels, signup journeys, activation, and cohort retention used to guide product decisions. Confidential figures are redacted.">
+    <meta name="twitter:description" content="Configurable user flow analysis, acquisition funnels, activation, and cohort retention used to guide product decisions. Confidential figures are redacted.">
     <link rel="canonical" href="https://utrehd.github.io/projects/pulse-product-analytics/">
     <title>PULSE Product Analytics | Samuel A. Marti</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
@@ -61,7 +61,7 @@
                     <div><dt>Evidence</dt><dd>Internal dashboards · Redacted</dd></div>
                 </dl>
                 <ul class="paper-skills" aria-label="Skills demonstrated">
-                    <li>Product instrumentation</li><li>Funnel analysis</li><li>Cohort analysis</li><li>Retention</li><li>Journey visualization</li><li>Traffic segmentation</li><li>Product experimentation</li><li>Internal tooling</li>
+                    <li>Product instrumentation</li><li>Funnel analysis</li><li>Cohort analysis</li><li>Retention</li><li>Configurable user flow analysis</li><li>Traffic segmentation</li><li>Product experimentation</li><li>Internal tooling</li>
                 </ul>
             </header>
 
@@ -71,7 +71,7 @@
                     <ol>
                         <li><a href="#summary">Summary</a></li>
                         <li><a href="#activation">Acquisition and Activation</a></li>
-                        <li><a href="#journeys">Branched User Journeys</a></li>
+                        <li><a href="#journeys">Configurable User Flows</a></li>
                         <li><a href="#retention">Cohort Retention</a></li>
                         <li><a href="#decisions">From Analysis to Action</a></li>
                     </ol>
@@ -81,7 +81,7 @@
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="summary-title">Summary</h2></div>
                             <p class="summary-lede">The product questions were concrete: where do visitors stop, which users reach meaningful play, and do they return?</p>
-                            <p>I built complementary views of the same journey. Funnels exposed losses between milestones. A path diagram showed alternative signup routes. Cohort reports followed activity across seasons, while bottleneck summaries helped turn the analysis into a next action. I used this tooling as input to product changes and to measure their results.</p>
+                            <p>I built complementary views of user behavior. Funnels exposed losses between milestones. A configurable flow analysis tool let administrators choose which actions to track and inspect user flows between them. Cohort reports followed activity across seasons, while bottleneck summaries helped turn the analysis into a next action. I used this tooling as input to product changes and to measure their results.</p>
                             <aside class="paper-callout"><span>Confidentiality</span><p>These are screenshots of the internal tools I built. Absolute counts and count based chart scales are permanently redacted; percentages remain visible. The images demonstrate the reporting capabilities without disclosing operating volumes.</p></aside>
                         </div>
                     </section>
@@ -100,12 +100,13 @@
 
                     <section class="paper-section" id="journeys" aria-labelledby="journeys-title">
                         <div>
-                            <div class="paper-active-head"><h2 class="paper-active-label" id="journeys-title">Branched User Journeys</h2></div>
-                            <p>A single funnel compresses different paths into one sequence. I also built a flow visualization covering entry platform, first page, manual and Google signup branches, verification, and subsequent product steps. It exposed active and passive drop off states along the journey.</p>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="journeys-title">Configurable User Flow Analysis</h2></div>
+                            <p>I built a configurable tool that lets an administrator select the actions they want to track, then visualize the observed user flows between those actions. Changing the selected actions lets the administrator investigate different parts of the product journey, including branching paths and drop off states.</p>
+                            <p>The screenshot shows one configuration focused on acquisition and signup: entry platform, first page, manual and Google signup branches, verification, and subsequent product steps. It illustrates the output of the configurable tool, with active and passive drop off states visible along the journey.</p>
                             <p>The report offered separate views for real acquisition traffic, all traffic, and legal or system traffic. This made the selected population explicit when investigating friction instead of treating every visit as the same kind of acquisition.</p>
                             <figure class="dashboard-figure">
-                                <a class="dashboard-image-link" href="assets/verification-paths-redacted.png" target="_blank" rel="noopener"><img src="assets/verification-paths-redacted.png" alt="Redacted PULSE visitor flow diagram showing platforms, entry pages, registration branches, verification steps, and drop off states" width="1749" height="860" loading="lazy" decoding="async"></a>
-                                <figcaption><span>Journey analysis</span><p>Alternative paths and exit states add context to the aggregate funnel. Confidential figures are redacted.</p></figcaption>
+                                <a class="dashboard-image-link" href="assets/verification-paths-redacted.png" target="_blank" rel="noopener"><img src="assets/verification-paths-redacted.png" alt="Redacted output of PULSE's configurable user flow tool, using acquisition and signup actions as an example configuration" width="1749" height="860" loading="lazy" decoding="async"></a>
+                                <figcaption><span>Example configuration</span><p>The administrator selects the actions to analyze; this view shows the resulting flows for an acquisition and signup configuration. Absolute counts are redacted.</p></figcaption>
                             </figure>
                         </div>
                     </section>

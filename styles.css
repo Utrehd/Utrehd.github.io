@@ -1588,8 +1588,7 @@ main {
     }
 }
 
-.home-paper::before,
-.paper-shell::before {
+.home-paper::before {
     position: absolute;
     z-index: 0;
     pointer-events: none;
@@ -1604,13 +1603,6 @@ main {
 
 .home-paper::before {
     inset: -18%;
-}
-
-.paper-shell::before {
-    inset: 0;
-    animation: none;
-    transform: none;
-    will-change: auto;
 }
 
 .home-paper > *,
@@ -1956,8 +1948,7 @@ body.lightbox-open {
         opacity: 1;
     }
 
-    .home-paper::before,
-    .paper-shell::before {
+    .home-paper::before {
         animation: none;
     }
 

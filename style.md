@@ -5,6 +5,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 ## Visual System
 
 - Use solid dark surfaces, fine borders, orange labels, and a restrained hierarchy. Avoid decorative grids, layered gradients, and heavy shadows.
+- Keep case study backgrounds uniform across the full viewport, including behind the left navigation. Do not add a tinted overlay limited to the paper width.
 - Use orange for active labels, primary actions, and small directional details. Do not use it for long body copy.
 - Keep normal text at a high-contrast gray (`#d4d9dd`) and reserve pure off-white (`#f4f5f3`) for headings and important values.
 - Use real project artefacts as the primary visual material. Decorative diagrams or metrics must support the content, not compete with it.
@@ -58,6 +59,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-09-13
 
+- Removed the case study paper overlay so the main content and left navigation share the surrounding page background at every screen width. Preserved layout, spacing, section borders, and the homepage treatment.
 - Clarified that the user flow analysis tool is configurable: administrators choose the actions to track and inspect observed flows between them. The signup screenshot is an example configuration, not the tool's fixed scope. Existing redacted images remain unchanged.
 
 ### 2026-09-12

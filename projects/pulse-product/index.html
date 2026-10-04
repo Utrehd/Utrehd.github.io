@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="How Samuel A. Marti built and operated PULSE: full stack game systems, internal product analytics, agent implementation under engineering review, and a newsroom grounded in game data.">
+<meta name="description" content="How Samuel A. Marti built and operated PULSE: hands-on full stack implementation, transactional data workflows, product analytics, production operations, and AI assisted delivery.">
     <meta name="theme-color" content="#0d1218">
 <meta property="og:title" content="PULSE Game Engineering | Samuel A. Marti">
-    <meta property="og:description" content="A live football management game combining scheduled simulations, custom activation and retention analytics, reviewed agent implementation, and an agentic newsroom.">
+    <meta property="og:description" content="Hands-on engineering of a live web and mobile product, including reusable lineup architecture, transactional updates, product analytics, and production operations.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://utrehd.github.io/projects/pulse-product/">
     <meta property="og:image" content="https://utrehd.github.io/projects/pulse-product/assets/pulse-product-desktop.webp">
 <meta property="og:image:alt" content="PULSE football management game interface">
     <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PULSE Game Engineering | Samuel A. Marti">
-    <meta name="twitter:description" content="A live football management game combining scheduled simulations, custom activation and retention analytics, reviewed agent implementation, and an agentic newsroom.">
+    <meta name="twitter:description" content="Hands-on engineering of a live web and mobile product, including reusable lineup architecture, transactional updates, product analytics, and production operations.">
     <meta name="twitter:image" content="https://utrehd.github.io/projects/pulse-product/assets/pulse-product-desktop.webp">
     <link rel="canonical" href="https://utrehd.github.io/projects/pulse-product/">
 <title>PULSE Game Engineering | Samuel A. Marti</title>
@@ -61,7 +61,7 @@
                 <div class="paper-kicker-row"><a class="paper-back-link" href="../../#work"><span aria-hidden="true">←</span> Selected work</a><a class="button button-secondary paper-next-link" href="../pulse-product-analytics/" aria-label="Next case study: PULSE Product Analytics">Next project <span aria-hidden="true">→</span></a></div>
                 <div class="paper-active-head paper-active-head-hero"><span class="paper-active-label">Full stack game · Product analytics · Agentic newsroom</span></div>
                 <h1>PULSE Game Engineering</h1>
-<p class="paper-thesis">I built and operated PULSE, a live online football management game across web and mobile. I owned product decisions, architecture, internal analytics, engineering review, and production operation, directing coding agents through implementation and validation. My involvement ended in 2026; the remaining team continues developing the game.</p>
+<p class="paper-thesis">I co-founded, built, and operated PULSE, a live football management game for web and mobile. My work combined hands-on software implementation, architecture, product analytics, and production operations. I also used coding agents for selected feature iterations under my specification, review, and validation. My involvement ended in 2026; the remaining team continues developing the game.</p>
                 <dl class="paper-meta">
 <div><dt>Role</dt><dd>Founding Full Stack Engineer</dd></div>
                     <div><dt>Context</dt><dd>Live web and mobile game</dd></div>
@@ -72,14 +72,27 @@
             </header>
 
             <div class="paper-layout">
-                <aside class="paper-toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#summary">Executive Summary</a></li><li><a href="#game">Game and UX</a></li><li><a href="#analytics">Product Analytics</a></li><li><a href="#systems">Systems and Operations</a></li><li><a href="#engineering">Agentic Engineering</a></li><li><a href="#agents">Agentic Newsroom</a></li><li><a href="#outcome">Outcome</a></li></ol></aside>
+                <aside class="paper-toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#summary">Executive Summary</a></li><li><a href="#implementation">Hands-On Implementation</a></li><li><a href="#game">Game and UX</a></li><li><a href="#analytics">Product Analytics</a></li><li><a href="#systems">Systems and Operations</a></li><li><a href="#engineering">Engineering Workflow</a></li><li><a href="#agents">Agentic Newsroom</a></li><li><a href="#outcome">Outcome</a></li></ol></aside>
                 <div class="paper-body">
                     <section class="paper-section executive-summary" id="summary" aria-labelledby="summary-title">
                         <div>
                             <div class="paper-active-head"><h2 class="paper-active-label" id="summary-title">Executive Summary</h2></div>
 <p class="summary-lede">PULSE was built to make online football management feel like a living world rather than a collection of menus and statistics. The game combined a persistent football world, scheduled fixtures and simulations, real time frontend updates, mobile delivery, and AI generated post match news grounded in game data.</p>
-<p>My responsibility connected game and schema decisions, agent implementation, testing, release, monitoring, defect investigation, data recovery, and user support. I also built the internal analytics used to prioritize product changes and measure improvement. During my involvement, the production system processed an average of approximately 28,000 user triggered game actions per day.</p>
+<p>I personally implemented reusable lineups and a transactional fix for reward and streak consistency. These examples required explicit decisions about shared templates, independent match state, atomic updates, and failure handling. My broader responsibilities included data models, APIs, testing, release, monitoring, defect investigation, data recovery, and user support. I also built the internal analytics used to prioritize product changes and measure improvement.</p>
 <div class="summary-proof" aria-label="Executive proof points"><div><strong>28k</strong><span>average daily game actions</span></div><div><strong>+236%</strong><span>first lineup completion</span></div><div><strong>Concept to live</strong><span>game ownership</span></div></div>
+                        </div>
+                    </section>
+
+                    <section class="paper-section" id="implementation" aria-labelledby="implementation-title">
+                        <div>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="implementation-title">Hands-On Implementation: Reusable Lineups</h2></div>
+                            <p>Users needed to reuse a team lineup across upcoming matches while retaining the ability to make changes for one match. I personally implemented a workflow that kept templates linked until a match needed its own state.</p>
+                            <div class="solution-components">
+                                <article><p>Reuse</p><h3>Keep the template linked</h3><p>Upcoming matches referenced the reusable lineup so template changes remained available until a match-specific edit.</p></article>
+                                <article><p>Isolation</p><h3>Copy on a match edit</h3><p>A transactional copy-on-write operation created independent state for a match-specific change.</p></article>
+                                <article><p>Preparation</p><h3>Freeze the match snapshot</h3><p>Match preparation froze an independent snapshot to preserve the state used for that match.</p></article>
+                            </div>
+                            <p>I also fixed a consistency defect where a reward claim could persist without its corresponding streak update. I put both writes in one transaction and verified persisted state. Unsafe resets were rejected when legacy records disagreed; historical repair remained separate work. The merged implementations included regression tests.</p>
                         </div>
                     </section>
 
@@ -119,14 +132,14 @@
 
                     <section class="paper-section" id="engineering" aria-labelledby="engineering-title">
                         <div>
-                            <div class="paper-active-head"><h2 class="paper-active-label" id="engineering-title">Agent Implementation and Engineering Review</h2></div>
-                            <p>Coding agents carried out the implementation. I directed their work, reviewed architecture, functions, and pull requests, decided which approaches and changes to adopt, and oversaw validation.</p>
+                            <div class="paper-active-head"><h2 class="paper-active-label" id="engineering-title">Hands-On Development and AI Assisted Delivery</h2></div>
+                            <p>I combined hands-on implementation with coding agents. For selected feature iterations, I specified the work, reviewed architecture, functions, and pull requests, decided which approaches and changes to adopt, and oversaw validation.</p>
                             <div class="solution-components">
                                 <article><p>Definition</p><h3>Set the product objective</h3><p>Used analytics and user feedback to frame changes, with agents supporting specifications and implementation steps.</p></article>
                                 <article><p>Review</p><h3>Assess the implementation</h3><p>Reviewed architectural fit, function behavior, and pull requests, then directed the agents on which changes to adopt.</p></article>
                                 <article><p>Validation</p><h3>Test and follow through</h3><p>Oversaw unit tests and integration testing, followed by releases, monitoring, and investigation of production defects.</p></article>
                             </div>
-                            <aside class="paper-callout"><span>Delivery workflow</span><p><a href="../ai-assisted-product-engineering/">AI Assisted Product Engineering</a> explains the division between agent implementation and my product, review, and validation responsibilities. This development workflow was separate from the newsroom agents operating inside the game.</p></aside>
+                            <aside class="paper-callout"><span>Delivery workflow</span><p><a href="../ai-assisted-product-engineering/">AI Assisted Product Engineering</a> explains my specifications, agent instructions, review, and validation workflow for agent-assisted feature delivery. This was one development method within my broader engineering role, separate from the newsroom agents operating inside the game.</p></aside>
                         </div>
                     </section>
 
@@ -154,6 +167,7 @@
 <article><strong>+236%</strong><span>Activation</span><p>Relative increase in the share of first time users completing their first lineup after the combined onboarding changes.</p></article>
 <article><strong>1 per day</strong><span>Agentic game news</span><p>Human approved post match article published to real users from simulated events and game context.</p></article>
                             </div>
+                            <aside class="paper-callout"><span>Activation measurement</span><p>Activation means a first-time user completing their first team lineup. The 236% result is the reported relative increase in that completion rate after the combined onboarding changes. It reflects the combined changes and does not isolate the contribution of each one. The public case study does not include the original cohort sizes or measurement window.</p></aside>
                         </div>
                     </section>
                 </div>

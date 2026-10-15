@@ -59,6 +59,7 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-10-15
 
+- Replace the older PULSE lineup visual with Samuel's supplied screenshot of the current desktop interface. Use the same image for the homepage card, product case study, related AI case study, and product social preview; label the capture as October 2026.
 - Lead selected work with Automation Release Control and PULSE Game Engineering. Keep the two agent case studies last and align the next project links with that order.
 - Correct Automation Release Control contribution to end at GAMP 5 qualification. Remove subsequent maintenance, manufacturing support, production release, and system ownership claims from the case study.
 

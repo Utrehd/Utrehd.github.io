@@ -2,12 +2,12 @@
 
 A static, responsive portfolio designed for GitHub Pages. The site leads with full stack, agentic, and industrial edge engineering, supported by six public case studies:
 
-- Factory of the Future
+- Automation Release Control
 - PULSE Game Engineering
+- Factory of the Future
 - PULSE Product Analytics: From Acquisition to Retention
 - AI Assisted Product Engineering: From User Signal to Verified Release
 - Agentic Influencer Outreach CRM
-- Automation Release Control
 
 Live site: [utrehd.github.io](https://utrehd.github.io/)
 

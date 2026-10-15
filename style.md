@@ -57,6 +57,11 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ## Change Log
 
+### 2026-10-15
+
+- Lead selected work with Automation Release Control and PULSE Game Engineering. Keep the two agent case studies last and align the next project links with that order.
+- Correct Automation Release Control contribution to end at GAMP 5 qualification. Remove subsequent maintenance, manufacturing support, production release, and system ownership claims from the case study.
+
 ### 2026-09-13
 
 - Corrected the central achievement to Samuel's design of PULSE's V model workflow and agent instruction system, as he confirmed. Added a conceptual V shaped image; retained the detailed text mapping in a native disclosure. This credits the PULSE adaptation and instructions, not invention of the general V model.

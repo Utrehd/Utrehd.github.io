@@ -59,8 +59,9 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ### 2026-10-31
 
+- Applied Samuel's wording preference: state his edge-control implementation directly and remove co-built/collaborative qualifiers from this project description.
 - Clarified the Factory of the Future local control architecture and personal implementation: web application, Python compiler, stack machine code transferred through a gateway and SmartWire-DT bus tunnel, and C interpreter on the embedded I/O target.
-- State the goal of eliminating the central PLC while retaining collaborative R&D/BSc prototype and validation scope. Preserve the distinction between program loading and the separate peer-to-peer control proposal.
+- State the goal of eliminating the central PLC while retaining R&D/BSc prototype and validation scope. Preserve the distinction between program loading and the separate peer-to-peer control proposal.
 
 ### 2026-10-15
 

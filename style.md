@@ -57,6 +57,11 @@ This file records site-wide visual decisions for the portfolio. Project-specific
 
 ## Change Log
 
+### 2026-10-31
+
+- Clarified the Factory of the Future local control architecture and personal implementation: web application, Python compiler, stack machine code transferred through a gateway and SmartWire-DT bus tunnel, and C interpreter on the embedded I/O target.
+- State the goal of eliminating the central PLC while retaining collaborative R&D/BSc prototype and validation scope. Preserve the distinction between program loading and the separate peer-to-peer control proposal.
+
 ### 2026-10-15
 
 - Replace the older PULSE lineup visual with Samuel's supplied screenshot of the current desktop interface. Use the same image for the homepage card, product case study, related AI case study, and product social preview; label the capture as October 2026.
